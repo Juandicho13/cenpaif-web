@@ -1,0 +1,9 @@
+// Configuración de Cloudflare: publica la carpeta dist/ como sitio estático
+{
+    "name": "cenpaif-web",
+    "compatibility_date": "2025-10-01",
+    "assets": {
+        "directory": "./dist",
+        "not_found_handling": "404-page"
+    }
+}
