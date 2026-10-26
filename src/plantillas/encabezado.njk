@@ -1,0 +1,71 @@
+<header class="encabezado">
+    <section class="e-seccion encabezado__fila">
+        <div class="e-contenedor e-contenedor--ancho">
+            <div class="e-columna encabezado__logo">
+                <div class="e-envoltura">
+                    <a class="encabezado__logo-caja" href="/" aria-label="CENPAIF, ir al inicio">
+                        {{ foto('logo', 'CENPAIF, Claudia Yolima Díaz', { tamanos: '(max-width: 767px) 301px, 247px', prioridad: true }) }}
+                    </a>
+                </div>
+            </div>
+            <div class="e-columna encabezado__derecha">
+                <div class="e-envoltura">
+                    <div class="encabezado__derecha-fila">
+                        <div class="e-columna encabezado__titulo oculto-movil">
+                            <div class="e-envoltura">
+                                <div class="encabezado__titulo-img">
+                                    {{ foto('titulo-encabezado', 'Psicología de éxito, Familiar y Empresarial', { tamanos: '(max-width: 1024px) 464px, 614px', prioridad: true }) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="e-columna e-abajo encabezado__acciones oculto-movil">
+                            <div class="e-envoltura">
+                                <ul class="redes">
+                                    {% for r in sitio.redes %}
+                                    <li><a href="{{ r.url }}" target="_blank" rel="noopener" aria-label="{{ r.nombre }}">{{ icono(r.icono) }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="boton-doble">
+                                    <div class="boton-doble__fila">
+                                        <a href="{{ whatsapp() }}" target="_blank" rel="noopener">{{ icono('lapiz') }}Escríbenos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="menu" aria-label="Menú principal">
+        <button class="menu__abrir" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Abrir el menú">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="menu__panel" id="menu-panel">
+            <div class="menu__cabeza solo-movil">
+                <button class="menu__cerrar" type="button" aria-label="Cerrar el menú">X</button>
+            </div>
+            <ul class="menu__lista">
+                {% for item in sitio.menu %}
+                {% if item.hijos %}
+                <li{% if ruta in item.rutas %} class="actual"{% endif %}>
+                    <a href="#" class="menu__padre" aria-haspopup="true" aria-expanded="false">
+                        {{ item.texto }}
+                        {{ icono('flecha-abajo', 'menu__flecha oculto-movil') }}
+                        <span class="menu__desplegar">{{ icono('flecha-abajo') }}</span>
+                    </a>
+                    <ul class="submenu">
+                        {% for h in item.hijos %}
+                        <li><a href="{{ h.url }}"{% if h.url == ruta %} aria-current="page"{% endif %}>{{ h.texto }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% else %}
+                <li><a href="{{ item.url }}"{% if item.url == ruta %} aria-current="page"{% endif %}>{{ item.texto }}</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+</header>

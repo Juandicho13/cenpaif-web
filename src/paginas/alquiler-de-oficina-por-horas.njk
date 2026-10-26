@@ -1,0 +1,159 @@
+---
+{
+    "titulo": "Alquiler de oficina por horas - CENPAIF",
+    "descripcion": "CENPAIF, centro de psicólogos en Chía. Servicios de psicología individual, familiar, de pareja, infantil y juvenil, con enfoque en inteligencia emocional.",
+    "imagen": "oficina-general"
+}
+---
+{% extends "base.njk" %}
+{% import "macros.njk" as m %}
+
+{# Fotos de las galerías: [foto, título, texto] #}
+{% set oficina = [
+    ['oficina-general', 'Excelente ubicación', 'Sobre la AV. Bolívar'],
+    ['edificio-atardecer', 'Servicios complementarios', 'Alquiler oficina privada por hora <br>Servicio de internet<br>Recepción<br>Parqueadero<br>48.000 hora según disponibilidad<br>Sala de conferencias y dirección comercial <br>80.000 para planes de 3 meses en adelante<br>'],
+    ['oficina-general-3', 'Diseño Moderno', 'Zona de terraza y gimnasio<br>Zona de eventos']
+] %}
+{% set planes = [
+    ['oficina-privada', 'Plan 64 horas mensuales', 'Espacio físico 960.000 mensuales<br>Incluye todos los servicios<br>Horas fijas o seleccionadas<br>Según preferencia<br>'],
+    ['oficina-privada-2', '', 'Amoblado<br>Sin contrato de arrendamiento<br>Hasta terminar el saldo<br>Horario de alquiler de Domingo a Domingo<br>En cualquier horario requerido<br>Escoge nuestros planes o elige el de tu conveniencia '],
+    ['ascensores', 'Plan 8 horas mensuales ', 'Espacio físico 320.000 mensuales <br>Incluye todos los servicios <br>Horas fijas o seleccionadas<br>Según preferencia <br>']
+] %}
+
+{% macro galeria(fotos) %}
+<div class="galeria galeria--tres" data-visor>
+    {% for g in fotos %}
+    <div class="galeria__item">
+        <div class="galeria__tarjeta">
+            <div class="galeria__foto">{{ foto(g[0], '', { tamanos: '(max-width: 1024px) 92vw, 353px' }) }}</div>
+            <div class="galeria__velo"></div>
+            <div class="galeria__texto">
+                {% if g[1] %}<span class="galeria__nombre">{{ g[1] }}</span>{% endif %}
+                <p class="galeria__desc">{{ g[2] | safe }}</p>
+            </div>
+            <a class="galeria__ampliar" href="{{ rutaFoto(g[0], 1600) }}" data-miniatura="{{ rutaFoto(g[0], 400) }}" aria-label="Ver la foto {{ loop.index }} en grande"></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endmacro %}
+
+{% block contenido %}
+
+{# ---------- Co-working en Chía ---------- #}
+<section class="e-seccion bloque-blanco">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                {{ m.titulo('Co-working en Chía', 'h3', 'titulo-ekit--400 titulo-ekit--movil-centro titulo-grande--sube') }}
+                <div class="fila-vacia ancla"></div>
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="cita">
+                                    <ul>
+                                        <li>Alquiler de oficina gerencial privada por jornadas</li>
+                                        <li>Proyecta una imagen de confianza y prestigio</li>
+                                        <li>Oficina gerencial amoblada privada</li>
+                                        <li>Excelente ubicación</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Oficina gerencial privada ---------- #}
+<section class="e-seccion bloque-gris">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                {{ m.titulo('Oficina gerencial Privada', 'h3', 'titulo-ekit--400 titulo-ekit--movil-centro titulo-grande--sube') }}
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                {{ galeria(oficina) }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Franja con la foto del edificio ---------- #}
+<section class="e-seccion banda-fija" style="{{ fondoFoto('fondo-edificio') }}">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="banda-fija__espacio"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Planes ---------- #}
+<section class="e-seccion bloque-gris">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                {{ galeria(planes) }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Solicitud de alquiler ---------- #}
+<section class="e-seccion">
+    <div class="e-contenedor">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <section class="e-seccion integral__fila">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="integral__foto integral__foto--90 imagen-e">
+                                    {{ foto('edificio', '', { tamanos: '(max-width: 767px) 90vw, 540px' }) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                {{ m.titulo('Solicitud de alquiler ', 'h3', 'titulo-ekit--400 titulo-ekit--verde titulo-ekit--movil-centro integral__titulo') }}
+                                <div class="texto-gilroy">
+                                    <ol>
+                                        <li>Diligencia<strong> el </strong><b>formulario</b><strong> y anexa los documentos solicitados</strong> (Cedula, RUT, cámara de comercio y tarjeta profesional si aplica)</li>
+                                        <li><strong>Solicita por WhatsApp</strong> <strong><a href="{{ whatsapp() }}" target="_blank" rel="noopener">3132712530</a></strong> la fecha de agenda según el plan seleccionado</li>
+                                    </ol>
+                                </div>
+                                {{ m.boton('Diligencia el formulario', 'https://docs.google.com/forms/d/e/1FAIpQLSexQWdDP3Yh4ZwiszT7yjvsJppI-YIYPyG5tT1F_bMo632D1w/viewform?pli=1', 'centro', 'borde-morado') }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ m.visorFotos() }}
+
+{% endblock %}

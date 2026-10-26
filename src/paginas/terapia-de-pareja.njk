@@ -1,0 +1,103 @@
+---
+{
+    "titulo": "Terapia de Pareja - CENPAIF",
+    "descripcion": "CENPAIF, centro de psicólogos en Chía. Servicios de psicología individual, familiar, de pareja, infantil y juvenil, con enfoque en inteligencia emocional."
+}
+---
+{% extends "base.njk" %}
+{% import "macros.njk" as m %}
+
+{% block contenido %}
+
+{# ---------- Portada ---------- #}
+<section class="e-seccion">
+    <div class="e-contenedor">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="ancla"></div>
+                <section class="e-seccion caja-servicio caja-servicio--contener">
+                    <div class="caja-servicio__fondo">{{ foto('fondo-terapia-pareja', '', { tamanos: '(max-width: 767px) 92vw, 1120px', prioridad: true }) }}</div>
+                    <div class="ola ola--abajo">{{ forma('olas') }}</div>
+                    <div class="e-contenedor">
+                        <div class="e-columna">
+                            <div class="e-envoltura">
+                                <div class="espacio-portada"></div>
+                            </div>
+                        </div>
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura vidrio">
+                                {{ m.titulo('Terapia de Pareja', 'h3', 'titulo-script') }}
+                                <div class="texto-gilroy texto-gilroy--normal">
+                                    <p>“Mejora tu relación con terapia de pareja. Psicólogos expertos en <strong>CENPAIF</strong> te ayudan a superar conflictos y fortalecer la comunicación.”</p>
+                                </div>
+                                {{ m.boton('Agenda tu consulta', sitio.enlaces.doctoralia) }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Contenido ---------- #}
+<section class="e-seccion bloque-gris">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                {{ m.titulo('¿Tu relación necesita un impulso? ', 'h3', 'titulo-grande--sube titulo-ekit--movil-centro') }}
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <h2 class="titulo-e titulo-e--montserrat titulo-e--20">¿Cuándo Necesitas Terapia de Pareja?</h2>
+                                <div class="texto-gilroy texto-gilroy--normal texto-gilroy--19">
+                                    <p>La terapia de pareja en <strong>CENPAIF</strong> te ofrece las herramientas para fortalecer los lazos y superar los desafíos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <h2 class="titulo-e titulo-e--manrope">¿Por qué elegir CENPAIF?</h2>
+                                <div class="cita">
+                                    <ul>
+                                        <li>Expertos en relaciones: Nuestro equipo te guiará en la mejora de la comunicación, resolución de conflictos y fortalecimiento del vínculo emocional.</li>
+                                        <li>Enfoque personalizado: Cada pareja es única, por eso adaptamos nuestros tratamientos a tus necesidades específicas.</li>
+                                        <li>Resultados comprobados: Nuestra metodología ha ayudado a numerosas parejas a reconstruir sus relaciones y encontrar la felicidad.</li>
+                                    </ul>
+                                </div>
+                                <h2 class="titulo-e titulo-e--manrope">¿Qué beneficios obtendrás?</h2>
+                                <div class="cita">
+                                    <ul>
+                                        <li><strong>Comunicación efectiva:</strong> Aprenderás a expresar tus sentimientos y necesidades de manera clara y asertiva.</li>
+                                        <li><strong>Resolución de conflictos:</strong> Descubrirás herramientas para manejar desacuerdos de forma constructiva.</li>
+                                        <li><strong>Reconexión emocional:</strong> Fortalecerás el vínculo con tu pareja y recuperarás el bienestar en la convivencia.</li>
+                                        <li><strong>Crecimiento personal:</strong> Desarrollarás habilidades para una vida más plena y satisfactoria.</li>
+                                    </ul>
+                                </div>
+                                <h2 class="titulo-e titulo-e--manrope">¿Cómo funciona?</h2>
+                                <div class="cita">
+                                    <ol>
+                                        <li><strong>Evaluación inicial:</strong> Identificaremos tus necesidades y estableceremos los objetivos de la terapia.</li>
+                                        <li><strong>Sesiones personalizadas:</strong> Trabajaremos en tus áreas de oportunidad de manera individual y en pareja.</li>
+                                        <li><strong>Talleres virtuales:</strong> Aprenderás técnicas prácticas para mejorar tu relación.</li>
+                                    </ol>
+                                </div>
+                                {{ m.titulo('No esperes más para recuperar la felicidad en tu relación.<br><b> ¡Contáctanos hoy mismo y comienza tu transformación!</b>', 'h3', 'titulo-ekit--centro titulo-ekit--29 titulo-grande--sube') }}
+                                {{ m.boton('Agenda tu consulta en CENPAIF', sitio.enlaces.doctoralia) }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="espacio-final"></div>
+
+{% endblock %}

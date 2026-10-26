@@ -1,0 +1,44 @@
+---
+{
+    "titulo": "pagos - CENPAIF",
+    "descripcion": "CENPAIF, centro de psicólogos en Chía. Servicios de psicología individual, familiar, de pareja, infantil y juvenil, con enfoque en inteligencia emocional.",
+    "imagen": "boton-wompi"
+}
+---
+{% extends "base.njk" %}
+{% import "macros.njk" as m %}
+
+{% block contenido %}
+
+{# ---------- Pagos ---------- #}
+<section class="e-seccion bloque-gris">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                {{ m.titulo('Pagos Cenpaif', 'h3', 'titulo-grande titulo-grande--sube titulo-ekit--movil-centro') }}
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="imagen-e ancho-propio pago">
+                                    <a href="{{ sitio.enlaces.wompi }}">{{ foto('boton-wompi', 'Paga con Wompi', { tamanos: '(max-width: 767px) 72vw, 477px', prioridad: true }) }}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="imagen-e ancho-propio pago">
+                                    <a href="{{ sitio.enlaces.paypal }}">{{ foto('boton-paypal', 'Paga con PayPal', { tamanos: '(max-width: 767px) 72vw, 477px', prioridad: true }) }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="espacio-final espacio-final--76"></div>
+
+{% endblock %}

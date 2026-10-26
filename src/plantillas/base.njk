@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ titulo }}</title>
+    <meta name="description" content="{{ descripcion }}">
+    {% if ruta == '/404' %}
+    <meta name="robots" content="noindex">
+    {% else %}
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="{{ sitio.url }}{{ ruta }}">
+    {% endif %}
+
+    <link rel="preload" href="{{ activos.fuentes.manrope }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ activos.fuentes.montserrat }}" as="font" type="font/woff2" crossorigin>
+    {% block precarga %}{% endblock %}
+    <link rel="stylesheet" href="{{ activos.css }}">
+    <script src="{{ activos.js }}" defer></script>
+
+    <link rel="icon" href="/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="/icono-192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="/icono-270.png">
+
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:type" content="{{ 'website' if ruta == '/' else 'article' }}">
+    <meta property="og:title" content="{{ titulo }}">
+    <meta property="og:description" content="{{ descripcion }}">
+    <meta property="og:url" content="{{ sitio.url }}{{ ruta }}">
+    <meta property="og:site_name" content="CENPAIF">
+    {% if imagen %}
+    <meta property="og:image" content="{{ sitio.url }}{{ rutaFoto(imagen) }}">
+    {% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">{{ grafo | jsonld }}</script>
+    {% if sitio.gtm %}
+    <script>window.CENPAIF_GTM = '{{ sitio.gtm }}';</script>
+    {% endif %}
+</head>
+<body{% if clase %} class="{{ clase }}"{% endif %}>
+    {% include "encabezado.njk" %}
+
+    <main>
+        {% block contenido %}{% endblock %}
+    </main>
+
+    {% include "pie.njk" %}
+</body>
+</html>

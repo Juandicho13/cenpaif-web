@@ -1,0 +1,30 @@
+---
+{
+    "titulo": "Página no encontrada - CENPAIF",
+    "descripcion": "CENPAIF, centro de psicólogos en Chía. Servicios de psicología individual, familiar, de pareja, infantil y juvenil, con enfoque en inteligencia emocional.",
+    "clase": "pagina-404"
+}
+---
+{% extends "base.njk" %}
+
+{% block contenido %}
+
+{# Igual a la original: una franja azul que sube detrás del encabezado y un espacio vacío #}
+<section class="e-seccion pagina-error">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="pagina-error__espacio"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="e-seccion">
+    <div class="e-contenedor">
+        <div class="e-columna">
+            <div class="e-envoltura pagina-error__vacio"></div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

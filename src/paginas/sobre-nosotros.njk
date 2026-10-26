@@ -1,0 +1,88 @@
+---
+{
+    "titulo": "Sobre Nosotros - CENPAIF",
+    "descripcion": "CENPAIF, centro de psicólogos en Chía. Servicios de psicología individual, familiar, de pareja, infantil y juvenil, con enfoque en inteligencia emocional.",
+    "imagen": "dra-claudia-retrato"
+}
+---
+{% extends "base.njk" %}
+{% import "macros.njk" as m %}
+
+{% block contenido %}
+
+{# ---------- Sobre Nosotros ---------- #}
+<section class="e-seccion bloque-gris">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                {{ m.titulo('Sobre Nosotros', 'h3', 'titulo-ekit--400 titulo-ekit--movil-centro titulo-grande--sube') }}
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="texto-manrope">
+                                    <p>Nuestro Compromiso con el Bienestar Emocional.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="cita">
+                                    <p>“En <strong>CENPAIF,</strong> centro de psicología, estamos comprometidos con el bienestar emocional de nuestros pacientes. Nos enfocamos en un tratamiento de tercera generación, con métodos modernos que incluyen pruebas proyectivas y terapia basada en la inteligencia emocional, ofreciendo resultados rápidos y duraderos.”</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Franja con la foto del edificio ---------- #}
+<section class="e-seccion banda-fija" style="{{ fondoFoto('fondo-edificio') }}">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="banda-fija__espacio"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Nuestro equipo ---------- #}
+<section class="e-seccion">
+    <div class="e-contenedor">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <section class="e-seccion integral__fila">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="integral__foto integral__foto--90 imagen-e">
+                                    {{ foto('dra-claudia-retrato', '', { tamanos: '(max-width: 767px) 90vw, 540px' }) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                {{ m.titulo('Nuestro Equipo de Psicología Profesional', 'h3', 'titulo-ekit--400 titulo-ekit--verde titulo-ekit--movil-centro integral__titulo') }}
+                                <div class="texto-gilroy">
+                                    <p>“Nuestro equipo está formado por psicólogos altamente capacitados, con estudios en Terapias de Tercera Generación de la Universidad de Valencia, España, y especialización en inteligencia emocional en la universidad de Carolina del Norte en Estados Unidos. Con un enfoque de terapia cognitiva conductual y técnicas cómo mindfulness, aceptación y compromiso. adaptamos cada sesión a las necesidades individuales para ayudarte a aceptar y adaptarte, creando un impacto positivo en tu calidad de vida.”</p>
+                                </div>
+                                {{ m.boton('Agenda tu consulta', 'https://calendar.app.google/qhr7ZgQBvZDQM2Bb9', 'centro', 'borde-morado') }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

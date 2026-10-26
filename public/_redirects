@@ -1,0 +1,16 @@
+# Páginas de la web anterior que no se copiaron (no estaban en el menú)
+/contacto/               /#contacto       301
+/contacto                /#contacto       301
+/landing/                /                301
+/landing                 /                301
+/intro/                  /                301
+/intro                   /                301
+/servicios-cenpaif/      /                301
+/servicios-cenpaif       /                301
+/feed/                   /                301
+/comments/feed/          /                301
+/category/*              /                301
+/author/*                /                301
+/sitemap_index.xml       /sitemap.xml     301
+/page-sitemap.xml        /sitemap.xml     301
+/pueden-ampararse-las-personas-juridicas-en-el-derecho-a-la-no-autoincriminacion-para-no-informar-al-ministerio-fiscal-de-los-hechos-que-conozcan-a-traves-de-la-gestion-de-su-canal-de-denuncias/   /   301

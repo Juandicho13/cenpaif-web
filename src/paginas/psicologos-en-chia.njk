@@ -1,0 +1,90 @@
+---
+{
+    "titulo": "psicólogos en chía - CENPAIF",
+    "descripcion": "CENPAIF, centro de psicólogos en Chía. Servicios de psicología individual, familiar, de pareja, infantil y juvenil, con enfoque en inteligencia emocional.",
+    "imagen": "dra-claudia-terraza-2"
+}
+---
+{% extends "base.njk" %}
+{% import "macros.njk" as m %}
+
+{% block contenido %}
+
+{# ---------- Portada ---------- #}
+<section class="e-seccion">
+    <div class="e-contenedor">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="ancla"></div>
+                <section class="e-seccion caja-servicio caja-servicio--celeste">
+                    <div class="ola ola--abajo">{{ forma('olas') }}</div>
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura vidrio">
+                                {{ m.titulo('Psicólogos en Chía', 'h3', 'titulo-script') }}
+                                <h1 class="titulo-e titulo-e--montserrat">Atención Profesional para Tu Bienestar Emocional</h1>
+                                <div class="texto-gilroy texto-gilroy--normal texto-gilroy--19">
+                                    <p>Descubre los mejores psicólogos para tratar ansiedad, depresión y mejorar tu calidad de vida. Agenda tu consulta en <strong>CENPAIF.</strong></p>
+                                </div>
+                                <div class="texto-gilroy texto-gilroy--normal">
+                                    <h2>Servicios de Psicología en CENPAIF</h2>
+                                    <ul>
+                                        <li>Psicoterapia Individual</li>
+                                        <li>Terapia de Pareja</li>
+                                        <li>Psicología Infantil y Juvenil</li>
+                                    </ul>
+                                </div>
+                                {{ m.boton('Agenda tu consulta', sitio.enlaces.doctoralia) }}
+                            </div>
+                        </div>
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="imagen-e mascara-circulo">
+                                    {{ foto('dra-claudia-terraza-2', '', { tamanos: '(max-width: 767px) 92vw, 526px', prioridad: true }) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Por qué elegir CENPAIF ---------- #}
+<section class="e-seccion bloque-gris">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                {{ m.titulo('¿Por qué Elegir Psicólogos en CENPAIF?', 'h2', 'titulo-grande--sube titulo-ekit--movil-centro') }}
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="texto-gilroy texto-gilroy--normal texto-gilroy--19">
+                                    <p>Por su profesionalismo, su efectividad con técnicas psicológicas actualizadas y su empatía y atención personalizada. Con habilitación por secretaria de salud tanto para el servicio virtual como presencial</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                {{ m.titulo('¿Por qué Elegir Psicólogos en CENPAIF?', 'h2', 'titulo-grande--sube titulo-ekit--movil-centro') }}
+                                <div class="cita">
+                                    <p>En<strong> Cenpaif</strong> brindamos experiencia y flexibilidad para el apoyo profesional que requieras.<br>Tanto Presencial en nuestras instalaciones como Virtual con nuestra Plataforma web especializada que garantiza la seguridad en los encuentros virtuales de telemedicina desde cualquier lugar del mundo.</p>
+                                </div>
+                                {{ m.boton('Agenda Tu Consulta Presencial o Virtual', sitio.enlaces.doctoralia) }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

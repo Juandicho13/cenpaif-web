@@ -1,0 +1,77 @@
+---
+{
+    "titulo": "Aplicación de Batería de Riesgo Psicosocial - CENPAIF",
+    "descripcion": "CENPAIF, centro de psicólogos en Chía. Servicios de psicología individual, familiar, de pareja, infantil y juvenil, con enfoque en inteligencia emocional."
+}
+---
+{% extends "base.njk" %}
+{% import "macros.njk" as m %}
+
+{% block contenido %}
+
+{# ---------- Portada ---------- #}
+<section class="e-seccion">
+    <div class="e-contenedor">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <section class="e-seccion caja-servicio caja-servicio--contener caja-servicio--pegada">
+                    <div class="caja-servicio__fondo">{{ foto('fondo-bateria', '', { tamanos: '(max-width: 767px) 92vw, 1120px', prioridad: true }) }}</div>
+                    <div class="ola ola--abajo">{{ forma('olas') }}</div>
+                    <div class="e-contenedor">
+                        <div class="e-columna">
+                            <div class="e-envoltura">
+                                <div class="espacio-portada espacio-portada--600"></div>
+                            </div>
+                        </div>
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura vidrio">
+                                {{ m.titulo('Aplicación de Batería de Riesgo Psicosocial', 'h3', 'titulo-script') }}
+                                <div class="texto-gilroy texto-gilroy--normal texto-gilroy--25">La aplicación de la Batería de Riesgo Psicosocial, es una exigencia legal. Es una herramienta diseñada para identificar, evaluar y gestionar los factores que pueden afectar el bienestar emocional, mental y laboral de los trabajadores.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Contenido ---------- #}
+<section class="e-seccion bloque-gris">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                <div class="fila-vacia ancla"></div>
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <h2 class="titulo-e titulo-e--manrope">La evaluación permite analizar aspectos relacionados con:</h2>
+                                <div class="cita">
+                                    <p>● Condiciones intralaborales.<br>● Factores extralaborales.<br>● Estrés laboral.<br>● Ambiente organizacional.<br>● Carga mental y emocional.<br>● Relaciones interpersonales y liderazgo.</p>
+                                    <p><br>Nuestro objetivo es contribuir a la promoción de ambientes de trabajo saludables, fortalecer la calidad de vida laboral y apoyar el cumplimiento de la normatividad vigente en seguridad y salud en el trabajo.</p>
+                                </div>
+                                <h2 class="titulo-e titulo-e--manrope">¿Qué incluye el servicio?</h2>
+                                <div class="cita">
+                                    <p>● Aplicación de cuestionarios autorizados.<br>● Recolección y análisis de información.<br>● Informe de resultados.<br>● Identificación de factores de riesgo.<br>● Recomendaciones y plan de intervención.<br>● Acompañamiento profesional especializado.</p>
+                                </div>
+                                <h2 class="titulo-e titulo-e--manrope">Beneficios para la empresa</h2>
+                                <div class="cita">
+                                    <p>● Prevención del estrés y desgaste laboral.<br>● Mejora del clima organizacional.<br>● Fortalecimiento del bienestar de los colaboradores.<br>● Reducción del ausentismo y rotación.<br>● Cumplimiento legal en SST.</p>
+                                    <p><br>Contamos con profesionales capacitados con la Licencia exigida por la Ley y experiencia en procesos de evaluación psicosocial para empresas de diferentes sectores.</p>
+                                </div>
+                                <div class="cita">
+                                    <p><strong>Objetivo:</strong> desarrollar habilidades internas y externas<br>Construir autoestima y autoconfianza<br>Desarrollar disciplina y hábitos<br>Mejorar habilidades básicas y avanzadas (comunicación, límites, toma de decisiones)</p>
+                                </div>
+                                {{ m.boton('Solicita información y agenda tu evaluación de riesgo psicosocial con nosotros.', sitio.enlaces.doctoralia) }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+---
+{
+    "titulo": "cenpaif - CENPAIF",
+    "descripcion": "CENPAIF, centro de psicólogos en Chía. Servicios de psicología individual, familiar, de pareja, infantil y juvenil, con enfoque en inteligencia emocional.",
+    "imagen": "dra-claudia-retrato"
+}
+---
+{% extends "base.njk" %}
+{% import "macros.njk" as m %}
+
+{% block precarga %}
+    {{ precargarFoto('portada-oficina', '100vw') }}
+{% endblock %}
+
+{% block contenido %}
+
+{# ---------- Portada: dos fotos que se alternan ---------- #}
+<section class="e-seccion portada" data-alternar>
+    <div class="portada__fondo">
+        <div class="portada__foto activa">{{ foto('portada-oficina', '', { tamanos: '100vw', prioridad: true }) }}</div>
+        <div class="portada__foto">{{ foto('portada-doctora', '', { tamanos: '100vw' }) }}</div>
+    </div>
+    <div class="ola ola--abajo">{{ forma('olas') }}</div>
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura portada__contenido-envoltura">
+                <div class="portada__linea ancla oculto-movil"></div>
+                <section class="e-seccion portada__interior">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <h2 class="portada__titulo">Servicios profesionales de Psicología</h2>
+                                <div class="portada__boton borde-morado">
+                                    <a class="boton" href="{{ sitio.enlaces.doctoralia }}" target="_blank" rel="noopener">Agenda tu cita</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="e-columna">
+                            <div class="e-envoltura">
+                                <div class="portada__espacio"></div>
+                                <div class="portada__texto">
+                                    <p>Consultas psicológicas presenciales y virtuales. Terapias de pareja, Terapias individuales, juveniles, familiares. Talleres enfocados en inteligencia emocional y salud psicosocial para familias y empresas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Psicología integral ---------- #}
+<section class="e-seccion">
+    <div class="e-contenedor">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <section class="e-seccion integral__fila">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="integral__foto imagen-e">
+                                    {{ foto('dra-claudia-retrato', '', { tamanos: '(max-width: 767px) 88vw, 540px' }) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                {{ m.titulo('Psicología integral. Resultados en corto tiempo con empatía y eficacia ', 'h3', 'titulo-ekit--verde titulo-ekit--movil-centro integral__titulo') }}
+                                <div class="texto-gilroy">
+                                    <p>“<strong>CENPAIF</strong> es un centro de psicología que presta atención personalizada y cercana para ayudar a adultos, adolescentes y familias a mejorar su bienestar emocional. Con un equipo altamente capacitado en terapias de tercera generación, combinamos técnicas de psicoterapia cognitivo conductual y emocional para lograr resultados en corto tiempo. Desde depresión y ansiedad hasta empoderamiento y calidad de vida familiar, cada sesión en CENPAIF se centra en ayudarte a desarrollar seguridad personal y encontrar equilibrio.”</p>
+                                </div>
+                                {{ m.boton('Agenda tu consulta', sitio.enlaces.doctoralia, 'centro', 'borde-morado') }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Nuestros servicios ---------- #}
+{% set galeria = [
+    ['servicio-individual', '/psicologos-en-chia/', 'Psicología presencial y Virtual', 'Sesiones personalizadas para adultos que buscan superar problemas como: ansiedad, depresión y crecimiento personal. Entre otras.'],
+    ['servicio-pareja-familia', '/terapia-de-pareja/', 'Terapia de Pareja y Familiar', 'Resolución de conflictos y mejora de la comunicación en pareja y familia'],
+    ['servicio-vocacional', '/orientacion-vocacional/', 'Orientación Vocacional', 'Acompañamiento profesional para fortalecer autoconocimiento (intereses y talentos) seguridad personal, toma decisiones informadas, prevención del fracaso académico y satisfacción de la vida laboral Capacitación en habilidades para la vida en el exterior.'],
+    ['servicio-bateria-psicosocial', '/aplicacion-de-bateria-de-riesgo-psicosocial/', 'Aplicación de Batería de Riesgo Psicosocial', 'La aplicación de la Batería de Riesgo Psicosocial, es una exigencia legal. Es una herramienta diseñada para identificar, evaluar y gestionar los factores que pueden afectar el bienestar emocional, mental y laboral de los trabajadores.'],
+    ['servicio-talleres-empresariales', '/talleres-empresariales/', 'Talleres Empresariales', 'Permiten mejorar la productividad, fomentar el trabajo en equipo y desarrollar habilidades de liderazgo. Modalidad vivencial, test auto aplicables y seguimiento personalizado.'],
+    ['servicio-talleres-emocionales', '/talleres-de-inteligencia-emocional/', 'Talleres de inteligencia emocional', 'Fortalece la autoconciencia emocional, estimula la autorregulación para gestionar el estrés y la frustración manteniendo un enfoque positivo mejorando las relaciones personales.'],
+    ['servicio-empoderamiento', '/programa-de-empoderamiento-individual/', 'Programa de Empoderamiento individual', 'Es un proceso de crecimiento personal. En la primera sesión realizamos una exploración profunda para identificar estado emocional, y situaciones que estén generando bloqueo en proyectos o relaciones interpersonales.']
+] %}
+<section class="e-seccion bloque-gris">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                {{ m.titulo('Nuestros Servicios Especializados', 'h3', 'titulo-grande titulo-grande--sube titulo-ekit--movil-centro') }}
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <div class="galeria">
+                                    {% for g in galeria %}
+                                    <div class="galeria__item">
+                                        <div class="galeria__tarjeta">
+                                            <div class="galeria__foto">{{ foto(g[0], '', { tamanos: '(max-width: 1024px) 92vw, 540px' }) }}</div>
+                                            <div class="galeria__velo"></div>
+                                            <a class="galeria__icono" href="{{ g[1] }}" aria-label="{{ g[2] }}">{{ icono('mas-circulo') }}</a>
+                                            <div class="galeria__texto">
+                                                <span class="galeria__nombre">{{ g[2] }}</span>
+                                                <p class="galeria__desc">{{ g[3] }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Beneficios ---------- #}
+<section class="e-seccion">
+    <div class="e-contenedor">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <section class="e-seccion beneficios__fila">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                {{ m.titulo('Beneficios de elegir CENPAIF', 'h3', 'titulo-ekit--verde titulo-ekit--movil-centro') }}
+                                <div class="texto-gilroy">
+                                    <p>En <strong>CENPAIF,</strong> nuestros pacientes reciben un enfoque único que va más allá de aliviar síntomas. Nuestros psicólogos y terapeutas trabajan en reorientar la vida de cada persona, logrando cambios duraderos a través de estrategias terapéuticas efectivas y herramientas modernas como las pruebas proyectivas y el acceso digital a la historia clínica. Nos destacamos por la calidez, el profesionalismo con resultados eficaces.</p>
+                                </div>
+                                {{ m.boton('Escríbemos por whatsapp', whatsapp(), 'centro', 'borde-morado') }}
+                            </div>
+                        </div>
+                        <div class="e-columna">
+                            <div class="e-envoltura">
+                                <div class="carrusel" data-carrusel aria-roledescription="carrusel" aria-label="Carrusel de imágenes">
+                                    <div class="carrusel__pista">
+                                        <div>{{ foto('dra-claudia-terraza', 'Foto Cluadia', { tamanos: '(max-width: 767px) 92vw, 540px' }) }}</div>
+                                        <div>{{ foto('terraza', '1', { tamanos: '(max-width: 767px) 92vw, 540px' }) }}</div>
+                                        <div>{{ foto('edificio-entrada', '2', { tamanos: '(max-width: 767px) 92vw, 540px' }) }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Reseñas ---------- #}
+<section class="e-seccion bloque-gris">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                {{ m.titulo('Mejor psicóloga con calificaciones de 5 estrellas', 'h3', 'titulo-ekit--centro titulo-grande--sube') }}
+                <div class="resenas" data-resenas>
+                    {% include "resenas.njk" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

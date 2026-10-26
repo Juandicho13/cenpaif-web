@@ -1,0 +1,87 @@
+---
+{
+    "titulo": "Programa de Empoderamiento individual - CENPAIF",
+    "descripcion": "CENPAIF, centro de psicólogos en Chía. Servicios de psicología individual, familiar, de pareja, infantil y juvenil, con enfoque en inteligencia emocional."
+}
+---
+{% extends "base.njk" %}
+{% import "macros.njk" as m %}
+
+{% block contenido %}
+
+{# ---------- Portada ---------- #}
+<section class="e-seccion">
+    <div class="e-contenedor">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="ancla"></div>
+                <section class="e-seccion caja-servicio caja-servicio--contener">
+                    <div class="caja-servicio__fondo">{{ foto('servicio-empoderamiento', '', { tamanos: '(max-width: 767px) 92vw, 1120px', prioridad: true }) }}</div>
+                    <div class="ola ola--abajo">{{ forma('olas') }}</div>
+                    <div class="e-contenedor">
+                        <div class="e-columna">
+                            <div class="e-envoltura">
+                                <div class="espacio-portada"></div>
+                            </div>
+                        </div>
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura vidrio">
+                                {{ m.titulo('Programa de Empoderamiento individual', 'h3', 'titulo-script') }}
+                                {{ m.boton('Agenda tu consulta', sitio.enlaces.doctoralia) }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- Contenido ---------- #}
+<section class="e-seccion bloque-gris">
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna">
+            <div class="e-envoltura">
+                <div class="espacio"></div>
+                <div class="fila-vacia ancla"></div>
+                <section class="e-seccion">
+                    <div class="e-contenedor">
+                        <div class="e-columna e-centrar">
+                            <div class="e-envoltura">
+                                <h2 class="titulo-e titulo-e--manrope">Programa de Empoderamiento individual</h2>
+                                <div class="cita">
+                                    <p>Es un proceso de crecimiento personal. Con técnicas de la neurociencia, psicología positiva y terapias de tercera generación como mind fullness.</p>
+                                </div>
+                                <h2 class="titulo-e titulo-e--manrope">1. Valoración</h2>
+                                <div class="cita">
+                                    <p>Establecer metas claras Identificar propósito personal Priorizar lo importante Reconocimiento de Tu estado emocional actual. Identificar lo que bloquea el crecimiento Reconocer Situaciones y patrones de comportamiento que generen malestar o bloqueo O Dificultades o retos en tus relaciones interpersonales y con el dinero Identificar Fortalezas y áreas de mejora</p>
+                                </div>
+                                <h2 class="titulo-e titulo-e--manrope">2. Sanación / Liberación emocional</h2>
+                                <div class="cita">
+                                    <p>Soltar lo que duele y sanar, procesar heridas emocionales o experiencias pasadas Identificar creencias limitantes</p>
+                                </div>
+                                <h2 class="titulo-e titulo-e--manrope">3. Fortalecimiento</h2>
+                                <div class="cita">
+                                    <p>Desarrollar habilidades internas y externas<br>Construir autoestima y autoconfianza<br>Desarrollar disciplina y hábitos<br>Mejorar habilidades básicas y avanzadas (comunicación, límites, toma de decisione</p>
+                                </div>
+                                <h2 class="titulo-e titulo-e--manrope">4. Empoderamiento</h2>
+                                <div class="cita">
+                                    <p>Llevar todo a acción sostenida en la vida real, Re-Programar ideas (Cambiar narrativa interna y Desarrollar mentalidad de crecimiento). Tomar decisiones alineadas con sus valores. Actuar con seguridad en distintos contextos Crear cambios concretos de estilos de vida</p>
+                                </div>
+                                <h2 class="titulo-e titulo-e--manrope">Beneficios del proceso</h2>
+                                <div class="cita">
+                                    <p>Mayor seguridad y confianza en ti mismo/a Mejor gestión emocional ante situaciones difíciles Relaciones más sanas y equilibradas Claridad en sus metas y propósito personal Desarrollo de habilidades para afrontar retos de la vida Éxito en sus áreas de la vida, familiar, social, laboral y financiero.</p>
+                                </div>
+                                {{ m.titulo('Dirigido por una psicóloga con maestría en terapias de tercera generación y coach ontológico.', 'h3', 'titulo-ekit--centro titulo-ekit--29 titulo-grande--sube') }}
+                                {{ m.boton('Agenda tu consulta en CENPAIF', sitio.enlaces.doctoralia) }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="espacio-final"></div>
+
+{% endblock %}

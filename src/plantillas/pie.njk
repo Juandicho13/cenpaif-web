@@ -1,0 +1,123 @@
+{# ---------- Contacto (igual en todas las páginas) ---------- #}
+<div class="linea-1px"></div>
+<section class="e-seccion contacto">
+    <div class="ola ola--arriba">{{ forma('olas') }}</div>
+    <div class="e-contenedor e-contenedor--ancho">
+        <div class="e-columna contacto__lado"></div>
+        <div class="e-columna contacto__centro">
+            <div class="e-envoltura">
+                <div class="e-contenedor contacto__fila">
+                    <div class="e-columna contacto__info">
+                        <div class="e-envoltura">
+                            <div id="contacto" class="ancla"></div>
+                            <div class="contacto__espacio"></div>
+                            <div class="titulo-ekit contacto__titulo">
+                                <h2 class="titulo-ekit__texto">Centro Psicológico Cenpaif.<br>Dra. Claudia Diaz</h2>
+                            </div>
+                            <div class="contacto__foto imagen-e">
+                                {{ foto('edificio-entrada', '', { tamanos: '(max-width: 767px) 202px, 319px' }) }}
+                            </div>
+                            <div class="contacto__texto oculto-movil">
+                                <p>Ubicados en el edificio Offices center chía</p>
+                                <p>Cl 11 # 6A – 56. Consultorio 509</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="e-columna contacto__formulario-col">
+                        <div class="e-envoltura">
+                            <form class="formulario" data-formulario-whatsapp>
+                                <div class="formulario__campos">
+                                    <div class="formulario__grupo">
+                                        <label class="solo-lectores" for="contacto-nombre">Nombre</label>
+                                        <input type="text" name="nombre" id="contacto-nombre" placeholder="Nombre" autocomplete="name">
+                                    </div>
+                                    <div class="formulario__grupo">
+                                        <label class="solo-lectores" for="contacto-email">Email</label>
+                                        <input type="email" name="email" id="contacto-email" placeholder="Email" autocomplete="email" required>
+                                    </div>
+                                    <div class="formulario__grupo">
+                                        <label class="solo-lectores" for="contacto-mensaje">Mensaje</label>
+                                        <textarea name="mensaje" id="contacto-mensaje" rows="4" placeholder="Mensaje"></textarea>
+                                    </div>
+                                    <div class="formulario__grupo">
+                                        <button type="submit" class="formulario__enviar">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="e-columna contacto__lado contacto__lado--der"></div>
+    </div>
+</section>
+
+{# ---------- Mapa ---------- #}
+<section class="mapa">
+    <iframe src="{{ sitio.enlaces.mapa }}" title="Mapa de CENPAIF en Chía" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+</section>
+
+{# ---------- Teléfono, correo y dirección ---------- #}
+<footer>
+    <section class="e-seccion pie-info">
+        <div class="e-contenedor e-contenedor--ancho">
+            <div class="e-columna pie-info__lado"></div>
+            <div class="e-columna pie-info__centro">
+                <div class="e-envoltura">
+                    <div class="e-contenedor pie-info__fila">
+                        <div class="e-columna pie-info__col">
+                            <div class="e-envoltura">
+                                <h2>Teléfono</h2>
+                                <ul class="lista-iconos">
+                                    <li>{{ icono('telefono') }}<span>{{ sitio.telefono }}</span></li>
+                                </ul>
+                                <div class="boton-alquiler">
+                                    <div class="boton-alquiler__fila">
+                                        <a href="/alquiler-de-oficina-por-horas/">{{ icono('perfil') }}Alquiler de oficinas por horas</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="e-columna pie-info__col">
+                            <div class="e-envoltura">
+                                <h2>Email</h2>
+                                <ul class="lista-iconos">
+                                    <li>{{ icono('correo') }}<span>{{ sitio.correo }}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="e-columna pie-info__col">
+                            <div class="e-envoltura">
+                                <h2>Dirección</h2>
+                                <ul class="lista-iconos">
+                                    <li>{{ icono('casa') }}<span>Cll 11 # 6A-56 Edificio Offices Center Chía Elite. Chía Cund. Oficina 509</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="e-columna pie-info__lado pie-info__lado--der"></div>
+        </div>
+    </section>
+
+    <section class="e-seccion derechos">
+        <div class="e-contenedor">
+            <div class="e-columna">
+                <div class="e-envoltura">
+                    <p>Todos los derechos reservados © Cenpaif 2024</p>
+                </div>
+            </div>
+        </div>
+        <p class="firma derechos__firma">
+            <span><span class="solo-lectores">Desarrollado por </span>juan-olarte-dev</span>
+            <span class="firma-linea" aria-hidden="true"></span>
+            <svg viewBox="0 0 30 20" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+                <path d="M11.3 2.3V13.6C11.3 16.5 9.3 18.2 6.9 18.2 5.1 18.2 3.6 17.4 2.7 16.1" stroke-width="2.3" />
+                <circle cx="21" cy="10.8" r="7" stroke-width="2.3" />
+                <circle cx="21" cy="10.8" r="2.1" stroke-width="0.9" />
+            </svg>
+        </p>
+    </section>
+</footer>
