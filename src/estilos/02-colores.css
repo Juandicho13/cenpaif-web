@@ -1,0 +1,17 @@
+/* ---------- Colores de la web original ---------- */
+
+:root {
+    --lila: #8586ce;
+    --morado: #422360;
+    --morado-pie: #3d275d;
+    --azul-noche: #242c64;
+    --azul-oscuro: #113d64;
+    --azul-tinta: #042533;
+    --azul-borde: #373f90;
+    --verde-agua: #699f9e;
+    --gris-claro: #f6f7f9;
+    --gris-texto: #7a7a7a;
+    --celeste: #6ec1e4;
+    --dorado: #9c7425;
+    --sistema: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}

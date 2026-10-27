@@ -1,0 +1,18 @@
+/* ---------- 7. Sobre Nosotros y Alquiler: franja con la foto del edificio ---------- */
+
+/* En computador la foto se queda quieta al bajar, como en la original */
+.banda-fija {
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banda-fija__espacio {
+    height: 497px;
+}
+
+@media (min-width: 1025px) {
+    .banda-fija {
+        background-attachment: fixed;
+    }
+}

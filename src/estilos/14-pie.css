@@ -1,0 +1,244 @@
+/* ---------- Pie ---------- */
+
+.pie-info {
+    padding: 26px 26px 26px 0;
+    background-color: var(--lila);
+    /* Las cuatro líneas verticales finas de la original */
+    background-image: linear-gradient(90deg,
+            transparent 0 calc(5.03% - 1px), rgba(49, 49, 49, 0.78) calc(5.03% - 1px) calc(5.03% + 1px),
+            transparent calc(5.03% + 1px) calc(37.69% - 1px), rgba(49, 49, 49, 0.78) calc(37.69% - 1px) calc(37.69% + 1px),
+            transparent calc(37.69% + 1px) calc(65.31% - 1px), rgba(49, 49, 49, 0.78) calc(65.31% - 1px) calc(65.31% + 1px),
+            transparent calc(65.31% + 1px) calc(96.75% - 1px), rgba(49, 49, 49, 0.78) calc(96.75% - 1px) calc(96.75% + 1px),
+            transparent calc(96.75% + 1px) 100%);
+}
+
+.pie-info__lado {
+    width: 10%;
+}
+
+.pie-info__lado--der {
+    width: 5%;
+}
+
+.pie-info__centro {
+    width: 84.332%;
+}
+
+.pie-info__fila {
+    display: flex;
+    width: 100%;
+}
+
+.pie-info__col:nth-child(1) {
+    width: 36.985%;
+}
+
+.pie-info__col:nth-child(2) {
+    width: 32.057%;
+}
+
+.pie-info__col:nth-child(3) {
+    width: 30.251%;
+}
+
+.pie-info h2 {
+    margin: 0;
+    color: #000;
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1;
+    text-transform: capitalize;
+}
+
+.lista-iconos {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista-iconos li {
+    display: flex;
+    align-items: flex-start;
+}
+
+.lista-iconos svg {
+    flex: none;
+    box-sizing: content-box;
+    width: 14px;
+    height: 14px;
+    padding: 8.5px 1.75px 0;
+    color: #000;
+}
+
+.lista-iconos span {
+    padding-left: 5px;
+    color: #000;
+    font-family: "Didact Gothic", sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* Botón dorado "Alquiler de oficinas por horas" */
+.boton-alquiler {
+    width: 89.793%;
+    max-width: 89.793%;
+}
+
+.boton-alquiler__fila {
+    display: flex;
+    width: 100%;
+}
+
+.boton-alquiler a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    padding: 8px;
+    border-radius: 15px;
+    background-image: linear-gradient(180deg, var(--dorado) 0%, #e99f0e 100%);
+    color: #fff;
+    font-family: "gilroy", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    transition: all 0.3s;
+}
+
+.boton-alquiler a:hover {
+    background-image: none;
+    background-color: var(--azul-noche);
+    color: #fff;
+}
+
+.boton-alquiler svg {
+    width: 13px;
+    height: 13px;
+    margin-right: 8px;
+}
+
+/* Derechos reservados */
+.derechos {
+    background-color: var(--morado-pie);
+}
+
+.derechos .e-contenedor {
+    align-items: center;
+}
+
+.derechos .e-envoltura>p {
+    margin: 0 0 14.4px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* Firma juan-olarte-dev (forma fija; los colores van aquí) */
+.firma {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font: 400 13px/1 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: 0.05em;
+}
+
+.firma-linea {
+    width: 1px;
+    height: 22px;
+    flex: none;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.firma svg {
+    width: 30px;
+    height: 20px;
+    flex: none;
+    color: #fff;
+}
+
+.firma svg circle:last-child {
+    stroke: var(--lila);
+}
+
+.derechos__firma {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 1024px) {
+    .pie-info__centro>.e-envoltura {
+        padding: 20px;
+    }
+
+    .boton-alquiler {
+        width: 370.35px;
+        max-width: 370.35px;
+    }
+
+    .boton-alquiler__fila {
+        width: 80%;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .pie-info {
+        background-image: none;
+    }
+
+    .pie-info__lado {
+        min-height: 1px;
+    }
+
+    .pie-info__fila {
+        flex-wrap: wrap;
+    }
+
+    .pie-info__col {
+        width: 100% !important;
+    }
+
+    .pie-info h2 {
+        text-align: center;
+    }
+
+    .lista-iconos li {
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* En celular el botón queda en línea, como en la original (deja unos píxeles debajo) */
+    .boton-alquiler__fila {
+        display: block;
+        width: 100%;
+    }
+
+    .boton-alquiler {
+        padding-bottom: 6px;
+    }
+
+    .boton-alquiler a {
+        display: inline-flex;
+        width: 100%;
+    }
+
+    .derechos .e-envoltura>p {
+        font-size: 11px;
+    }
+
+    .derechos__firma {
+        position: static;
+        transform: none;
+        padding: 4px 0 18px;
+    }
+}

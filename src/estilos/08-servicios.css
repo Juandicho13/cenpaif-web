@@ -1,0 +1,213 @@
+/* ---------- 6. Páginas de servicios ---------- */
+
+/* Caja de portada: foto o color de fondo, ola blanca abajo y tarjeta de vidrio */
+.caja-servicio {
+    margin-top: 55px;
+}
+
+.caja-servicio--celeste {
+    background-color: var(--celeste);
+}
+
+.caja-servicio__fondo {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.caja-servicio__fondo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.caja-servicio .ola svg {
+    height: auto;
+    aspect-ratio: 10 / 1;
+}
+
+.caja-servicio>.e-contenedor {
+    z-index: 1;
+}
+
+.vidrio {
+    width: calc(100% - 60px);
+    margin: 100px 30px 30px;
+    padding: 30px;
+    border-radius: 15px;
+    background-image: linear-gradient(180deg, #e1ecec94 0%, #699f9ea8 100%);
+}
+
+/* Alto de la columna vacía al lado de la tarjeta de vidrio */
+.espacio-portada {
+    height: 434px;
+}
+
+.espacio-portada--cero-movil {
+    height: 434px;
+}
+
+.espacio-portada--600 {
+    height: 600px;
+}
+
+/* Portada pegada al menú en computador (batería de riesgo) */
+@media (min-width: 768px) {
+    .caja-servicio--pegada {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .caja-servicio {
+        margin-top: -29px;
+    }
+
+    /* En celular la foto se ve completa arriba, como en la original */
+    .caja-servicio--contener .caja-servicio__fondo img {
+        object-fit: contain;
+    }
+
+    .espacio-portada {
+        height: 148px;
+    }
+
+    .espacio-portada--cero-movil {
+        height: 0;
+    }
+
+    .espacio-portada--79 {
+        height: 79px;
+    }
+
+    .espacio-portada--13 {
+        height: 13px;
+    }
+
+    .espacio-portada--600 {
+        height: 0;
+    }
+}
+
+/* Talleres: tarjetas con imagen y botón de video */
+.fila-talleres {
+    background-color: #fbf5f3;
+}
+
+.fila-talleres>.e-contenedor>.e-columna {
+    width: 33.333%;
+}
+
+.taller {
+    text-align: center;
+}
+
+.taller__img {
+    display: inline-block;
+    width: 70%;
+    margin: 0 0 15px;
+}
+
+.taller__img img {
+    display: block;
+    width: 100%;
+}
+
+.taller h3 {
+    margin: 8px 0 16px;
+    color: #54595f;
+    font-family: "gilroy", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.taller p {
+    margin: 0;
+    color: #54595f;
+    font-family: "gilroy", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.taller--angosto {
+    width: 91.5%;
+    max-width: 91.5%;
+}
+
+.ver-video {
+    margin: 0;
+    color: var(--morado);
+    font-family: "gilroy", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+
+.video-boton-caja {
+    display: flex;
+    justify-content: center;
+}
+
+.video-boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--morado);
+    color: #fff;
+    cursor: pointer;
+}
+
+.video-boton svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* Ventana del video */
+.video-ventana {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    max-width: min(900px, 92vw);
+    overflow: visible;
+}
+
+.video-ventana::backdrop {
+    background: rgba(11, 11, 11, 0.8);
+}
+
+.video-ventana video {
+    display: block;
+    max-width: 100%;
+    max-height: 85vh;
+    background: #000;
+}
+
+.video-ventana__cerrar {
+    position: absolute;
+    top: -22px;
+    right: -22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.video-ventana__cerrar svg {
+    width: 10px;
+    height: 10px;
+}

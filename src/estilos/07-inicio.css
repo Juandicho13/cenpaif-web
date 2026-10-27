@@ -1,0 +1,307 @@
+/* ---------- 5. Inicio: portada con fotos que se alternan ---------- */
+
+.portada {
+    margin-top: -10px;
+}
+
+.portada__fondo {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.portada__foto {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.portada__foto.activa {
+    opacity: 1;
+}
+
+.portada__foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left bottom;
+}
+
+.portada .ola svg {
+    width: calc(157% + 1.3px);
+    height: 138px;
+    transform: translateX(-50%) rotateY(180deg);
+}
+
+.portada__contenido-envoltura {
+    padding: 0;
+}
+
+.portada__linea {
+    height: 1px;
+}
+
+.portada__titulo {
+    margin: 0;
+    color: #fff;
+    font-family: "Manrope", sans-serif;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
+    -webkit-text-stroke: 1px #f5efef;
+}
+
+.portada__boton {
+    text-align: left;
+}
+
+.portada__espacio {
+    height: 579px;
+}
+
+.portada__texto {
+    color: #fff;
+    font-family: "Manrope", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    text-shadow: 0 0 5px #0f0f0f;
+}
+
+@media (max-width: 767px) {
+    .portada {
+        margin-top: 0;
+    }
+
+    .portada__foto img {
+        object-position: left top;
+    }
+
+    .portada .ola svg {
+        width: calc(244vw + 1.3px);
+        height: 51px;
+    }
+
+    .portada__interior {
+        padding: 5px;
+    }
+
+    .portada__titulo {
+        font-size: 18px;
+    }
+
+    .portada__boton .boton {
+        font-size: 13px;
+        padding: 9px;
+    }
+
+    .portada__espacio {
+        height: 31px;
+    }
+
+    .portada__texto {
+        margin-top: -11px;
+        padding: 4px 29px 4px 0;
+        font-size: 10px;
+    }
+}
+
+/* Fila de foto y texto: "Psicología integral" del inicio, "Nuestro equipo" y "Solicitud de alquiler" */
+.integral__fila,
+.beneficios__fila {
+    margin-top: 55px;
+}
+
+.integral__foto {
+    text-align: center;
+}
+
+.integral__foto img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.integral__titulo {
+    margin-top: 80px;
+}
+
+@media (max-width: 767px) {
+    .beneficios__fila {
+        margin-top: -29px;
+    }
+
+    .integral__foto img {
+        width: 88%;
+    }
+
+    .integral__foto--90 img {
+        width: 90%;
+    }
+
+    .integral__titulo {
+        margin-top: 30px;
+    }
+}
+
+/* Bloques de contenido (gris o blanco) con título */
+.bloque-gris {
+    background-color: var(--gris-claro);
+    padding: 30px 19px;
+}
+
+.bloque-blanco {
+    padding: 30px 19px;
+}
+
+.bloque-gris>.e-contenedor>.e-columna>.e-envoltura>.espacio,
+.bloque-blanco>.e-contenedor>.e-columna>.e-envoltura>.espacio {
+    height: 10px;
+}
+
+/* Galería con texto al pasar el mouse (servicios del inicio y fotos de Alquiler) */
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.galeria__item {
+    width: 50%;
+    padding: 10px;
+}
+
+.galeria__tarjeta {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    color: #fff;
+}
+
+.galeria__foto {
+    overflow: hidden;
+    border-radius: 0 0 48px 0;
+}
+
+.galeria__foto img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.galeria__velo {
+    position: absolute;
+    inset: 0;
+    border-radius: 0 0 48px 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.galeria__icono {
+    position: absolute;
+    top: 33.333%;
+    left: 50%;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: #54595f;
+    color: var(--azul-noche);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.galeria__icono svg {
+    width: 16px;
+    height: 16px;
+}
+
+.galeria__texto {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.5s;
+}
+
+.galeria__nombre {
+    display: block;
+    font-family: "Dancing Script", sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.galeria__desc {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.galeria__tarjeta:hover .galeria__foto img {
+    transform: scale(1.1);
+}
+
+.galeria__tarjeta:hover .galeria__velo {
+    background-color: rgba(14, 13, 13, 0.44);
+}
+
+.galeria__tarjeta:hover .galeria__icono {
+    opacity: 1;
+    transition-delay: 0.6s;
+}
+
+.galeria__tarjeta:hover .galeria__icono:hover {
+    color: #fff;
+}
+
+.galeria__tarjeta:hover .galeria__texto {
+    transform: none;
+}
+
+/* Galerías de Alquiler: tres fotos por fila y toda la foto abre el visor */
+.galeria--tres .galeria__item {
+    width: 33.33%;
+}
+
+.galeria__ampliar {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+}
+
+@media (max-width: 1024px) {
+
+    .galeria__item,
+    .galeria--tres .galeria__item {
+        width: 100%;
+    }
+}
+
+/* Beneficios: fotos que pasan solas */
+.carrusel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carrusel__pista {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carrusel__pista>* {
+    flex: 0 0 100%;
+}
+
+/* La foto va en línea (como en Elementor): deja unos píxeles debajo, igual que la original */
+.carrusel img {
+    width: 100%;
+    border-radius: 12px;
+}

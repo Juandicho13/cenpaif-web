@@ -1,0 +1,100 @@
+/* ---------- Rejilla igual a la de Elementor ---------- */
+
+.e-seccion {
+    position: relative;
+}
+
+.e-contenedor {
+    display: flex;
+    margin-inline: auto;
+    position: relative;
+    max-width: 1140px;
+}
+
+.e-contenedor--ancho {
+    max-width: none;
+}
+
+.e-columna {
+    position: relative;
+    display: flex;
+    min-height: 1px;
+    width: 100%;
+}
+
+.e-envoltura {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+    padding: 10px;
+}
+
+.e-envoltura>* {
+    width: 100%;
+}
+
+/* Elementor separa 20 px los elementos de una columna, pero no las secciones internas
+   ni los elementos con ancho propio (clase ancho-propio) */
+.e-envoltura>*:not(:last-child):not(.e-seccion):not(.ancla):not(.ancho-propio) {
+    margin-block-end: 20px;
+}
+
+.e-centrar>.e-columna>.e-envoltura,
+.e-columna.e-centrar>.e-envoltura {
+    align-content: center;
+    align-items: center;
+}
+
+.e-columna.e-abajo>.e-envoltura {
+    align-content: flex-end;
+    align-items: flex-end;
+}
+
+/* Espacios vacíos que hay en la original */
+.fila-vacia {
+    height: 1px;
+}
+
+.espacio-20 {
+    height: 20px;
+}
+
+/* Sección vacía que queda al final de algunas páginas (en Pagos mide 76 px) */
+.espacio-final {
+    height: 20px;
+}
+
+.espacio-final--76 {
+    height: 76px;
+}
+
+@media (max-width: 767px) {
+    .e-contenedor {
+        flex-wrap: wrap;
+    }
+
+    .e-columna {
+        width: 100% !important;
+    }
+
+    .oculto-movil {
+        display: none !important;
+    }
+
+    /* En la original son dos columnas vacías de 20 px: en celular quedan una encima de la otra */
+    .espacio-20 {
+        height: 40px;
+    }
+}
+
+@media (min-width: 768px) {
+    .solo-movil {
+        display: none !important;
+    }
+
+    .solo-celular-taller {
+        display: none !important;
+    }
+}

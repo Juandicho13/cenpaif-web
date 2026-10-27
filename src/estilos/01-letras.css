@@ -1,0 +1,58 @@
+/* ---------- 1. Letras ---------- */
+
+@font-face {
+    font-family: "Manrope";
+    src: url("/fuentes/manrope.woff2") format("woff2");
+    font-weight: 200 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("/fuentes/montserrat.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Dancing Script";
+    src: url("/fuentes/dancing-script.woff2") format("woff2");
+    font-weight: 400 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Oswald";
+    src: url("/fuentes/oswald.woff2") format("woff2");
+    font-weight: 200 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Didact Gothic";
+    src: url("/fuentes/didact-gothic.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* Gilroy: igual que en la web original, la Light responde al peso 100, la Medium al 400 y la Bold al 700 */
+@font-face {
+    font-family: "gilroy";
+    src: url("/fuentes/gilroy-light.woff2") format("woff2");
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "gilroy";
+    src: url("/fuentes/gilroy-medium.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "gilroy";
+    src: url("/fuentes/gilroy-bold.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+}

@@ -1,0 +1,15 @@
+/*
+ * CENPAIF · estilos del sitio
+ * Copia de la web original (hecha en WordPress con Elementor): las medidas salen de ella para que se vea igual.
+ * Puntos de quiebre de Elementor: tableta hasta 1024 px y celular hasta 767 px.
+ *
+ * Orden del archivo:
+ *   1. Letras y colores
+ *   2. Base y rejilla (secciones, columnas y separaciones como en Elementor)
+ *   3. Piezas que se repiten: títulos, botón, textos, olas
+ *   4. Encabezado y menú
+ *   5. Inicio (portada, galería, carrusel) y bloques de contenido
+ *   6. Páginas de servicios y talleres
+ *   7. Sobre Nosotros, Pagos, Alquiler (visor de fotos) y página 404
+ *   8. Contacto, mapa, pie y firma
+ */

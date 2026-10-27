@@ -1,0 +1,343 @@
+/* ---------- 3. Piezas que se repiten ---------- */
+
+/* Imagen suelta de Elementor: en línea y centrada (deja el mismo espacio que la original) */
+.imagen-e {
+    text-align: center;
+}
+
+.imagen-e img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mascara-circulo img {
+    -webkit-mask-image: radial-gradient(circle closest-side, #000 calc(100% - 1px), transparent 100%);
+    mask-image: radial-gradient(circle closest-side, #000 calc(100% - 1px), transparent 100%);
+}
+
+/* Título de ElementsKit con los tres puntos y la raya debajo */
+.titulo-ekit {
+    position: relative;
+}
+
+.titulo-ekit__texto {
+    margin: 0 0 20px;
+    font-family: "Manrope", sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--morado);
+}
+
+.titulo-ekit__raya {
+    position: relative;
+    height: 4px;
+    width: 30px;
+    margin-left: 27px;
+    border-radius: 2px;
+    background: var(--raya, var(--azul-oscuro));
+    color: var(--raya, var(--azul-oscuro));
+}
+
+.titulo-ekit__raya::before {
+    content: "";
+    position: absolute;
+    left: -27px;
+    top: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: currentColor;
+    box-shadow: 9px 0 0 0 currentColor, 18px 0 0 0 currentColor;
+}
+
+.titulo-ekit--verde {
+    --raya: var(--verde-agua);
+}
+
+.titulo-ekit--centro {
+    text-align: center;
+}
+
+.titulo-ekit--centro .titulo-ekit__raya {
+    margin-inline: auto;
+    left: 13px;
+}
+
+.titulo-ekit--400 .titulo-ekit__texto {
+    font-weight: 400;
+}
+
+.titulo-ekit--29 .titulo-ekit__texto {
+    font-size: 29px;
+}
+
+.titulo-grande .titulo-ekit__texto {
+    font-size: 40px;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Título en letra cursiva de las portadas de servicios */
+.titulo-script .titulo-ekit__texto {
+    font-family: "Dancing Script", sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--morado);
+}
+
+@media (max-width: 767px) {
+    .titulo-ekit--movil-centro {
+        text-align: center;
+    }
+
+    .titulo-ekit--movil-centro .titulo-ekit__raya {
+        margin-inline: auto;
+        left: 13px;
+    }
+
+    .titulo-ekit--29 .titulo-ekit__texto {
+        font-size: 30px;
+    }
+
+    .titulo-grande .titulo-ekit__texto {
+        font-size: 30px;
+    }
+
+    /* Elementor sube el contenido del título 43 px sin que el bloque ocupe menos de 0 */
+    .titulo-grande--sube> :first-child {
+        margin-top: -43px;
+    }
+
+    .titulo-script .titulo-ekit__texto {
+        font-size: 30px;
+    }
+}
+
+/* Título de Elementor (sin raya) */
+.titulo-e {
+    margin: 0;
+    line-height: 1;
+}
+
+.titulo-e--montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #000;
+}
+
+.titulo-e--manrope {
+    font-family: "Manrope", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--morado);
+}
+
+.titulo-e--20 {
+    font-size: 20px;
+}
+
+.titulo-e--negro {
+    color: #000;
+}
+
+.titulo-e--centro {
+    text-align: center;
+}
+
+/* Botón de Elementor: lila con borde inferior azul */
+.boton-envoltura {
+    text-align: center;
+}
+
+.boton-envoltura--izquierda {
+    text-align: left;
+}
+
+.boton {
+    display: inline-block;
+    padding: 12px 24px;
+    border-style: solid;
+    border-width: 0 0 2px;
+    border-color: var(--azul-borde);
+    border-radius: 15px;
+    background-color: var(--lila);
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.boton:hover,
+.boton:focus {
+    background-color: var(--verde-agua);
+    color: #fff;
+    border-color: var(--boton-borde-activo, var(--azul-tinta));
+}
+
+/* En el inicio, Sobre Nosotros y Alquiler el borde de abajo se pone morado al pasar el mouse */
+.borde-morado {
+    --boton-borde-activo: var(--morado);
+}
+
+/* Al pasar el mouse el botón "tiembla" hacia arriba y abajo, como en la web original */
+.boton:hover,
+.boton:focus-visible {
+    animation: temblor 1s ease-in-out 1;
+}
+
+@keyframes temblor {
+    16.65% {
+        transform: translateY(8px);
+    }
+
+    33.3% {
+        transform: translateY(-6px);
+    }
+
+    49.95% {
+        transform: translateY(4px);
+    }
+
+    66.6% {
+        transform: translateY(-2px);
+    }
+
+    83.25% {
+        transform: translateY(1px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Párrafo justificado en Gilroy (light; con --normal va en peso normal) */
+.texto-gilroy {
+    font-family: "gilroy", sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    color: #000;
+    text-align: justify;
+}
+
+.texto-gilroy strong {
+    font-weight: bolder;
+}
+
+.texto-gilroy h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-block: 0.5rem 1rem;
+}
+
+.texto-gilroy--normal {
+    font-weight: 400;
+}
+
+.texto-gilroy--17 {
+    font-size: 17px;
+}
+
+.texto-gilroy--19 {
+    font-size: 19px;
+}
+
+.texto-gilroy--24 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.texto-gilroy--25 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.texto-gilroy--28 {
+    font-size: 28px;
+    text-align: center;
+}
+
+/* "Nuestro Compromiso con el Bienestar Emocional." (Sobre Nosotros) */
+.texto-manrope {
+    color: #000;
+    font-family: "Manrope", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: justify;
+}
+
+/* Texto con raya morada a la izquierda */
+.cita {
+    margin-left: 15px;
+    padding: 15px;
+    border-left: 2px solid var(--morado);
+    color: var(--morado);
+    font-family: "gilroy", sans-serif;
+    font-size: 23px;
+    font-weight: 300;
+    text-align: justify;
+}
+
+.cita strong {
+    font-weight: bolder;
+}
+
+.e-envoltura>.cita {
+    width: calc(100% - 15px);
+}
+
+.sin-vineta {
+    list-style-type: none;
+}
+
+@media (max-width: 767px) {
+
+    .texto-gilroy,
+    .texto-gilroy--17,
+    .texto-gilroy--19,
+    .texto-gilroy--24,
+    .texto-gilroy--25,
+    .texto-gilroy--28,
+    .cita {
+        font-size: 15px;
+    }
+
+    .texto-manrope {
+        font-size: 15px;
+        text-align: center;
+    }
+}
+
+/* Forma de olas de Elementor (arriba del contacto y abajo de las portadas) */
+.ola {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    direction: ltr;
+    pointer-events: none;
+}
+
+.ola--arriba {
+    top: -1px;
+}
+
+.ola--abajo {
+    bottom: -1px;
+    transform: rotate(180deg);
+}
+
+.ola svg {
+    display: block;
+    position: relative;
+    left: 50%;
+    width: calc(100% + 1.3px);
+    transform: translateX(-50%);
+    color: #fff;
+}

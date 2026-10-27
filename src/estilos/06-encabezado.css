@@ -1,0 +1,468 @@
+/* ---------- 4. Encabezado ---------- */
+
+/* Por encima del contenido: en celular la foto de la portada sube y queda debajo de la barra del menú */
+.encabezado {
+    position: relative;
+    z-index: 99;
+}
+
+.encabezado__fila {
+    background-color: rgba(255, 255, 255, 0.28);
+    animation: aparecer 1.25s both;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.encabezado__logo {
+    width: 22.454%;
+}
+
+.encabezado__logo>.e-envoltura {
+    padding: 0;
+}
+
+.encabezado__logo-caja {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 4px;
+    padding: 3px;
+    text-align: center;
+}
+
+.encabezado__logo-caja img {
+    display: inline-block;
+    width: 80%;
+    vertical-align: middle;
+}
+
+.encabezado__derecha {
+    width: 77.546%;
+}
+
+.encabezado__derecha>.e-envoltura {
+    padding: 0;
+}
+
+.encabezado__derecha-fila {
+    display: flex;
+    width: 100%;
+}
+
+.encabezado__titulo {
+    width: 55%;
+}
+
+.encabezado__titulo>.e-envoltura {
+    padding: 0;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.encabezado__titulo-img {
+    margin: 0 !important;
+    text-align: center;
+}
+
+.encabezado__titulo-img img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.encabezado__acciones {
+    width: 44.999%;
+}
+
+.encabezado__acciones>.e-envoltura {
+    padding: 0;
+}
+
+/* Redes sociales */
+.redes {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.redes a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #64646c;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.redes a:hover {
+    background-color: var(--lila);
+    color: #fff;
+}
+
+.redes svg {
+    width: 13px;
+    height: 13px;
+}
+
+/* Botón "Escríbenos" */
+.boton-doble {
+    width: 97.929%;
+    max-width: 97.929%;
+    text-align: center;
+}
+
+.boton-doble__fila {
+    display: inline-flex;
+    width: 60%;
+}
+
+.boton-doble a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 2px;
+    padding: 8px;
+    border-radius: 15px;
+    background-color: var(--lila);
+    color: #fff;
+    font-family: "gilroy", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    transition: all 0.3s;
+}
+
+.boton-doble a:hover {
+    background-color: var(--verde-agua);
+    color: #fff;
+}
+
+.boton-doble svg {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+}
+
+/* Barra del menú */
+.menu {
+    background-color: var(--lila);
+}
+
+/* Fija arriba al bajar (la pone sitio.js; en celular no se usa) */
+.menu--fija {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.menu__lista {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 34px;
+}
+
+.menu__lista>li {
+    position: relative;
+}
+
+.menu__lista>li>a {
+    display: flex;
+    align-items: center;
+    height: 34px;
+    padding: 0 15px;
+    color: #fff;
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 22.5px;
+    transition: color 0.4s;
+}
+
+.menu__lista>li>a:hover,
+.menu__lista>li:hover>a {
+    color: var(--azul-tinta);
+}
+
+.menu__lista>li>a[aria-current="page"],
+.menu__lista>li.actual>a {
+    color: var(--azul-noche);
+}
+
+.menu__flecha {
+    width: 11px;
+    height: 11px;
+    margin: 0 6px;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    min-width: 250px;
+    margin: 0;
+    padding: 15px 0;
+    list-style: none;
+    background-color: #f4f4f4;
+    border: 1px solid #dadada;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px 0 rgba(45, 45, 45, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: transform 0.4s, opacity 0.4s, visibility 0.4s;
+}
+
+.menu__lista>li:hover>.submenu,
+.menu__lista>li:focus-within>.submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+.submenu a {
+    display: block;
+    padding: 15px;
+    color: var(--morado);
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    transition: color 0.4s;
+}
+
+.submenu a:hover {
+    color: var(--verde-agua);
+}
+
+.menu__abrir,
+.menu__cerrar {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .menu__desplegar {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .encabezado__titulo-img {
+        width: 463.45px;
+        max-width: 463.45px;
+    }
+
+    .boton-doble {
+        width: 370.35px;
+        max-width: 370.35px;
+    }
+
+    .boton-doble__fila {
+        width: 80%;
+    }
+}
+
+/* Tableta: el menú sigue en línea, pero con letra más pequeña y la barra más alta, como en la original */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .menu {
+        padding-bottom: 10px;
+    }
+
+    .menu__lista {
+        height: auto;
+    }
+
+    .menu__lista>li>a {
+        height: 100%;
+        padding: 10px 15px;
+        color: #f3f4f8;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .menu__flecha {
+        display: none;
+    }
+
+    .menu__lista .menu__desplegar {
+        display: inline-flex;
+        align-items: center;
+        height: 24.5px;
+        margin: 0 6px;
+        padding: 4px 15px;
+        color: #fff;
+    }
+
+    .menu__desplegar svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    .submenu {
+        border: 0;
+        border-radius: 0;
+    }
+
+    .submenu a {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+/* Celular: botón de tres rayas y panel que entra desde la izquierda */
+@media (max-width: 767px) {
+    .encabezado__logo-caja img {
+        width: 80%;
+    }
+
+    .boton-doble__fila {
+        width: 100%;
+    }
+
+    .menu {
+        display: flow-root;
+        height: 29px;
+    }
+
+    .menu__abrir {
+        display: block;
+        float: right;
+        width: 45px;
+        padding: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .menu__abrir span {
+        display: block;
+        width: 100%;
+        height: 1px;
+        margin: 0 0 5px;
+        background-color: #f7f8f8;
+    }
+
+    .menu__abrir span:last-child {
+        margin: 0;
+    }
+
+    .menu__panel {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        overflow-y: auto;
+        padding-bottom: 10px;
+        background-color: #f7f7f7;
+        transform: translateX(-100%);
+        transition: transform 0.6s cubic-bezier(0.6, 0.1, 0.68, 0.53);
+    }
+
+    .menu__panel.abierto {
+        transform: none;
+    }
+
+    .menu__cabeza {
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px 0;
+    }
+
+    .menu__cerrar {
+        display: block;
+        width: 45px;
+        margin: 12px;
+        padding: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 3px;
+        background: transparent;
+        color: #333;
+        font-size: 1rem;
+        line-height: 1.5;
+        cursor: pointer;
+    }
+
+    .menu__lista {
+        display: block;
+        height: auto;
+    }
+
+    .menu__lista>li>a {
+        display: flex;
+        justify-content: space-between;
+        height: auto;
+        padding: 10px 15px;
+        color: var(--azul-noche);
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .menu__lista>li>a:hover {
+        color: var(--azul-tinta);
+    }
+
+    .menu__desplegar {
+        display: inline-flex;
+        align-items: center;
+        height: 26.5px;
+        padding: 0 15px;
+        border: 1px solid currentColor;
+        border-radius: 20px;
+        background: transparent;
+        color: var(--azul-noche);
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .menu__desplegar svg {
+        width: 11px;
+        height: 11px;
+        transition: transform 0.3s;
+    }
+
+    .menu__padre[aria-expanded="true"] .menu__desplegar svg {
+        transform: rotate(180deg);
+    }
+
+    .submenu {
+        position: static;
+        display: none;
+        min-width: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .submenu.abierto {
+        display: block;
+    }
+
+    .submenu a {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}

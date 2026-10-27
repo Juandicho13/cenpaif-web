@@ -1,4 +1,4 @@
-// Arma el sitio en la carpeta dist/ (es lo que publica Cloudflare Pages).
+// Arma el sitio en la carpeta dist/ (es lo que publica Cloudflare).
 //
 //   npm run build   arma todo una vez
 //   npm run vista   arma, abre http://localhost:8080 y vuelve a armar al guardar
@@ -183,13 +183,20 @@ async function copiarFuentes() {
     return rutas;
 }
 
-function compilarCss() {
-    const paquete = path.join(raiz, 'node_modules', '@tailwindcss', 'cli', 'package.json');
-    const cli = path.join(path.dirname(paquete), 'dist', 'index.mjs');
-    const temporal = path.join(raiz, '.cache', 'sitio.css');
-    const r = spawnSync(process.execPath, [cli, '-i', 'src/estilos.css', '-o', temporal, '--minify'], { cwd: raiz, encoding: 'utf8' });
-    if (r.status !== 0) throw new Error(`El CSS no compiló:\n${r.stderr}`);
-    return readFile(temporal, 'utf8');
+// El CSS está partido por secciones en src/estilos/ (00-cabecera.css, 01-letras.css...).
+// Se juntan en orden alfabético y Tailwind solo los minifica.
+async function compilarCss() {
+    const carpeta = path.join(raiz, "src", "estilos");
+    const partes = (await readdir(carpeta)).filter((f) => f.endsWith(".css")).sort();
+    const textos = await Promise.all(partes.map((f) => readFile(path.join(carpeta, f), "utf8")));
+    const entrada = path.join(raiz, ".cache", "estilos.css");
+    await writeFile(entrada, textos.join("\n"));
+    const paquete = path.join(raiz, "node_modules", "@tailwindcss", "cli", "package.json");
+    const cli = path.join(path.dirname(paquete), "dist", "index.mjs");
+    const temporal = path.join(raiz, ".cache", "sitio.css");
+    const r = spawnSync(process.execPath, [cli, "-i", entrada, "-o", temporal, "--minify"], { cwd: raiz, encoding: "utf8" });
+    if (r.status === 0) return readFile(temporal, "utf8");
+    throw new Error("El CSS no compiló:\n" + r.stderr);
 }
 
 // ---------- Páginas ----------

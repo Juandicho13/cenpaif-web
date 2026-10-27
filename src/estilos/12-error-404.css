@@ -1,0 +1,20 @@
+/* ---------- Página no encontrada (404) ---------- */
+
+/* Igual a la original: una franja azul que sube detrás del encabezado */
+.pagina-error {
+    margin-top: -150px;
+    background-color: var(--azul-oscuro);
+}
+
+.pagina-error__espacio {
+    height: 144px;
+}
+
+.e-envoltura.pagina-error__vacio {
+    padding: 35px;
+}
+
+/* En la 404 de la original el contacto queda 20 px más abajo */
+.pagina-404 .contacto .ancla {
+    margin-bottom: 20px;
+}

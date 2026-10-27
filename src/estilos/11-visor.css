@@ -1,0 +1,230 @@
+/* ---------- Alquiler: visor de fotos de las galerías ---------- */
+
+/* Igual al de la original: caja negra, "Prev" y "Next", miniaturas y "Close".
+   El espacio de arriba deja la caja un poco más abajo del centro, como en la original. */
+.visor {
+    max-width: 100vw;
+    max-height: 100dvh;
+    padding: 31px 0 0;
+    border: 0;
+    background: transparent;
+    overflow: auto;
+}
+
+.visor::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.visor__caja {
+    padding: 20px;
+    background: #000;
+}
+
+.visor__foto {
+    position: relative;
+}
+
+.visor__img {
+    display: block;
+    width: auto;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100dvh - 96px);
+}
+
+.visor--ampliado .visor__img {
+    max-width: none;
+    max-height: none;
+}
+
+.visor button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.visor svg {
+    display: block;
+}
+
+/* Mitades de la foto: al pasar el mouse sale "Prev" o "Next" */
+.visor .visor__lado {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+}
+
+.visor__lado--prev {
+    left: 0;
+}
+
+.visor__lado--next {
+    right: 0;
+}
+
+.visor__pastilla {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    height: 22px;
+    margin-top: -11px;
+    background-color: #a3a3a3;
+    color: #fff;
+    font: 700 10px/1 Arial, sans-serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.visor__lado--prev .visor__pastilla {
+    left: 0;
+    padding-left: 6px;
+    border-radius: 0 11px 11px 0;
+}
+
+.visor__lado--next .visor__pastilla {
+    right: 0;
+    flex-direction: row-reverse;
+    padding-right: 6px;
+    border-radius: 11px 0 0 11px;
+}
+
+.visor__lado:hover .visor__pastilla,
+.visor__lado:focus-visible .visor__pastilla {
+    opacity: 1;
+}
+
+.visor__circulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #8d8d8d;
+}
+
+.visor__circulo svg {
+    width: 10px;
+    height: 10px;
+}
+
+/* Miniaturas: aparecen abajo de la foto al pasar el mouse */
+.visor__miniaturas {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    display: flex;
+    gap: 3px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.visor__foto:hover .visor__miniaturas {
+    opacity: 1;
+}
+
+.visor .visor__miniaturas button {
+    padding: 1px;
+    border: 1px solid #000;
+}
+
+.visor .visor__miniaturas button.activa {
+    border-color: #fff;
+}
+
+.visor__miniaturas img {
+    display: block;
+    width: 50px;
+    height: 33px;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Botón para ver la foto en su tamaño real (solo si se achicó para caber en la pantalla) */
+.visor .visor__expandir {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.visor--achicada .visor__expandir,
+.visor--ampliado .visor__expandir {
+    display: flex;
+}
+
+.visor__expandir svg {
+    width: 12px;
+    height: 12px;
+}
+
+/* Barra de abajo: pasar solas, anterior, 1/3, siguiente y cerrar */
+.visor__barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0 2px;
+}
+
+.visor__nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-left: 2px;
+}
+
+.visor__play svg {
+    width: 10px;
+    height: 12px;
+}
+
+.visor__play .visor__pausa,
+.visor__play.activo .visor__reproducir {
+    display: none;
+}
+
+.visor__play.activo .visor__pausa {
+    display: block;
+}
+
+.visor__flecha svg {
+    width: 12px;
+    height: 12px;
+}
+
+.visor__cuenta {
+    margin: 0 3px;
+    color: #ccc;
+    font: 10px/1 Arial, sans-serif;
+}
+
+.visor .visor__cerrar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    height: 22px;
+    padding-left: 12px;
+    border-radius: 11px;
+    background-color: #a3a3a3;
+    color: #fff;
+    font: 700 9.5px/1 Arial, sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.visor__cerrar .visor__circulo svg {
+    width: 12px;
+    height: 12px;
+}
