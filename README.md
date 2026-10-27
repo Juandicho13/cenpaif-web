@@ -1,7 +1,11 @@
 # CENPAIF
 
 Copia de cenpaif.com (Centro Psicológico de Atención Integral Familiar y Empresarial) como sitio estático,
-igual a la web original en WordPress, para publicarla en Cloudflare Pages y mejorarla desde aquí.
+igual a la web original en WordPress, publicada en Cloudflare Workers y mejorada desde aquí.
+
+Dirección de prueba: [https://cenpaif-web.juanolartediaz13.workers.dev](https://cenpaif-web.juanolartediaz13.workers.dev)
+
+El plan, las reglas y los tickets están en [HANDOFF.md](HANDOFF.md).
 
 ## Comandos
 
@@ -43,13 +47,15 @@ la foto de perfil de Google y el texto. El estilo del widget está en `public/re
 
 ## Videos
 
-Los videos de los talleres están en `public/videos/` (MP4, menos de 25 MB cada uno, que es el límite de Cloudflare Pages).
+Los videos de los talleres están en `public/videos/` (MP4, menos de 25 MB cada uno, que es el límite de Cloudflare Workers).
 
-## Cloudflare Pages
+## Cloudflare Workers
 
+- Proyecto `cenpaif-web` conectado a GitHub
 - Comando de compilación: `npm run build`
-- Directorio de salida: `dist`
-- La versión de Node sale de `.node-version`
+- Comando de despliegue: `npx wrangler deploy`
+- Configuración: `wrangler.jsonc` (publica `dist/`)
+- Versión de Node: Node 22 desde `.node-version`
 
 ## Cosas que quedaron distintas a la original a propósito
 

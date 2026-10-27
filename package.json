@@ -2,7 +2,7 @@
     "name": "cenpaif",
     "private": true,
     "type": "module",
-    "description": "Copia estática de cenpaif.com para Cloudflare Pages",
+    "description": "Copia estática de cenpaif.com publicada en Cloudflare Workers",
     "engines": {
         "node": ">=20"
     },
