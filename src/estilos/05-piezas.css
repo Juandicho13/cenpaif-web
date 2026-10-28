@@ -215,13 +215,13 @@
     }
 }
 
-/* Párrafo justificado en Gilroy (light; con --normal va en peso normal) */
+/* Párrafo en Gilroy (light; con --normal va en peso normal) */
 .texto-gilroy {
     font-family: "gilroy", sans-serif;
     font-size: 17px;
     font-weight: 300;
     color: #000;
-    text-align: justify;
+    text-align: left;
 }
 
 .texto-gilroy strong {
@@ -268,7 +268,7 @@
     font-family: "Manrope", sans-serif;
     font-size: 30px;
     font-weight: 400;
-    text-align: justify;
+    text-align: left;
 }
 
 /* Texto con raya morada a la izquierda */
@@ -280,7 +280,7 @@
     font-family: "gilroy", sans-serif;
     font-size: 23px;
     font-weight: 300;
-    text-align: justify;
+    text-align: left;
 }
 
 .cita strong {
