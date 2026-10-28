@@ -27,9 +27,9 @@
         <div class="galeria__tarjeta">
             <div class="galeria__foto">
                 {{ foto(g[0], '', { tamanos: '(max-width: 1024px) 92vw, 353px' }) }}
+                <div class="galeria__velo"></div>
                 <a class="galeria__ampliar" href="{{ rutaFoto(g[0], 1600) }}" data-miniatura="{{ rutaFoto(g[0], 400) }}" aria-label="Ver la foto {{ loop.index }} en grande"></a>
             </div>
-            <div class="galeria__velo"></div>
             <div class="galeria__texto">
                 {% if g[1] %}<span class="galeria__nombre">{{ g[1] }}</span>{% endif %}
                 <p class="galeria__desc">{{ g[2] | safe }}</p>
@@ -143,7 +143,7 @@
                                 <div class="texto-gilroy">
                                     <ol>
                                         <li>Diligencia<strong> el </strong><b>formulario</b><strong> y anexa los documentos solicitados</strong> (Cedula, RUT, cámara de comercio y tarjeta profesional si aplica)</li>
-                                        <li><strong>Solicita por WhatsApp</strong> <strong><a href="{{ whatsapp('Hola, quiero información sobre el alquiler de la oficina.') }}" target="_blank" rel="noopener">3132712530</a></strong> la fecha de agenda según el plan seleccionado</li>
+                                        <li><strong>Solicita por WhatsApp</strong> <strong><a href="{{ whatsapp() }}" target="_blank" rel="noopener">3132712530</a></strong> la fecha de agenda según el plan seleccionado</li>
                                     </ol>
                                 </div>
                                 {{ m.boton('Diligencia el formulario', 'https://docs.google.com/forms/d/e/1FAIpQLSexQWdDP3Yh4ZwiszT7yjvsJppI-YIYPyG5tT1F_bMo632D1w/viewform?pli=1', 'centro', 'borde-morado') }}
