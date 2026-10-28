@@ -70,7 +70,7 @@
                             <div class="e-envoltura">
                                 <h2>Teléfono</h2>
                                 <ul class="lista-iconos">
-                                    <li>{{ icono('telefono') }}<span>{{ sitio.telefono }}</span></li>
+                                    <li>{{ icono('telefono') }}<a href="{{ sitio.telefonoEnlace }}">{{ sitio.telefono }}</a></li>
                                 </ul>
                                 <div class="boton-alquiler">
                                     <div class="boton-alquiler__fila">
@@ -83,7 +83,7 @@
                             <div class="e-envoltura">
                                 <h2>Email</h2>
                                 <ul class="lista-iconos">
-                                    <li>{{ icono('correo') }}<span>{{ sitio.correo }}</span></li>
+                                    <li>{{ icono('correo') }}<a href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                             <div class="e-envoltura">
                                 <h2>Dirección</h2>
                                 <ul class="lista-iconos">
-                                    <li>{{ icono('casa') }}<span>Cll 11 # 6A-56 Edificio Offices Center Chía Elite. Chía Cund. Oficina 509</span></li>
+                                    <li>{{ icono('casa') }}<a href="{{ sitio.enlaces.comoLlegar }}" target="_blank" rel="noopener">Cll 11 # 6A-56 Edificio Offices Center Chía Elite. Chía Cund. Oficina 509</a></li>
                                 </ul>
                             </div>
                         </div>

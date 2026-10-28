@@ -71,13 +71,20 @@
     color: #000;
 }
 
-.lista-iconos span {
+.lista-iconos span,
+.lista-iconos a {
     padding-left: 5px;
     color: #000;
     font-family: "Didact Gothic", sans-serif;
     font-size: 15px;
     font-weight: 300;
     line-height: 1.5;
+}
+
+.lista-iconos a:hover,
+.lista-iconos a:focus-visible {
+    color: #000;
+    text-decoration: underline;
 }
 
 /* Botón dorado "Alquiler de oficinas por horas" */
