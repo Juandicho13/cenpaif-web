@@ -25,13 +25,15 @@
     {% for g in fotos %}
     <div class="galeria__item">
         <div class="galeria__tarjeta">
-            <div class="galeria__foto">{{ foto(g[0], '', { tamanos: '(max-width: 1024px) 92vw, 353px' }) }}</div>
+            <div class="galeria__foto">
+                {{ foto(g[0], '', { tamanos: '(max-width: 1024px) 92vw, 353px' }) }}
+                <a class="galeria__ampliar" href="{{ rutaFoto(g[0], 1600) }}" data-miniatura="{{ rutaFoto(g[0], 400) }}" aria-label="Ver la foto {{ loop.index }} en grande"></a>
+            </div>
             <div class="galeria__velo"></div>
             <div class="galeria__texto">
                 {% if g[1] %}<span class="galeria__nombre">{{ g[1] }}</span>{% endif %}
                 <p class="galeria__desc">{{ g[2] | safe }}</p>
             </div>
-            <a class="galeria__ampliar" href="{{ rutaFoto(g[0], 1600) }}" data-miniatura="{{ rutaFoto(g[0], 400) }}" aria-label="Ver la foto {{ loop.index }} en grande"></a>
         </div>
     </div>
     {% endfor %}

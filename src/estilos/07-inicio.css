@@ -178,6 +178,7 @@
 }
 
 .galeria__foto {
+    position: relative;
     overflow: hidden;
     border-radius: 0 0 48px 0;
 }
@@ -229,8 +230,11 @@
     transition: transform 0.5s;
 }
 
-.galeria__nombre {
+.galeria__nombre,
+.galeria__nombre:hover,
+.galeria__nombre:active {
     display: block;
+    color: inherit;
     font-family: "Dancing Script", sans-serif;
     font-size: 35px;
     font-weight: 600;
@@ -275,6 +279,38 @@
     position: absolute;
     inset: 0;
     z-index: 4;
+}
+
+@media (hover: none),
+(max-width: 1024px) {
+    .galeria__velo {
+        display: none;
+    }
+
+    .galeria__tarjeta:hover .galeria__foto img {
+        transform: none;
+    }
+
+    .galeria__icono {
+        opacity: 1;
+        transition: none;
+    }
+
+    .galeria__texto {
+        position: static;
+        transform: none;
+        transition: none;
+    }
+
+    .galeria__nombre,
+    .galeria__nombre:hover,
+    .galeria__nombre:active {
+        color: var(--azul-noche);
+    }
+
+    .galeria__desc {
+        color: #000;
+    }
 }
 
 @media (max-width: 1024px) {
