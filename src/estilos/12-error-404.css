@@ -10,8 +10,63 @@
     height: 144px;
 }
 
-.e-envoltura.pagina-error__vacio {
-    padding: 35px;
+/* Mensaje de la página que no existe */
+.e-envoltura.pagina-error__caja {
+    max-width: 760px;
+    margin-inline: auto;
+    padding: 70px 20px 60px;
+}
+
+.texto-gilroy.pagina-error__ayuda {
+    margin-top: 0;
+    text-align: center;
+}
+
+.e-envoltura>.pagina-error__servicios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 12px;
+    margin: 0 0 36px;
+    padding: 0;
+    list-style: none;
+}
+
+.pagina-error__servicios a {
+    display: inline-block;
+    padding: 9px 18px;
+    border: 1px solid var(--lila);
+    border-radius: 15px;
+    color: var(--azul-noche);
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.3;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagina-error__servicios a:hover,
+.pagina-error__servicios a:focus-visible {
+    background-color: var(--azul-noche);
+    border-color: var(--azul-noche);
+    color: #fff;
+}
+
+.pagina-error__botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 20px;
+}
+
+.pagina-error__botones>.boton-envoltura {
+    width: auto;
+}
+
+@media (max-width: 767px) {
+    .e-envoltura.pagina-error__caja {
+        padding: 50px 10px 40px;
+    }
 }
 
 /* En la 404 de la original el contacto queda 20 px más abajo */

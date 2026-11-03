@@ -6,10 +6,11 @@
 }
 ---
 {% extends "base.njk" %}
+{% import "macros.njk" as m %}
 
 {% block contenido %}
 
-{# Igual a la original: una franja azul que sube detrás del encabezado y un espacio vacío #}
+{# Igual a la original: una franja azul que sube detrás del encabezado #}
 <section class="e-seccion pagina-error">
     <div class="e-contenedor e-contenedor--ancho">
         <div class="e-columna">
@@ -19,10 +20,25 @@
         </div>
     </div>
 </section>
+{# Mensaje y caminos para seguir: el inicio, los servicios y WhatsApp #}
 <section class="e-seccion">
     <div class="e-contenedor">
         <div class="e-columna">
-            <div class="e-envoltura pagina-error__vacio"></div>
+            <div class="e-envoltura pagina-error__caja">
+                {{ m.titulo('No encontramos esta página', 'h1', 'titulo-ekit--centro titulo-ekit--verde') }}
+                <p class="texto-gilroy pagina-error__ayuda">Puede que la dirección haya cambiado o tenga un error. Desde aquí puedes ir a cualquiera de nuestros servicios:</p>
+                <ul class="pagina-error__servicios">
+                    {% for item in sitio.menu %}
+                    {% for hijo in item.hijos %}
+                    <li><a href="{{ hijo.url }}">{{ hijo.texto }}</a></li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+                <div class="pagina-error__botones">
+                    {{ m.boton('Ir al inicio', '/', 'centro', 'borde-morado') }}
+                    {{ m.boton('Escríbenos por WhatsApp', whatsapp('Hola, vengo de la página web de CENPAIF.'), 'centro', 'borde-morado') }}
+                </div>
+            </div>
         </div>
     </div>
 </section>
