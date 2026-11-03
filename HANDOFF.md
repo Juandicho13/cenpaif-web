@@ -138,9 +138,11 @@ Antes de F0-02 el CSS está entero en `src/estilos.css`; después queda partido 
 | `5d51d81` | 2026-10-26 | Juan | Copia exacta de cenpaif.com |
 | `9fb3f39` y `906fad5` | 2026-10-26 | Juan | Archivos que faltaban y configuración de Cloudflare (`wrangler.jsonc`) |
 | `9732d70` | 2026-10-26 | Claude | Letras Gilroy y videos de los talleres |
-| (este) | 2026-10-27 | Claude | Este manual |
+| `71045b4` | 2026-10-27 | Claude | Este manual |
+| `69db4ac` a `4415665` | 2026-10-27 y 28 | Hormigas | F0-01 a F0-03, F1-01 a F1-04 y F1-06 a F1-08 (bitácora 4.5) |
+| `1a3238c` a `cb3cf37` | 2026-11-03 | Claude | Arreglos a F1-01, F1-03 y F1-07; F1-09 a F1-13 |
 
-Solo existe la rama `main`. Hasta el cambio de dominio (fase 9), `main` es el sitio de prueba: nadie lo ve en cenpaif.com, así que se trabaja directo en `main`.
+La rama de trabajo es `main`. Hasta el cambio de dominio (fase 9), `main` es el sitio de prueba: nadie lo ve en cenpaif.com, así que se trabaja directo en `main`.
 
 ### 4.2 Publicación
 
@@ -226,7 +228,25 @@ Cada ticket cerrado agrega una fila. La columna "Para el documento final" se esc
 | 2026-10-26 | Copia exacta | `5d51d81` | La web pasó de WordPress a un sitio estático igual, mucho más rápido (Lighthouse en celular: inicio de 30 a 62) | Claude: mismas alturas que la original en 1440, 1366, 1024, 800 y 390 px |
 | 2026-10-26 | Archivos que faltaban y Cloudflare | `9fb3f39`, `906fad5` | | El build de Cloudflare pasó del error de `resenas.mjs` al de las letras |
 | 2026-10-26 | Letras y videos | `9732d70` | La web quedó publicada en una dirección de prueba | Build `#708f9604` en verde; Claude revisó páginas, 404, redirecciones y cabeceras |
-| 2026-10-27 | Manual para Gemini | (este) | | |
+| 2026-10-27 | Manual para Gemini | `71045b4` | | |
+| 2026-10-27 | F0-01 README | `69db4ac` | | |
+| 2026-10-27 | F0-02 CSS partido | `9936751`, `8b26119` | | Mismo CSS minificado |
+| 2026-10-28 | F0-03 Revisión de contenido | `55e0e58` | | `docs/CONTENIDO.md` |
+| 2026-10-28 | F1-01 Galerías en celular | `6211382`, `51d92e0` | En el celular ya se ven los servicios del inicio con su descripción y los planes y precios de la oficina. | Claude, 390 y 1440 px. Ojo: `51d92e0` también reescribió el inicio sin ticket (ver error 13); se deshizo en `1a3238c` |
+| 2026-10-28 | F1-02 Texto a la izquierda | `0e0cdda` | Los textos se leen mejor: ya no quedan huecos grandes entre palabras en el celular. | Claude: ningún `justify` |
+| 2026-10-28 | F1-03 Teléfono, correo y dirección | `a88a967`, `4e6e7c4` | Desde el celular se puede llamar, escribir el correo o abrir el mapa con un toque. | Claude: `a88a967` dejó el teléfono y la dirección con `href=""` (error 14); `4e6e7c4` lo arregla |
+| 2026-10-28 | F1-04 Listas | `b549d9a` | Las listas de Empoderamiento y Batería se leen punto por punto. | Claude: mismas palabras, sin "●" |
+| 2026-10-28 | F1-06 Botón del formulario | `3c910df` | El formulario de contacto avisa que el mensaje se envía por WhatsApp. | Claude |
+| 2026-10-28 | F1-07 Mensajes de WhatsApp | `d5a3065`, `4e6e7c4` | Los mensajes de WhatsApp llegan diciendo desde qué página escribe la persona. | Claude: faltaban el inicio y Alquiler, `4e6e7c4` los agrega |
+| 2026-10-28 | F1-08 Alquiler en el menú y precios | `4415665` | El alquiler de oficinas aparece en el menú y los precios se leen claros. | Claude: menú en todas las páginas, 4 precios con $ |
+| 2026-11-03 | Inicio de vuelta a los textos de la tía | `1a3238c` | | Claude: el inicio mide lo mismo que la copia en 1440 px (más los 80 px del pie de F1-10) |
+| 2026-11-03 | F1-09 Página de error | `ca69f3a` | Si alguien entra a una dirección que no existe, ve un mensaje y enlaces para seguir. | Claude, 390 y 1440 px, sigue con `noindex` |
+| 2026-11-03 | F1-10 Botón flotante | `282c0f9` | | Claude: con el botón de masleads cargado, la firma se ve completa en 390 y 1440 px |
+| 2026-11-03 | F1-11 Menú sin salto | `837dffa` | Al bajar por la página el contenido ya no da un salto. | Claude: antes saltaba 34 px en 1440 y 55 px en 1024; ahora 0 |
+| 2026-11-03 | F1-12 Repetidos | `5eb5649` | Se quitaron títulos repetidos en Psicólogos en Chía, Orientación vocacional y Talleres empresariales. | Claude |
+| 2026-11-03 | F1-13 Año y tuteo | `cb3cf37` | El año del pie se actualiza solo y la web le habla a la persona siempre de tú. | Claude: el pie dice 2026; el único "sus" que queda es de las parejas (tercera persona) |
+
+**Siguiente en F1:** F1-14 espera la respuesta de la tía (pregunta 2), F1-15 espera la aprobación de Juan y F1-05 depende de F1-15. Mientras tanto se puede seguir con F2.
 
 ---
 
@@ -385,6 +405,8 @@ Un solo archivo sin librerías, dentro de una función que se llama sola:
 | 10 | La copia se descuadró 20 px en celular | En Elementor las piezas con ancho propio no llevan el margen de 20 px | Esas piezas llevan la clase `ancho-propio` (5.4) |
 | 11 | Las alturas cambian 1 a 3 px entre la copia y la original | Redondeo de las fotos optimizadas | Es normal |
 | 12 | Las pruebas de Juan cuentan como visitas en Analytics | GTM carga en cualquier dirección | F2-02 lo limita a cenpaif.com |
+| 13 | El inicio quedó con textos que la tía nunca escribió, anchos fijos en línea (`style="width:50%"`), fotos cambiadas y sin el título de las reseñas | En F1-01 (galerías, solo CSS) la entrega trajo `index.njk` escrito de memoria, no a partir del `cat` | La hormiga parte del `cat` que pegó Juan y cambia solo lo que dice el ticket. El jefe, antes de cerrar, pide `git diff --stat`: si un ticket de CSS cambia 200 líneas de una página, se rechaza |
+| 14 | El teléfono y la dirección del pie salían con `href=""` | F1-03 usó `sitio.telefonoEnlace` y `sitio.enlaces.comoLlegar` sin crearlos en `sitio.mjs`, y Nunjucks no avisa cuando un dato no existe | Después del build, `grep -rl 'href=""' dist` no debe mostrar nada |
 
 ---
 
@@ -913,6 +935,8 @@ grep -rn "texto a buscar" src
 ```
 
 - `npm run build` debe terminar con `Listo: 12 páginas en dist/ (N ms)` y sin líneas `⚠`.
+- `grep -rl 'href=""' dist` no debe mostrar nada (un enlace vacío es un dato que no existe en `sitio.mjs`, error 14).
+- `git diff --stat` solo debe mostrar los archivos del ticket (error 13).
 - `npm run vista` se queda corriendo; se detiene con Ctrl + C.
 
 ### 11.2 Anchos de prueba
