@@ -52,11 +52,18 @@
         }
     });
 
-    // Al bajar 60 px la barra del menú queda fija arriba (en computador y tableta, como en la original)
+    // Al bajar 60 px la barra del menú queda fija arriba (en computador y tableta, como en la original).
+    // Un hueco del mismo alto ocupa su lugar para que el contenido no salte hacia arriba.
     var barra = document.querySelector('.menu');
     if (barra) {
+        var hueco = document.createElement('div');
+        hueco.className = 'menu-hueco';
+        hueco.setAttribute('aria-hidden', 'true');
+        barra.parentNode.insertBefore(hueco, barra.nextSibling);
         var fijarBarra = function () {
             var fija = document.documentElement.clientWidth > 767 && window.scrollY >= 60;
+            if (fija && !barra.classList.contains('menu--fija')) hueco.style.height = barra.offsetHeight + 'px';
+            if (!fija) hueco.style.height = '';
             barra.classList.toggle('menu--fija', fija);
         };
         window.addEventListener('scroll', fijarBarra, { passive: true });
