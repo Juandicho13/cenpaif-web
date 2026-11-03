@@ -175,6 +175,14 @@
     stroke: var(--lila);
 }
 
+/* Espacio al final para que el botón flotante de WhatsApp no tape la firma ni los derechos */
+body>footer::after {
+    content: "";
+    display: block;
+    height: 80px;
+    background-color: var(--morado-pie);
+}
+
 .derechos__firma {
     position: absolute;
     right: 24px;
