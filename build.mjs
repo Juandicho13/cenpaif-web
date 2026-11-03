@@ -288,6 +288,8 @@ async function construir() {
     const { foto, precargarFoto, rutaFoto, fondoFoto } = crearFoto(manifiesto);
     const globales = {
         sitio, foto, precargarFoto, rutaFoto, fondoFoto,
+        // Año del pie: se actualiza solo en cada build
+        anio: new Date().getFullYear(),
         icono: await cargarSvgs(path.join(raiz, 'src', 'iconos'), 'el ícono'),
         forma: await cargarSvgs(path.join(raiz, 'src', 'formas'), 'la forma'),
         activos: { css: rutaCss, js: rutaJs, fuentes },
