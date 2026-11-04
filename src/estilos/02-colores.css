@@ -2,6 +2,8 @@
 
 :root {
     --lila: #8586ce;
+    /* Lila más oscuro para fondos con letra blanca: el blanco encima da 4,98 a 1 */
+    --lila-fuerte: #6667ba;
     --morado: #422360;
     --morado-pie: #3d275d;
     --azul-noche: #242c64;

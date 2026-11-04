@@ -139,7 +139,7 @@
     margin: 2px;
     padding: 8px;
     border-radius: 15px;
-    background-color: var(--lila);
+    background-color: var(--lila-fuerte);
     color: #fff;
     font-family: "gilroy", sans-serif;
     font-size: 12px;
@@ -161,7 +161,7 @@
 
 /* Barra del menú */
 .menu {
-    background-color: var(--lila);
+    background-color: var(--lila-fuerte);
 }
 
 /* Fija arriba al bajar (la pone sitio.js; en celular no se usa) */
@@ -201,12 +201,17 @@
 
 .menu__lista>li>a:hover,
 .menu__lista>li:hover>a {
-    color: var(--azul-tinta);
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 6px;
 }
 
 .menu__lista>li>a[aria-current="page"],
 .menu__lista>li.actual>a {
-    color: var(--azul-noche);
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
 }
 
 .menu__flecha {
