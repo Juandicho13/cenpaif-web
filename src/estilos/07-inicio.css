@@ -348,3 +348,15 @@
     bottom: auto;
     right: 16px;
 }
+
+@media (max-width: 767px) {
+    /* En celular el título deja sitio al botón de pausa */
+    .portada__titulo {
+        padding-right: 44px;
+    }
+
+    .portada>.pausa {
+        top: 10px;
+        right: 10px;
+    }
+}
