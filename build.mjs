@@ -15,6 +15,7 @@ import http from 'node:http';
 import path from 'node:path';
 import nunjucks from 'nunjucks';
 import sharp from 'sharp';
+import { transform } from 'esbuild';
 
 const raiz = path.dirname(fileURLToPath(import.meta.url));
 const SALIDA = path.join(raiz, 'dist');
@@ -279,7 +280,10 @@ async function construir() {
     let css = await compilarCss();
     for (const [nombre, ruta] of Object.entries(fuentes)) css = css.replaceAll(`/fuentes/${nombre}.woff2`, ruta);
     const rutaCss = await escribirConHuella('css', 'sitio', 'css', css);
-    const rutaJs = await escribirConHuella('js', 'sitio', 'js', await readFile(path.join(raiz, 'src', 'sitio.js')));
+    // El JS va minificado; en la vista local queda tal cual para depurar
+    let js = await readFile(path.join(raiz, 'src', 'sitio.js'), 'utf8');
+    if (!process.argv.includes('--vista')) js = (await transform(js, { minify: true, target: 'es2017' })).code;
+    const rutaJs = await escribirConHuella('js', 'sitio', 'js', js);
 
     const env = new nunjucks.Environment(
         new nunjucks.FileSystemLoader([path.join(raiz, 'src', 'plantillas'), path.join(raiz, 'src', 'paginas')], { noCache: true }),
