@@ -342,3 +342,9 @@
     width: 100%;
     border-radius: 12px;
 }
+/* La pausa de la portada va arriba a la derecha (abajo está la ola) */
+.portada>.pausa {
+    top: 22px;
+    bottom: auto;
+    right: 16px;
+}

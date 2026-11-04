@@ -13,6 +13,29 @@
 
     var WHATSAPP = '573132712530';
     var celular = window.matchMedia('(max-width: 767px)');
+    // Quien pidió menos movimiento en su teléfono o computador no ve fotos que pasan solas
+    var sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Botón pequeño para pausar o seguir lo que se mueve solo (portada y carrusel)
+    var PAUSA = '<svg viewBox="0 0 12 14" aria-hidden="true"><path d="M2 1h3v12H2zM7 1h3v12H7z" fill="currentColor"/></svg>';
+    var SEGUIR = '<svg viewBox="0 0 12 14" aria-hidden="true"><path d="M2 1l9 6-9 6z" fill="currentColor"/></svg>';
+    function botonPausa(contenedor, nombre, alCambiar) {
+        var boton = document.createElement('button');
+        boton.type = 'button';
+        boton.className = 'pausa';
+        var pausado = false;
+        var pintar = function () {
+            boton.innerHTML = pausado ? SEGUIR : PAUSA;
+            boton.setAttribute('aria-label', (pausado ? 'Seguir pasando ' : 'Pausar ') + nombre);
+        };
+        boton.addEventListener('click', function () {
+            pausado = !pausado;
+            pintar();
+            alCambiar(pausado);
+        });
+        pintar();
+        contenedor.appendChild(boton);
+    }
 
     // ---------- 1. Menú ----------
     var abrir = document.querySelector('.menu__abrir');
@@ -74,9 +97,12 @@
     // ---------- 2. Portada ----------
     document.querySelectorAll('[data-alternar]').forEach(function (seccion) {
         var fotos = seccion.querySelectorAll('.portada__foto');
-        if (fotos.length < 2) return;
+        if (fotos.length < 2 || sinMovimiento) return;
         var actual = 0;
+        var detenida = false;
+        botonPausa(seccion, 'las fotos de la portada', function (p) { detenida = p; });
         setInterval(function () {
+            if (detenida || document.hidden) return;
             fotos[actual].classList.remove('activa');
             actual = (actual + 1) % fotos.length;
             fotos[actual].classList.add('activa');
@@ -93,8 +119,11 @@
         pista.appendChild(copia);
         var indice = 0;
         var pausa = false;
+        var detenido = false;
         carrusel.addEventListener('mouseenter', function () { pausa = true; });
         carrusel.addEventListener('mouseleave', function () { pausa = false; });
+        if (sinMovimiento) return;
+        botonPausa(carrusel, 'las fotos', function (p) { detenido = p; });
         pista.addEventListener('transitionend', function () {
             if (indice === total) {
                 pista.style.transition = 'none';
@@ -105,7 +134,7 @@
             }
         });
         setInterval(function () {
-            if (pausa || document.hidden) return;
+            if (pausa || detenido || document.hidden) return;
             indice += 1;
             pista.style.transform = 'translateX(' + (-100 * indice) + '%)';
         }, 5000);
