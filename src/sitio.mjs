@@ -19,10 +19,10 @@ export const sitio = {
         { nombre: 'Facebook', icono: 'facebook', url: 'https://www.facebook.com/1962076727412535' },
         { nombre: 'Instagram', icono: 'instagram', url: 'https://www.instagram.com/psicologa.claudiadiaz/' },
         { nombre: 'LinkedIn', icono: 'linkedin', url: 'https://www.linkedin.com/in/cenpaif' },
-        { nombre: 'YouTube', icono: 'youtube', url: 'https://www.youtube.com/channel/UCSjZLQ6vsG7_ZXHl185ZrUQ?view_as=subscriber' }
+        { nombre: 'YouTube', icono: 'youtube', url: 'https://www.youtube.com/channel/UCSjZLQ6vsG7_ZXHl185ZrUQ' }
     ],
     menu: [
-        { texto: 'Home', url: '/' },
+        { texto: 'Inicio', url: '/' },
         {
             texto: 'Servicios',
             hijos: [
