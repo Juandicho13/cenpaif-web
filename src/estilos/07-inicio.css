@@ -360,3 +360,74 @@
         right: 10px;
     }
 }
+
+/* ---------- Portada en celular (propuesta F1-05) ----------
+   Foto arriba, y debajo, sobre morado: título, texto y dos botones de ancho completo */
+@media (max-width: 767px) {
+    .portada {
+        background-color: var(--morado);
+    }
+
+    .portada__fondo {
+        position: relative;
+        height: 250px;
+    }
+
+    .portada__foto img {
+        object-position: center 30%;
+    }
+
+    .portada__interior {
+        padding: 24px 20px 70px;
+    }
+
+    .portada__titulo {
+        padding-right: 0;
+        font-size: 30px;
+        line-height: 1.15;
+        text-shadow: none;
+        -webkit-text-stroke: 0;
+    }
+
+    .portada__boton {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .portada__boton .boton {
+        display: block;
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .boton--claro {
+        background-color: #fff;
+        color: var(--morado);
+        border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .portada__espacio {
+        height: 0;
+    }
+
+    .portada__texto {
+        margin-top: 0;
+        padding: 0;
+        font-size: 16px;
+        line-height: 1.5;
+        text-shadow: none;
+    }
+
+    .portada__texto p {
+        margin: 0;
+    }
+
+    .portada>.pausa {
+        top: 10px;
+        right: 10px;
+    }
+}
