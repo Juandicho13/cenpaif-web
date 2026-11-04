@@ -258,6 +258,11 @@ Cada ticket cerrado agrega una fila. La columna "Para el documento final" se esc
 | 2026-11-03 | F3-01 Contraste (propuesta) | rama `propuesta/contraste` | | Claude: accesibilidad 100 en las 11 páginas con la propuesta. Espera aprobación |
 | 2026-11-03 | F2-01 Mapa liviano (propuesta) | rama `propuesta/mapa` | | Claude: no se pide nada a google.com/maps hasta tocar el botón. Espera aprobación |
 
+| 2026-11-03 | F1-15b Botones (aprobada por Juan) | `3510f4d` | Los botones dicen claro lo que pasa al tocarlos y la misma acción tiene el mismo nombre en toda la web. | Claude: 9 "Agenda tu cita", Cotiza para empresas, Inscríbete en talleres. Sobre Nosotros sigue yendo a Google Calendar hasta que la tía responda la pregunta 4 |
+| 2026-11-03 | F1-05 Portada en celular (propuesta) | rama `propuesta/portada-movil` | | Claude: foto arriba, título de 30 px, dos botones de ancho completo y el texto en 16 px sobre morado. Tableta y computador igual |
+
+**Respuestas de la tía (2026-11-03):** pregunta 2: formularios de Google sin iniciar sesión, pidiendo el correo como respuesta del encuestado (opción A de F1-14). Reseñas: sí da acceso a su perfil de Google para F5-05 (las de 5 estrellas más recientes).
+
 **Siguiente:** F1-14 espera a la tía (pregunta 2), F1-15 espera la aprobación de Juan y F1-05 depende de F1-15. F2-01 y F3-01 esperan que Juan apruebe las ramas de propuesta. F2-03 espera la pregunta 5, F2-06 es propuesta de reseñas, F2-07 lo mide Juan. Lo de F4 a F8 que queda depende de la tía o de la aprobación de Juan (títulos y descripciones de F4-01). Pendiente pequeño: en Orientación vocacional Lighthouse marca "Más Información" como texto de enlace poco claro (SEO 92); cambiarlo es tocar un texto de la tía.
 
 ---
