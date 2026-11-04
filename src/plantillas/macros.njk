@@ -25,7 +25,7 @@
 
 {# "Ver Video" con el botón redondo que abre el video #}
 {% macro video(archivo, clase='') %}
-<h2 class="ver-video {{ clase }}">Ver Video</h2>
+<p class="ver-video {{ clase }}">Ver Video</p>
 <div class="video-boton-caja {{ clase }}">
     <button type="button" class="video-boton" data-video="/videos/{{ archivo }}" aria-label="Ver el video">{{ icono('play') }}</button>
 </div>

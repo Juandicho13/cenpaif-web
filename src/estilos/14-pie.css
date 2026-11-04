@@ -41,7 +41,7 @@
     width: 30.251%;
 }
 
-.pie-info h2 {
+.pie-info .pie-info__titulo {
     margin: 0;
     color: #000;
     font-family: "Manrope", sans-serif;
@@ -223,7 +223,7 @@ body>footer::after {
         width: 100% !important;
     }
 
-    .pie-info h2 {
+    .pie-info .pie-info__titulo {
         text-align: center;
     }
 
