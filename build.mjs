@@ -23,16 +23,10 @@ const SALIDA = path.join(raiz, 'dist');
 const CACHE = path.join(raiz, 'fotos', 'optimizadas');
 const ANCHOS = [400, 800, 1200, 1600];
 
-// Letras: las de Google salen de los paquetes instalados; Gilroy está en la carpeta fuentes/
+// Letras: solo dos, Manrope para textos y Bodoni Moda (parecida a la del logo) para títulos
 const FUENTES = {
     manrope: 'node_modules/@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2',
-    montserrat: 'node_modules/@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2',
-    'dancing-script': 'node_modules/@fontsource-variable/dancing-script/files/dancing-script-latin-wght-normal.woff2',
-    oswald: 'node_modules/@fontsource-variable/oswald/files/oswald-latin-wght-normal.woff2',
-    'didact-gothic': 'node_modules/@fontsource/didact-gothic/files/didact-gothic-latin-400-normal.woff2',
-    'gilroy-light': 'fuentes/gilroy-light.woff2',
-    'gilroy-medium': 'fuentes/gilroy-medium.woff2',
-    'gilroy-bold': 'fuentes/gilroy-bold.woff2'
+    bodoni: 'node_modules/@fontsource-variable/bodoni-moda/files/bodoni-moda-latin-wght-normal.woff2'
 };
 
 const corto = (contenido) => createHash('sha1').update(contenido).digest('hex').slice(0, 8);
@@ -361,7 +355,7 @@ await construir();
 if (process.argv.includes('--vista')) {
     servir();
     let espera;
-    for (const carpeta of ['src', 'public', 'fotos', 'fuentes']) {
+    for (const carpeta of ['src', 'public', 'fotos']) {
         watch(path.join(raiz, carpeta), { recursive: true }, (evento, archivo) => {
             if (archivo && archivo.includes('optimizadas')) return;
             clearTimeout(espera);

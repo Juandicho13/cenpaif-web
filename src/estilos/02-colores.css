@@ -1,17 +1,28 @@
-/* ---------- Colores de la web original ---------- */
+/* ---------- Colores: salen del logo (lavanda de la silueta y negro del nombre) ---------- */
 
 :root {
-    --lila: #8586ce;
-    --morado: #422360;
-    --morado-pie: #3d275d;
-    --azul-noche: #242c64;
-    --azul-oscuro: #113d64;
-    --azul-tinta: #042533;
-    --azul-borde: #373f90;
-    --verde-agua: #699f9e;
-    --gris-claro: #f6f7f9;
-    --gris-texto: #7a7a7a;
-    --celeste: #6ec1e4;
-    --dorado: #9c7425;
+    /* Paleta nueva */
+    --lavanda: #7b7bd9;          /* la del logo: rayas, bordes y detalles */
+    --lavanda-fuerte: #5555bf;   /* botones con letra blanca (6,1 a 1) */
+    --indigo: #2b2870;           /* títulos y fondos oscuros */
+    --indigo-noche: #1d1b45;     /* pie */
+    --lavanda-niebla: #f4f4fc;   /* fondos claros de sección */
+    --lavanda-bruma: #e6e6f7;    /* bordes suaves y tarjetas */
+    --tinta: #23223a;            /* texto */
+
+    /* Nombres de antes, apuntando a la paleta nueva */
+    --lila: var(--lavanda);
+    --lila-fuerte: var(--lavanda-fuerte);
+    --morado: var(--indigo);
+    --morado-pie: var(--indigo-noche);
+    --azul-noche: var(--indigo);
+    --azul-oscuro: var(--indigo);
+    --azul-tinta: var(--indigo-noche);
+    --azul-borde: #3d3a8f;
+    --verde-agua: var(--lavanda);
+    --gris-claro: var(--lavanda-niebla);
+    --gris-texto: #6b6a80;
+    --celeste: var(--lavanda-bruma);
+    --dorado: var(--lavanda-fuerte);
     --sistema: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }

@@ -22,7 +22,7 @@
 
 .titulo-ekit__texto {
     margin: 0 0 20px;
-    font-family: "Manrope", sans-serif;
+    font-family: var(--letra-texto);
     font-size: 30px;
     font-weight: 300;
     line-height: 1.2;
@@ -79,7 +79,7 @@
 
 /* Título en letra cursiva de las portadas de servicios */
 .titulo-script .titulo-ekit__texto {
-    font-family: "Dancing Script", sans-serif;
+    font-family: var(--letra-titulo);
     font-size: 40px;
     font-weight: 500;
     color: var(--morado);
@@ -120,14 +120,14 @@
 }
 
 .titulo-e--montserrat {
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--letra-texto);
     font-size: 19px;
     font-weight: 600;
     color: #000;
 }
 
 .titulo-e--manrope {
-    font-family: "Manrope", sans-serif;
+    font-family: var(--letra-texto);
     font-size: 30px;
     font-weight: 400;
     color: var(--morado);
@@ -163,7 +163,7 @@
     border-radius: 15px;
     background-color: var(--lila);
     color: #fff;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--letra-texto);
     font-size: 20px;
     font-weight: 500;
     line-height: 1;
@@ -260,7 +260,7 @@
 
 /* Párrafo en Gilroy (light; con --normal va en peso normal) */
 .texto-gilroy {
-    font-family: "gilroy", sans-serif;
+    font-family: var(--letra-texto);
     font-size: 17px;
     font-weight: 300;
     color: #000;
@@ -308,7 +308,7 @@
 /* "Nuestro Compromiso con el Bienestar Emocional." (Sobre Nosotros) */
 .texto-manrope {
     color: #000;
-    font-family: "Manrope", sans-serif;
+    font-family: var(--letra-texto);
     font-size: 30px;
     font-weight: 400;
     text-align: left;
@@ -320,7 +320,7 @@
     padding: 15px;
     border-left: 2px solid var(--morado);
     color: var(--morado);
-    font-family: "gilroy", sans-serif;
+    font-family: var(--letra-texto);
     font-size: 23px;
     font-weight: 300;
     text-align: left;

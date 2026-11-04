@@ -90,37 +90,26 @@
     ['servicio-talleres-emocionales', '/talleres-de-inteligencia-emocional/', 'Talleres de inteligencia emocional', 'Fortalece la autoconciencia emocional, estimula la autorregulación para gestionar el estrés y la frustración manteniendo un enfoque positivo mejorando las relaciones personales.'],
     ['servicio-empoderamiento', '/programa-de-empoderamiento-individual/', 'Programa de Empoderamiento individual', 'Es un proceso de crecimiento personal. En la primera sesión realizamos una exploración profunda para identificar estado emocional, y situaciones que estén generando bloqueo en proyectos o relaciones interpersonales.']
 ] %}
-<section class="e-seccion bloque-gris">
-    <div class="e-contenedor e-contenedor--ancho">
-        <div class="e-columna">
-            <div class="e-envoltura">
-                <div class="espacio"></div>
-                {{ m.titulo('Nuestros Servicios Especializados', 'h2', 'titulo-grande titulo-grande--sube titulo-ekit--movil-centro') }}
-                <section class="e-seccion">
-                    <div class="e-contenedor">
-                        <div class="e-columna e-centrar">
-                            <div class="e-envoltura">
-                                <div class="galeria">
-                                    {% for g in galeria %}
-                                    <div class="galeria__item">
-                                        <div class="galeria__tarjeta">
-                                            <div class="galeria__foto">{{ foto(g[0], '', { tamanos: '(max-width: 1024px) 92vw, 540px' }) }}</div>
-                                            <div class="galeria__velo"></div>
-                                            <a class="galeria__icono" href="{{ g[1] }}" aria-label="{{ g[2] }}">{{ icono('mas-circulo') }}</a>
-                                            <div class="galeria__texto">
-                                                <a class="galeria__nombre" href="{{ g[1] }}">{{ g[2] }}</a>
-                                                <p class="galeria__desc">{{ g[3] }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+<section class="servicios">
+    <div class="servicios__caja">
+        <div class="servicios__cabeza">
+            {{ m.titulo('Nuestros Servicios Especializados', 'h2', 'titulo-ekit--verde') }}
+            <p>Elige el acompañamiento que necesitas: para ti, tu pareja, tu familia o tu empresa.</p>
         </div>
+        <ul class="servicios__lista">
+            {% for g in galeria %}
+            <li>
+                <a class="servicio" href="{{ g[1] }}">
+                    <div class="servicio__foto">{{ foto(g[0], '', { tamanos: '(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 380px' }) }}</div>
+                    <div class="servicio__cuerpo">
+                        <h3 class="servicio__nombre">{{ g[2] }}</h3>
+                        <p class="servicio__texto">{{ g[3] }}</p>
+                        <span class="servicio__ir">Ver el servicio{{ icono('flecha-abajo', 'servicio__flecha') }}</span>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </section>
 

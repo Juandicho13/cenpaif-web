@@ -1,60 +1,21 @@
-<header class="encabezado">
-    <section class="e-seccion encabezado__fila">
-        <div class="e-contenedor e-contenedor--ancho">
-            <div class="e-columna encabezado__logo">
-                <div class="e-envoltura">
-                    <a class="encabezado__logo-caja" href="/" aria-label="CENPAIF, ir al inicio">
-                        {{ foto('logo', 'CENPAIF, Claudia Yolima Díaz', { tamanos: '(max-width: 767px) 301px, 247px', prioridad: true }) }}
-                    </a>
-                </div>
-            </div>
-            <div class="e-columna encabezado__derecha">
-                <div class="e-envoltura">
-                    <div class="encabezado__derecha-fila">
-                        <div class="e-columna encabezado__titulo oculto-movil">
-                            <div class="e-envoltura">
-                                <div class="encabezado__titulo-img">
-                                    {# Perezosa: en celular no se muestra y así no se descarga #}
-                                    {{ foto('titulo-encabezado', 'Psicología de éxito, Familiar y Empresarial', { tamanos: '(max-width: 1024px) 464px, 614px' }) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="e-columna e-abajo encabezado__acciones oculto-movil">
-                            <div class="e-envoltura">
-                                <ul class="redes">
-                                    {% for r in sitio.redes %}
-                                    <li><a href="{{ r.url }}" target="_blank" rel="noopener" aria-label="{{ r.nombre }}">{{ icono(r.icono) }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                                <div class="boton-doble">
-                                    <div class="boton-doble__fila">
-                                        <a href="{{ whatsapp('Hola, vengo de la página web de CENPAIF.') }}" target="_blank" rel="noopener">{{ icono('lapiz') }}Escríbenos</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{# Encabezado "isla dinámica": una cápsula flotante arriba que se encoge al bajar (sitio.js) #}
+<header class="isla" data-isla>
+    <a class="isla__logo" href="/" aria-label="CENPAIF, ir al inicio">
+        {{ foto('logo-transparente', 'CENPAIF, Claudia Yolima Díaz', { tamanos: '120px', prioridad: true }) }}
+    </a>
 
     <nav class="menu" aria-label="Menú principal">
         <button class="menu__abrir" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Abrir el menú">
             <span></span><span></span><span></span>
         </button>
         <div class="menu__panel" id="menu-panel">
-            <div class="menu__cabeza solo-movil">
-                <button class="menu__cerrar" type="button" aria-label="Cerrar el menú">X</button>
-            </div>
+            <button class="menu__cerrar" type="button" aria-label="Cerrar el menú">{{ icono('cerrar') }}</button>
             <ul class="menu__lista">
                 {% for item in sitio.menu %}
                 {% if item.hijos %}
-                <li{% if ruta in item.rutas %} class="actual"{% endif %}>
+                <li class="menu__grupo{% if ruta in item.rutas %} actual{% endif %}">
                     <a href="#" class="menu__padre" aria-haspopup="true" aria-expanded="false">
-                        {{ item.texto }}
-                        {{ icono('flecha-abajo', 'menu__flecha oculto-movil') }}
-                        <span class="menu__desplegar">{{ icono('flecha-abajo') }}</span>
+                        {{ item.texto }}{{ icono('flecha-abajo', 'menu__flecha') }}
                     </a>
                     <ul class="submenu">
                         {% for h in item.hijos %}
@@ -67,6 +28,16 @@
                 {% endif %}
                 {% endfor %}
             </ul>
+            <div class="menu__extra">
+                <a class="isla__accion" href="{{ whatsapp('Hola, vengo de la página web de CENPAIF.') }}" target="_blank" rel="noopener">Escríbenos</a>
+                <ul class="redes">
+                    {% for r in sitio.redes %}
+                    <li><a href="{{ r.url }}" target="_blank" rel="noopener" aria-label="{{ r.nombre }}">{{ icono(r.icono) }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </nav>
+
+    <a class="isla__accion isla__accion--fija" href="{{ whatsapp('Hola, vengo de la página web de CENPAIF.') }}" target="_blank" rel="noopener">Escríbenos</a>
 </header>

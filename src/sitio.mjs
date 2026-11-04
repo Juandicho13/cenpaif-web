@@ -6,6 +6,9 @@ export const sitio = {
     telefono: '313 2712530',
     telefonoEnlace: 'tel:+573132712530',
     correo: 'cenpaif@gmail.com',
+    // Una sola forma de escribir la dirección en toda la web
+    direccion: 'Calle 11 # 6A-56, Edificio Offices Center Chía Elite, consultorio 509',
+    ciudad: 'Chía, Cundinamarca',
     whatsapp: '573132712530',
     enlaces: {
         doctoralia: 'https://www.doctoralia.co/claudia-yolima-diaz-ovalle/psicologo/chia',

@@ -1,15 +1,5 @@
 /* ---------- Página no encontrada (404) ---------- */
 
-/* Igual a la original: una franja azul que sube detrás del encabezado */
-.pagina-error {
-    margin-top: -150px;
-    background-color: var(--azul-oscuro);
-}
-
-.pagina-error__espacio {
-    height: 144px;
-}
-
 /* Mensaje de la página que no existe */
 .e-envoltura.pagina-error__caja {
     max-width: 760px;
@@ -38,7 +28,7 @@
     border: 1px solid var(--lila);
     border-radius: 15px;
     color: var(--azul-noche);
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--letra-texto);
     font-size: 15px;
     font-weight: 500;
     line-height: 1.3;
@@ -67,9 +57,4 @@
     .e-envoltura.pagina-error__caja {
         padding: 50px 10px 40px;
     }
-}
-
-/* En la 404 de la original el contacto queda 20 px más abajo */
-.pagina-404 .contacto .ancla {
-    margin-bottom: 20px;
 }

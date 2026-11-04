@@ -104,8 +104,7 @@ textarea {
 }
 
 /* Sobre fondos oscuros el foco va en blanco */
-.contacto :focus-visible,
-.derechos :focus-visible,
+.pie :focus-visible,
 .portada :focus-visible {
     outline-color: #fff;
 }

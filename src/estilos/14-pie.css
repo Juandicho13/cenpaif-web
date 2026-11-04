@@ -1,148 +1,95 @@
-/* ---------- Pie ---------- */
+/* ---------- 9. Pie ---------- */
 
-.pie-info {
-    padding: 26px 26px 26px 0;
-    background-color: var(--lila);
-    /* Las cuatro líneas verticales finas de la original */
-    background-image: linear-gradient(90deg,
-            transparent 0 calc(5.03% - 1px), rgba(49, 49, 49, 0.78) calc(5.03% - 1px) calc(5.03% + 1px),
-            transparent calc(5.03% + 1px) calc(37.69% - 1px), rgba(49, 49, 49, 0.78) calc(37.69% - 1px) calc(37.69% + 1px),
-            transparent calc(37.69% + 1px) calc(65.31% - 1px), rgba(49, 49, 49, 0.78) calc(65.31% - 1px) calc(65.31% + 1px),
-            transparent calc(65.31% + 1px) calc(96.75% - 1px), rgba(49, 49, 49, 0.78) calc(96.75% - 1px) calc(96.75% + 1px),
-            transparent calc(96.75% + 1px) 100%);
+.pie {
+    background-color: var(--indigo-noche);
+    color: rgba(255, 255, 255, 0.75);
 }
 
-.pie-info__lado {
-    width: 10%;
+.pie__caja {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 70px 20px 50px;
 }
 
-.pie-info__lado--der {
-    width: 5%;
+.pie__nombre {
+    margin: 0 0 12px;
+    color: #fff;
+    font-family: var(--letra-titulo);
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
 }
 
-.pie-info__centro {
-    width: 84.332%;
-}
-
-.pie-info__fila {
-    display: flex;
-    width: 100%;
-}
-
-.pie-info__col:nth-child(1) {
-    width: 36.985%;
-}
-
-.pie-info__col:nth-child(2) {
-    width: 32.057%;
-}
-
-.pie-info__col:nth-child(3) {
-    width: 30.251%;
-}
-
-.pie-info .pie-info__titulo {
+.pie__marca p:not(.pie__nombre) {
+    max-width: 330px;
     margin: 0;
-    color: #000;
-    font-family: "Manrope", sans-serif;
     font-size: 15px;
-    font-weight: 300;
-    line-height: 1;
-    text-transform: capitalize;
+    line-height: 1.6;
 }
 
-.lista-iconos {
+.pie__titulo {
+    margin: 0 0 16px;
+    color: #fff;
+    font-family: var(--letra-titulo);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.pie__columna ul {
+    display: grid;
+    gap: 10px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.lista-iconos li {
-    display: flex;
-    align-items: flex-start;
-}
-
-.lista-iconos svg {
-    flex: none;
-    box-sizing: content-box;
-    width: 14px;
-    height: 14px;
-    padding: 8.5px 1.75px 0;
-    color: #000;
-}
-
-.lista-iconos span,
-.lista-iconos a {
-    padding-left: 5px;
-    color: #000;
-    font-family: "Didact Gothic", sans-serif;
+.pie__columna a {
+    color: rgba(255, 255, 255, 0.75);
     font-size: 15px;
-    font-weight: 300;
-    line-height: 1.5;
+    transition: color 0.2s;
 }
 
-.lista-iconos a:hover,
-.lista-iconos a:focus-visible {
-    color: #000;
+.pie__columna a:hover,
+.pie__columna a:focus-visible {
+    color: #fff;
     text-decoration: underline;
 }
 
-/* Botón dorado "Alquiler de oficinas por horas" */
-.boton-alquiler {
-    width: 89.793%;
-    max-width: 89.793%;
-}
-
-.boton-alquiler__fila {
-    display: flex;
-    width: 100%;
-}
-
-.boton-alquiler a {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2px;
-    padding: 8px;
-    border-radius: 15px;
-    background-image: linear-gradient(180deg, var(--dorado) 0%, #e99f0e 100%);
+.pie__columna a.pie__alquiler {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 12px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
     color: #fff;
-    font-family: "gilroy", sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.5;
-    transition: all 0.3s;
+    font-weight: 600;
+    text-decoration: none;
 }
 
-.boton-alquiler a:hover {
-    background-image: none;
-    background-color: var(--azul-noche);
-    color: #fff;
+.pie__columna a.pie__alquiler:hover {
+    background-color: #fff;
+    color: var(--indigo);
+    text-decoration: none;
 }
 
-.boton-alquiler svg {
-    width: 13px;
-    height: 13px;
-    margin-right: 8px;
-}
-
-/* Derechos reservados */
+/* Derechos reservados y firma (abajo a la derecha) */
 .derechos {
-    background-color: var(--morado-pie);
-}
-
-.derechos .e-contenedor {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 22px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.derechos .e-envoltura>p {
-    margin: 0 0 14.4px;
-    color: #fff;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: center;
+.derechos>p:first-child {
+    margin: 0;
+    font-size: 14px;
 }
 
 /* Firma juan-olarte-dev (forma fija; los colores van aquí) */
@@ -172,7 +119,7 @@
 }
 
 .firma svg circle:last-child {
-    stroke: var(--lila);
+    stroke: var(--lavanda);
 }
 
 /* Espacio al final para que el botón flotante de WhatsApp no tape la firma ni los derechos */
@@ -180,80 +127,28 @@ body>footer::after {
     content: "";
     display: block;
     height: 80px;
-    background-color: var(--morado-pie);
-}
-
-.derechos__firma {
-    position: absolute;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%);
+    background-color: var(--indigo-noche);
 }
 
 @media (max-width: 1024px) {
-    .pie-info__centro>.e-envoltura {
-        padding: 20px;
+    .pie__caja {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .boton-alquiler {
-        width: 370.35px;
-        max-width: 370.35px;
-    }
-
-    .boton-alquiler__fila {
-        width: 80%;
-        margin-inline: auto;
+    .pie__marca {
+        grid-column: 1 / -1;
     }
 }
 
 @media (max-width: 767px) {
-    .pie-info {
-        background-image: none;
+    .pie__caja {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 56px 20px 36px;
     }
 
-    .pie-info__lado {
-        min-height: 1px;
-    }
-
-    .pie-info__fila {
-        flex-wrap: wrap;
-    }
-
-    .pie-info__col {
-        width: 100% !important;
-    }
-
-    .pie-info .pie-info__titulo {
+    .derechos {
+        flex-direction: column;
         text-align: center;
-    }
-
-    .lista-iconos li {
-        justify-content: center;
-        text-align: center;
-    }
-
-    /* En celular el botón queda en línea, como en la original (deja unos píxeles debajo) */
-    .boton-alquiler__fila {
-        display: block;
-        width: 100%;
-    }
-
-    .boton-alquiler {
-        padding-bottom: 6px;
-    }
-
-    .boton-alquiler a {
-        display: inline-flex;
-        width: 100%;
-    }
-
-    .derechos .e-envoltura>p {
-        font-size: 11px;
-    }
-
-    .derechos__firma {
-        position: static;
-        transform: none;
-        padding: 4px 0 18px;
     }
 }

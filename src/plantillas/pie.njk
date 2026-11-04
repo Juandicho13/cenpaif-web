@@ -1,124 +1,106 @@
-{# ---------- Contacto (igual en todas las páginas) ---------- #}
-<div class="linea-1px"></div>
-<section class="e-seccion contacto" aria-label="Contacto">
-    <div class="ola ola--arriba">{{ forma('olas') }}</div>
-    <div class="e-contenedor e-contenedor--ancho">
-        <div class="e-columna contacto__lado"></div>
-        <div class="e-columna contacto__centro">
-            <div class="e-envoltura">
-                <div class="e-contenedor contacto__fila">
-                    <div class="e-columna contacto__info">
-                        <div class="e-envoltura">
-                            <div id="contacto" class="ancla"></div>
-                            <div class="contacto__espacio"></div>
-                            <div class="titulo-ekit contacto__titulo">
-                                <h2 class="titulo-ekit__texto">Centro Psicológico Cenpaif.<br>Dra. Claudia Diaz</h2>
-                            </div>
-                            <div class="contacto__foto imagen-e">
-                                {{ foto('edificio-entrada', 'Entrada del edificio Offices Center Chía Elite', { tamanos: '(max-width: 767px) 202px, 319px' }) }}
-                            </div>
-                            <div class="contacto__texto oculto-movil">
-                                <p>Ubicados en el edificio Offices center chía</p>
-                                <p>Cl 11 # 6A – 56. Consultorio 509</p>
-                            </div>
-                        </div>
+{# ---------- Contacto y ubicación (igual en todas las páginas) ---------- #}
+<section class="contacto" id="contacto" aria-labelledby="contacto-titulo">
+    <div class="contacto__caja">
+        <div class="contacto__info">
+            <h2 class="contacto__titulo" id="contacto-titulo">Centro Psicológico CENPAIF</h2>
+            <p class="contacto__nombre">Dra. Claudia Díaz</p>
+
+            <ul class="contacto__datos">
+                <li>
+                    <span class="contacto__icono">{{ icono('casa') }}</span>
+                    <div>
+                        <p class="contacto__etiqueta">Dirección</p>
+                        <p>{{ sitio.direccion }}. {{ sitio.ciudad }}</p>
+                        <a class="contacto__enlace" href="{{ sitio.enlaces.comoLlegar }}" target="_blank" rel="noopener">Cómo llegar</a>
                     </div>
-                    <div class="e-columna contacto__formulario-col">
-                        <div class="e-envoltura">
-                            <form class="formulario" data-formulario-whatsapp>
-                                <div class="formulario__campos">
-                                    <div class="formulario__grupo">
-                                        <label class="solo-lectores" for="contacto-nombre">Nombre</label>
-                                        <input type="text" name="nombre" id="contacto-nombre" placeholder="Nombre" autocomplete="name">
-                                    </div>
-                                    <div class="formulario__grupo">
-                                        <label class="solo-lectores" for="contacto-email">Correo</label>
-                                        <input type="email" name="email" id="contacto-email" placeholder="Correo" autocomplete="email" required>
-                                    </div>
-                                    <div class="formulario__grupo">
-                                        <label class="solo-lectores" for="contacto-mensaje">Mensaje</label>
-                                        <textarea name="mensaje" id="contacto-mensaje" rows="4" placeholder="Mensaje"></textarea>
-                                    </div>
-                                    <div class="formulario__grupo">
-                                        <button type="submit" class="formulario__enviar">Enviar por WhatsApp</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                </li>
+                <li>
+                    <span class="contacto__icono">{{ icono('telefono') }}</span>
+                    <div>
+                        <p class="contacto__etiqueta">Teléfono y WhatsApp</p>
+                        <a href="{{ sitio.telefonoEnlace }}">{{ sitio.telefono }}</a>
                     </div>
+                </li>
+                <li>
+                    <span class="contacto__icono">{{ icono('correo') }}</span>
+                    <div>
+                        <p class="contacto__etiqueta">Correo</p>
+                        <a href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="redes redes--claras">
+                {% for r in sitio.redes %}
+                <li><a href="{{ r.url }}" target="_blank" rel="noopener" aria-label="{{ r.nombre }}">{{ icono(r.icono) }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <form class="formulario" data-formulario-whatsapp>
+            <h3 class="formulario__titulo">Escríbenos</h3>
+            <p class="formulario__nota">El mensaje se abre en WhatsApp, listo para enviar.</p>
+            <div class="formulario__grupo">
+                <label for="contacto-nombre">Nombre</label>
+                <input type="text" name="nombre" id="contacto-nombre" autocomplete="name">
+            </div>
+            <div class="formulario__grupo">
+                <label for="contacto-email">Correo</label>
+                <input type="email" name="email" id="contacto-email" autocomplete="email" required>
+            </div>
+            <div class="formulario__grupo">
+                <label for="contacto-mensaje">Mensaje</label>
+                <textarea name="mensaje" id="contacto-mensaje" rows="4"></textarea>
+            </div>
+            <button type="submit" class="formulario__enviar">Enviar por WhatsApp</button>
+        </form>
+
+        {# El mapa de Google solo se carga si la persona lo pide (pesa casi 500 KB) #}
+        <div class="mapa">
+            <div class="mapa__aviso" data-mapa="{{ sitio.enlaces.mapa }}">
+                <svg class="mapa__pin" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1C6 1 1.5 5.5 1.5 11.3 1.5 19 12 31 12 31s10.5-12 10.5-19.7C22.5 5.5 18 1 12 1Z" fill="currentColor"/><circle cx="12" cy="11.5" r="4" fill="#fff"/></svg>
+                <p class="mapa__direccion">{{ sitio.direccion }}. {{ sitio.ciudad }}</p>
+                <div class="mapa__botones">
+                    <button type="button" class="boton mapa__ver">Ver el mapa aquí</button>
+                    <a class="boton mapa__llegar" href="{{ sitio.enlaces.comoLlegar }}" target="_blank" rel="noopener">Cómo llegar</a>
                 </div>
             </div>
         </div>
-        <div class="e-columna contacto__lado contacto__lado--der"></div>
     </div>
 </section>
 
-{# ---------- Mapa ---------- #}
-{# El mapa de Google solo se carga si la persona lo pide (pesa casi 500 KB) #}
-<section class="mapa" aria-label="Ubicación">
-    <div class="mapa__aviso" data-mapa="{{ sitio.enlaces.mapa }}">
-        <svg class="mapa__pin" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1C6 1 1.5 5.5 1.5 11.3 1.5 19 12 31 12 31s10.5-12 10.5-19.7C22.5 5.5 18 1 12 1Z" fill="currentColor"/><circle cx="12" cy="11.5" r="4" fill="#fff"/></svg>
-        <p class="mapa__direccion">Calle 11 # 6A-56, Edificio Offices Center Chía Elite, consultorio 509. Chía, Cundinamarca</p>
-        <div class="mapa__botones">
-            <button type="button" class="boton mapa__ver">Ver el mapa aquí</button>
-            <a class="boton mapa__llegar" href="{{ sitio.enlaces.comoLlegar }}" target="_blank" rel="noopener">Cómo llegar</a>
+{# ---------- Pie ---------- #}
+<footer class="pie">
+    <div class="pie__caja">
+        <div class="pie__marca">
+            <p class="pie__nombre">CENPAIF</p>
+            <p>Centro Psicológico de Atención Integral Familiar y Empresarial. Chía, Cundinamarca.</p>
+        </div>
+        <nav class="pie__columna" aria-label="Servicios">
+            <p class="pie__titulo">Servicios</p>
+            <ul>
+                {% for item in sitio.menu %}
+                {% for h in item.hijos %}
+                <li><a href="{{ h.url }}">{{ h.texto }}</a></li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </nav>
+        <div class="pie__columna">
+            <p class="pie__titulo">Contacto</p>
+            <ul>
+                <li><a href="{{ sitio.telefonoEnlace }}">{{ sitio.telefono }}</a></li>
+                <li><a href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a></li>
+                <li><a href="/sobre-nosotros/">Sobre Nosotros</a></li>
+                <li><a href="/pagos/">Pagos</a></li>
+            </ul>
+            <a class="pie__alquiler" href="/alquiler-de-oficina-por-horas/">Alquiler de oficinas por horas</a>
         </div>
     </div>
-</section>
 
-{# ---------- Teléfono, correo y dirección ---------- #}
-<footer>
-    <section class="e-seccion pie-info">
-        <div class="e-contenedor e-contenedor--ancho">
-            <div class="e-columna pie-info__lado"></div>
-            <div class="e-columna pie-info__centro">
-                <div class="e-envoltura">
-                    <div class="e-contenedor pie-info__fila">
-                        <div class="e-columna pie-info__col">
-                            <div class="e-envoltura">
-                                <p class="pie-info__titulo">Teléfono</p>
-                                <ul class="lista-iconos">
-                                    <li>{{ icono('telefono') }}<a href="{{ sitio.telefonoEnlace }}">{{ sitio.telefono }}</a></li>
-                                </ul>
-                                <div class="boton-alquiler">
-                                    <div class="boton-alquiler__fila">
-                                        <a href="/alquiler-de-oficina-por-horas/">{{ icono('perfil') }}Alquiler de oficinas por horas</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="e-columna pie-info__col">
-                            <div class="e-envoltura">
-                                <p class="pie-info__titulo">Correo</p>
-                                <ul class="lista-iconos">
-                                    <li>{{ icono('correo') }}<a href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="e-columna pie-info__col">
-                            <div class="e-envoltura">
-                                <p class="pie-info__titulo">Dirección</p>
-                                <ul class="lista-iconos">
-                                    <li>{{ icono('casa') }}<a href="{{ sitio.enlaces.comoLlegar }}" target="_blank" rel="noopener">Cll 11 # 6A-56 Edificio Offices Center Chía Elite. Chía Cund. Oficina 509</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="e-columna pie-info__lado pie-info__lado--der"></div>
-        </div>
-    </section>
-
-    <section class="e-seccion derechos">
-        <div class="e-contenedor">
-            <div class="e-columna">
-                <div class="e-envoltura">
-                    <p>Todos los derechos reservados © Cenpaif {{ anio }}</p>
-                </div>
-            </div>
-        </div>
-        <p class="firma derechos__firma">
+    <div class="derechos">
+        <p>Todos los derechos reservados © Cenpaif {{ anio }}</p>
+        <p class="firma">
             <span><span class="solo-lectores">Desarrollado por </span>juan-olarte-dev</span>
             <span class="firma-linea" aria-hidden="true"></span>
             <svg viewBox="0 0 30 20" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
@@ -127,5 +109,5 @@
                 <circle cx="21" cy="10.8" r="2.1" stroke-width="0.9" />
             </svg>
         </p>
-    </section>
+    </div>
 </footer>

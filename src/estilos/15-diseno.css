@@ -1,0 +1,311 @@
+/* ---------- 10. Diseño nuevo (propuesta) ----------
+   Títulos en Bodoni Moda, textos en Manrope y la paleta del logo.
+   Va al final para que mande sobre los estilos de la copia original. */
+
+body {
+    color: var(--tinta);
+    font-family: var(--letra-texto);
+}
+
+/* Títulos: la letra con contraste del logo */
+.titulo-ekit__texto,
+.titulo-e--manrope,
+.titulo-script .titulo-ekit__texto,
+.portada__titulo {
+    font-family: var(--letra-titulo);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.titulo-ekit__texto {
+    color: var(--indigo);
+}
+
+.titulo-script .titulo-ekit__texto {
+    font-style: italic;
+}
+
+.titulo-e--montserrat {
+    font-weight: 700;
+}
+
+/* Textos: Manrope a peso normal (la Gilroy Light de antes se leía muy delgada) */
+.texto-gilroy,
+.cita {
+    font-weight: 400;
+    color: var(--tinta);
+}
+
+/* Botones */
+.boton {
+    border-bottom-color: var(--indigo);
+    border-radius: 999px;
+    background-color: var(--lavanda-fuerte);
+    font-weight: 600;
+}
+
+.boton:hover,
+.boton:focus {
+    background-color: var(--indigo);
+}
+
+/* ---------- Portada: la foto pasa por detrás de la isla ---------- */
+.portada {
+    margin-top: -100px;
+}
+
+.portada__fondo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(29, 27, 69, 0.72) 0%, rgba(29, 27, 69, 0.35) 55%, rgba(29, 27, 69, 0.55) 100%);
+}
+
+.portada .e-contenedor {
+    position: relative;
+}
+
+.portada__titulo {
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+    font-size: 54px;
+    line-height: 1.05;
+}
+
+.portada__texto {
+    margin-bottom: 110px;
+    text-shadow: none;
+}
+
+.mapa__botones .mapa__llegar {
+    background-color: var(--indigo);
+}
+
+.mapa__botones .mapa__llegar:hover {
+    background-color: var(--lavanda-fuerte);
+}
+
+.portada>.pausa {
+    top: 112px;
+}
+
+@media (max-width: 1024px) {
+    .portada {
+        margin-top: -92px;
+    }
+
+    .portada>.pausa {
+        top: 104px;
+    }
+}
+
+@media (max-width: 767px) {
+    .portada__titulo {
+        font-size: 30px;
+    }
+
+    .portada__interior {
+        padding-top: 100px;
+    }
+
+    .portada__texto {
+        margin-bottom: 40px;
+        font-size: 14px;
+    }
+}
+
+/* ---------- Servicios del inicio: tarjetas ---------- */
+.servicios {
+    padding: 90px 20px;
+    background-color: var(--lavanda-niebla);
+}
+
+.servicios__caja {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.servicios__cabeza {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px 40px;
+    margin-bottom: 40px;
+}
+
+.servicios__cabeza .titulo-ekit__texto {
+    margin-bottom: 14px;
+    font-size: 44px;
+}
+
+.servicios__cabeza p {
+    max-width: 380px;
+    margin: 0 0 4px;
+    color: var(--gris-texto);
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* 12 columnas: tres tarjetas arriba y cuatro abajo, sin huecos */
+.servicios__lista {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.servicios__lista>li {
+    grid-column: span 3;
+}
+
+.servicios__lista>li:nth-child(-n+3) {
+    grid-column: span 4;
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--lavanda-bruma);
+    border-radius: 24px;
+    background-color: #fff;
+    color: var(--tinta);
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s;
+}
+
+.servicio:hover,
+.servicio:focus-visible {
+    color: var(--tinta);
+    transform: translateY(-4px);
+    box-shadow: 0 22px 44px rgba(43, 40, 112, 0.14);
+}
+
+.servicio__foto {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.servicio__foto picture,
+.servicio__foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.servicio:hover .servicio__foto img {
+    transform: scale(1.04);
+}
+
+.servicio__cuerpo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+    padding: 22px 22px 24px;
+}
+
+.servicio__nombre {
+    margin: 0;
+    color: var(--indigo);
+    font-family: var(--letra-titulo);
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.servicio__texto {
+    flex: 1;
+    margin: 0;
+    color: var(--gris-texto);
+    font-size: 15px;
+    line-height: 1.55;
+    /* Las descripciones largas se cortan a cuatro líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.servicio__ir {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--lavanda-fuerte);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.servicio__flecha {
+    width: 11px;
+    height: 11px;
+    transform: rotate(-90deg);
+    transition: transform 0.3s;
+}
+
+.servicio:hover .servicio__flecha {
+    transform: rotate(-90deg) translateY(3px);
+}
+
+@media (max-width: 1024px) {
+    .servicios__lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .servicios__lista>li,
+    .servicios__lista>li:nth-child(-n+3) {
+        grid-column: span 1;
+    }
+
+    .servicios__lista>li:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .servicios__lista>li:last-child .servicio {
+        flex-direction: row;
+    }
+
+    .servicios__lista>li:last-child .servicio__foto {
+        width: 45%;
+        aspect-ratio: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .servicios {
+        padding: 60px 16px;
+    }
+
+    .servicios__cabeza {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .servicios__cabeza .titulo-ekit__texto {
+        font-size: 32px;
+    }
+
+    .servicios__lista {
+        grid-template-columns: 1fr;
+    }
+
+    .servicios__lista>li:last-child .servicio {
+        flex-direction: column;
+    }
+
+    .servicios__lista>li:last-child .servicio__foto {
+        width: auto;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .servicio,
+    .servicio__foto img {
+        transition: none;
+    }
+}

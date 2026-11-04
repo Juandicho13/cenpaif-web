@@ -1,6 +1,6 @@
 /*
  * CENPAIF · comportamiento de la página (sin librerías)
- *   1. Menú del celular, submenú de servicios y barra del menú fija al bajar
+ *   1. Menú del celular, submenú de servicios e isla dinámica que se encoge al bajar
  *   2. Fotos de la portada que se alternan cada 5 segundos
  *   3. Carrusel de fotos de "Beneficios"
  *   4. Formulario de contacto: arma el mensaje y abre WhatsApp
@@ -12,7 +12,6 @@
     'use strict';
 
     var WHATSAPP = '573132712530';
-    var celular = window.matchMedia('(max-width: 767px)');
     // Quien pidió menos movimiento en su teléfono o computador no ve fotos que pasan solas
     var sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -38,6 +37,8 @@
     }
 
     // ---------- 1. Menú ----------
+    // Hasta 1024 px el menú abre en pantalla completa
+    var menuMovil = window.matchMedia('(max-width: 1024px)');
     var abrir = document.querySelector('.menu__abrir');
     var panel = document.getElementById('menu-panel');
     var cerrar = document.querySelector('.menu__cerrar');
@@ -55,14 +56,14 @@
             var enlace = e.target.closest('a');
             if (enlace && !enlace.classList.contains('menu__padre')) mostrarPanel(false);
         });
-        celular.addEventListener('change', function (m) { if (!m.matches) mostrarPanel(false); });
+        menuMovil.addEventListener('change', function (m) { if (!m.matches) mostrarPanel(false); });
     }
 
     document.querySelectorAll('.menu__padre').forEach(function (padre) {
         var sub = padre.nextElementSibling;
         padre.addEventListener('click', function (e) {
             e.preventDefault();
-            if (!celular.matches) return;
+            if (!menuMovil.matches) return;
             var abierto = sub.classList.toggle('abierto');
             padre.setAttribute('aria-expanded', abierto ? 'true' : 'false');
         });
@@ -75,23 +76,12 @@
         }
     });
 
-    // Al bajar 60 px la barra del menú queda fija arriba (en computador y tableta, como en la original).
-    // Un hueco del mismo alto ocupa su lugar para que el contenido no salte hacia arriba.
-    var barra = document.querySelector('.menu');
-    if (barra) {
-        var hueco = document.createElement('div');
-        hueco.className = 'menu-hueco';
-        hueco.setAttribute('aria-hidden', 'true');
-        barra.parentNode.insertBefore(hueco, barra.nextSibling);
-        var fijarBarra = function () {
-            var fija = document.documentElement.clientWidth > 767 && window.scrollY >= 60;
-            if (fija && !barra.classList.contains('menu--fija')) hueco.style.height = barra.offsetHeight + 'px';
-            if (!fija) hueco.style.height = '';
-            barra.classList.toggle('menu--fija', fija);
-        };
-        window.addEventListener('scroll', fijarBarra, { passive: true });
-        window.addEventListener('resize', fijarBarra);
-        fijarBarra();
+    // Isla dinámica: al bajar un poco la cápsula del encabezado se encoge
+    var isla = document.querySelector('[data-isla]');
+    if (isla) {
+        var compactar = function () { isla.classList.toggle('isla--compacta', window.scrollY > 40); };
+        window.addEventListener('scroll', compactar, { passive: true });
+        compactar();
     }
 
     // ---------- 2. Portada ----------
