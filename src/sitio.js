@@ -248,8 +248,10 @@
     }
 
     // ---------- 5. Google Tag Manager diferido ----------
+    // Solo en cenpaif.com: las pruebas en la dirección de prueba o en el computador no cuentan como visitas
     var gtm = window.CENPAIF_GTM;
-    if (gtm) {
+    var dominioReal = /^(www\.)?cenpaif\.com$/.test(location.hostname);
+    if (gtm && dominioReal) {
         var cargado = false;
         var cargar = function () {
             if (cargado) return;
