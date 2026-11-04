@@ -20,13 +20,14 @@
     ['ascensores', 'Plan 8 horas mensuales ', 'Espacio físico $320.000 al mes <br>Incluye todos los servicios <br>Horas fijas o seleccionadas<br>Según preferencia <br>']
 ] %}
 
-{% macro galeria(fotos) %}
+{# prioridad: true en la primera galería, que se ve al abrir la página #}
+{% macro galeria(fotos, prioridad=false) %}
 <div class="galeria galeria--tres" data-visor>
     {% for g in fotos %}
     <div class="galeria__item">
         <div class="galeria__tarjeta">
             <div class="galeria__foto">
-                {{ foto(g[0], '', { tamanos: '(max-width: 1024px) 92vw, 353px' }) }}
+                {{ foto(g[0], '', { tamanos: '(max-width: 1024px) 92vw, 353px', prioridad: prioridad }) }}
                 <div class="galeria__velo"></div>
                 <a class="galeria__ampliar" href="{{ rutaFoto(g[0], 1600) }}" data-miniatura="{{ rutaFoto(g[0], 400) }}" aria-label="Ver la foto {{ loop.index }} en grande"></a>
             </div>
@@ -82,7 +83,7 @@
                     <div class="e-contenedor">
                         <div class="e-columna e-centrar">
                             <div class="e-envoltura">
-                                {{ galeria(oficina) }}
+                                {{ galeria(oficina, true) }}
                             </div>
                         </div>
                     </div>
