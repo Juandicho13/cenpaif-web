@@ -246,7 +246,19 @@ Cada ticket cerrado agrega una fila. La columna "Para el documento final" se esc
 | 2026-11-03 | F1-12 Repetidos | `5eb5649` | Se quitaron títulos repetidos en Psicólogos en Chía, Orientación vocacional y Talleres empresariales. | Claude |
 | 2026-11-03 | F1-13 Año y tuteo | `cb3cf37` | El año del pie se actualiza solo y la web le habla a la persona siempre de tú. | Claude: el pie dice 2026; el único "sus" que queda es de las parejas (tercera persona) |
 
-**Siguiente en F1:** F1-14 espera la respuesta de la tía (pregunta 2), F1-15 espera la aprobación de Juan y F1-05 depende de F1-15. Mientras tanto se puede seguir con F2.
+| 2026-11-03 | F2-02 Analytics solo en cenpaif.com | `5f141ab` | | Claude: en la dirección de prueba ya no se pide `googletagmanager.com`. Ojo: por eso tampoco sale ahí el botón de masleads; en cenpaif.com sí |
+| 2026-11-03 | F2-04 Fotos a tiempo | `55a18fa` | La primera foto de cada página se carga de primera. | Claude: Lighthouse ya no marca ninguna foto principal perezosa; el título del encabezado no se descarga en celular |
+| 2026-11-03 | F2-05 JS minificado | `15581f9` | | Claude: `sitio.js` de 12 KB a 6 KB; menú, carrusel, visor, videos y formulario probados. Juan corre `npm install` una vez (llega `esbuild`) |
+| 2026-11-03 | F3-02 Títulos | `a7e7eb6` | Cada página tiene un título principal claro para Google y para lectores de pantalla. | Claude: mismas alturas en 390 y 1440 px en las 12 páginas |
+| 2026-11-03 | F3-03 Textos alternativos | `fda3f89` | Las fotos de la doctora, el consultorio y el edificio se describen para quien no ve. | Claude |
+| 2026-11-03 | F3-04 Movimiento | `0515a37` | La portada y el carrusel tienen botón de pausa y no se mueven si la persona pidió menos movimiento en su equipo. | Claude: con pausa el carrusel queda quieto; con menos movimiento no hay botones ni fotos que pasan |
+| 2026-11-03 | F3-05 Regiones y foco | `d66f3e6` | Se puede recorrer la web con el teclado viendo dónde se está. | Claude |
+| 2026-11-03 | F7-02 Textos en inglés | `aff213b`, `233b8f3` | Los botones y etiquetas que estaban en inglés quedaron en español: Inicio, Correo, Anterior, Siguiente y Cerrar. | Claude: caben en 390 y 1440 px. Faltan los de las reseñas (van con F2-06) |
+| 2026-11-03 | F4-02 (parte) | `233b8f3`, `55158fa` | | Claude: `og:locale` es_CO, YouTube sin `view_as`, `hasMap` y la Dra. Claudia como `founder`. Faltan coordenadas y horario (la tía) |
+| 2026-11-03 | F3-01 Contraste (propuesta) | rama `propuesta/contraste` | | Claude: accesibilidad 100 en las 11 páginas con la propuesta. Espera aprobación |
+| 2026-11-03 | F2-01 Mapa liviano (propuesta) | rama `propuesta/mapa` | | Claude: no se pide nada a google.com/maps hasta tocar el botón. Espera aprobación |
+
+**Siguiente:** F1-14 espera a la tía (pregunta 2), F1-15 espera la aprobación de Juan y F1-05 depende de F1-15. F2-01 y F3-01 esperan que Juan apruebe las ramas de propuesta. F2-03 espera la pregunta 5, F2-06 es propuesta de reseñas, F2-07 lo mide Juan. Lo de F4 a F8 que queda depende de la tía o de la aprobación de Juan (títulos y descripciones de F4-01). Pendiente pequeño: en Orientación vocacional Lighthouse marca "Más Información" como texto de enlace poco claro (SEO 92); cambiarlo es tocar un texto de la tía.
 
 ---
 
