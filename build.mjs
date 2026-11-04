@@ -229,6 +229,9 @@ function organizacion(sitio) {
             addressRegion: 'Cundinamarca',
             addressCountry: 'CO'
         },
+        hasMap: sitio.enlaces.comoLlegar,
+        founder: { '@type': 'Person', name: 'Claudia Yolima Díaz Ovalle', jobTitle: 'Psicóloga' },
+        // Falta: geo (coordenadas) y openingHoursSpecification (horario), cuando la tía los confirme
         sameAs: sitio.redes.map((r) => r.url)
     };
 }
