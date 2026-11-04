@@ -6,73 +6,43 @@
 }
 
 .pie__caja {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr;
-    gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 32px;
     max-width: 1140px;
     margin: 0 auto;
-    padding: 70px 20px 50px;
+    padding: 34px 20px 26px;
 }
 
 .pie__nombre {
-    margin: 0 0 12px;
+    margin: 0;
     color: #fff;
     font-family: var(--letra-titulo);
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 600;
     letter-spacing: 0.08em;
 }
 
-.pie__marca p:not(.pie__nombre) {
-    max-width: 330px;
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-.pie__titulo {
-    margin: 0 0 16px;
-    color: #fff;
-    font-family: var(--letra-titulo);
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.pie__columna ul {
-    display: grid;
-    gap: 10px;
+.pie__enlaces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 26px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.pie__columna a {
-    color: rgba(255, 255, 255, 0.75);
+.pie__enlaces a {
+    color: rgba(255, 255, 255, 0.78);
     font-size: 15px;
-    transition: color 0.2s;
 }
 
-.pie__columna a:hover,
-.pie__columna a:focus-visible {
+.pie__enlaces a:hover,
+.pie__enlaces a:focus-visible {
     color: #fff;
     text-decoration: underline;
-}
-
-.pie__columna a.pie__alquiler {
-    display: inline-block;
-    margin-top: 22px;
-    padding: 12px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 999px;
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.pie__columna a.pie__alquiler:hover {
-    background-color: #fff;
-    color: var(--indigo);
-    text-decoration: none;
 }
 
 /* Derechos reservados y firma (abajo a la derecha) */
@@ -130,21 +100,14 @@ body>footer::after {
     background-color: var(--indigo-noche);
 }
 
-@media (max-width: 1024px) {
-    .pie__caja {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .pie__marca {
-        grid-column: 1 / -1;
-    }
-}
-
 @media (max-width: 767px) {
     .pie__caja {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        padding: 56px 20px 36px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pie__enlaces {
+        justify-content: center;
     }
 
     .derechos {

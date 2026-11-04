@@ -52,10 +52,15 @@
                 <label for="contacto-mensaje">Mensaje</label>
                 <textarea name="mensaje" id="contacto-mensaje" rows="4"></textarea>
             </div>
+            <label class="formulario__acepto">
+                <input type="checkbox" name="acepto" required>
+                <span>Autorizo el tratamiento de mis datos según la <a href="/politica-de-privacidad/">política de privacidad</a>.</span>
+            </label>
             <button type="submit" class="formulario__enviar">Enviar por WhatsApp</button>
         </form>
 
-        {# El mapa de Google solo se carga si la persona lo pide (pesa casi 500 KB) #}
+        {# El mapa va solo en el inicio, y Google solo se carga si la persona lo pide (pesa casi 500 KB) #}
+        {% if ruta == '/' %}
         <div class="mapa">
             <div class="mapa__aviso" data-mapa="{{ sitio.enlaces.mapa }}">
                 <svg class="mapa__pin" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1C6 1 1.5 5.5 1.5 11.3 1.5 19 12 31 12 31s10.5-12 10.5-19.7C22.5 5.5 18 1 12 1Z" fill="currentColor"/><circle cx="12" cy="11.5" r="4" fill="#fff"/></svg>
@@ -66,36 +71,22 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
 </section>
 
 {# ---------- Pie ---------- #}
 <footer class="pie">
     <div class="pie__caja">
-        <div class="pie__marca">
-            <p class="pie__nombre">CENPAIF</p>
-            <p>Centro Psicológico de Atención Integral Familiar y Empresarial. Chía, Cundinamarca.</p>
-        </div>
-        <nav class="pie__columna" aria-label="Servicios">
-            <p class="pie__titulo">Servicios</p>
-            <ul>
-                {% for item in sitio.menu %}
-                {% for h in item.hijos %}
-                <li><a href="{{ h.url }}">{{ h.texto }}</a></li>
-                {% endfor %}
-                {% endfor %}
+        <p class="pie__nombre">CENPAIF</p>
+        <nav aria-label="Enlaces del pie">
+            <ul class="pie__enlaces">
+                <li><a href="/alquiler-de-oficina-por-horas/">Alquiler de oficinas</a></li>
+                <li><a href="/pagos/">Pagos</a></li>
+                <li><a href="/politica-de-privacidad/">Política de privacidad</a></li>
+                <li><a href="/terminos-y-condiciones/">Términos y condiciones</a></li>
             </ul>
         </nav>
-        <div class="pie__columna">
-            <p class="pie__titulo">Contacto</p>
-            <ul>
-                <li><a href="{{ sitio.telefonoEnlace }}">{{ sitio.telefono }}</a></li>
-                <li><a href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a></li>
-                <li><a href="/sobre-nosotros/">Sobre Nosotros</a></li>
-                <li><a href="/pagos/">Pagos</a></li>
-            </ul>
-            <a class="pie__alquiler" href="/alquiler-de-oficina-por-horas/">Alquiler de oficinas por horas</a>
-        </div>
     </div>
 
     <div class="derechos">

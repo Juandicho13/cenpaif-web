@@ -9,73 +9,44 @@
 {% import "macros.njk" as m %}
 
 {% block precarga %}
-    {{ precargarFoto('portada-oficina', '100vw') }}
+    {{ precargarFoto('dra-claudia-terraza-2', '(max-width: 767px) 80vw, 460px') }}
 {% endblock %}
 
 {% block contenido %}
 
-{# ---------- Portada: dos fotos que se alternan ---------- #}
-<section class="e-seccion portada" data-alternar>
-    <div class="portada__fondo">
-        <div class="portada__foto activa">{{ foto('portada-oficina', '', { tamanos: '100vw', prioridad: true }) }}</div>
-        <div class="portada__foto">{{ foto('portada-doctora', '', { tamanos: '100vw' }) }}</div>
-    </div>
-    <div class="ola ola--abajo">{{ forma('olas') }}</div>
-    <div class="e-contenedor e-contenedor--ancho">
-        <div class="e-columna">
-            <div class="e-envoltura portada__contenido-envoltura">
-                <div class="portada__linea ancla oculto-movil"></div>
-                <section class="e-seccion portada__interior">
-                    <div class="e-contenedor">
-                        <div class="e-columna e-centrar">
-                            <div class="e-envoltura">
-                                <h1 class="portada__titulo">Servicios profesionales de Psicología</h1>
-                                <div class="portada__boton borde-morado">
-                                    <a class="boton" href="{{ sitio.enlaces.doctoralia }}" target="_blank" rel="noopener">Agenda tu cita</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="e-columna">
-                            <div class="e-envoltura">
-                                <div class="portada__espacio"></div>
-                                <div class="portada__texto">
-                                    <p>Consultas psicológicas presenciales y virtuales. Terapias de pareja, Terapias individuales, juveniles, familiares. Talleres enfocados en inteligencia emocional y salud psicosocial para familias y empresas.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+{# ---------- Portada: texto a la izquierda y la doctora a la derecha ---------- #}
+<section class="inicio-portada">
+    <div class="inicio-portada__caja">
+        <div class="inicio-portada__texto">
+            <h1 class="inicio-portada__titulo">Servicios profesionales de Psicología</h1>
+            <p>Consultas psicológicas presenciales y virtuales. Terapias de pareja, Terapias individuales, juveniles, familiares. Talleres enfocados en inteligencia emocional y salud psicosocial para familias y empresas.</p>
+            <div class="inicio-portada__botones">
+                <a class="boton-claro" href="{{ sitio.enlaces.doctoralia }}" target="_blank" rel="noopener">Agenda tu cita</a>
+                <a class="boton-borde" href="{{ whatsapp('Hola, vengo de la página web de CENPAIF y quiero información.') }}" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
             </div>
         </div>
+        <figure class="inicio-portada__foto">
+            {{ foto('dra-claudia-terraza-2', 'Dra. Claudia Yolima Díaz en CENPAIF', { tamanos: '(max-width: 767px) 80vw, 460px', prioridad: true }) }}
+            <figcaption>
+                <strong>Dra. Claudia Yolima Díaz</strong>
+                <span>Psicóloga, Chía</span>
+            </figcaption>
+        </figure>
     </div>
 </section>
 
-{# ---------- Psicología integral ---------- #}
-<section class="e-seccion">
-    <div class="e-contenedor">
-        <div class="e-columna">
-            <div class="e-envoltura">
-                <section class="e-seccion integral__fila">
-                    <div class="e-contenedor">
-                        <div class="e-columna e-centrar">
-                            <div class="e-envoltura">
-                                <div class="integral__foto imagen-e">
-                                    {{ foto('dra-claudia-retrato', 'Dra. Claudia Yolima Díaz, psicóloga de CENPAIF', { tamanos: '(max-width: 767px) 88vw, 540px' }) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="e-columna e-centrar">
-                            <div class="e-envoltura">
-                                {{ m.titulo('Psicología integral. Resultados en corto tiempo con empatía y eficacia ', 'h2', 'titulo-ekit--verde titulo-ekit--movil-centro integral__titulo') }}
-                                <div class="texto-gilroy">
-                                    <p>“<strong>CENPAIF</strong> es un centro de psicología que presta atención personalizada y cercana para ayudar a adultos, adolescentes y familias a mejorar su bienestar emocional. Con un equipo altamente capacitado en terapias de tercera generación, combinamos técnicas de psicoterapia cognitivo conductual y emocional para lograr resultados en corto tiempo. Desde depresión y ansiedad hasta empoderamiento y calidad de vida familiar, cada sesión en CENPAIF se centra en ayudarte a desarrollar seguridad personal y encontrar equilibrio.”</p>
-                                </div>
-                                {{ m.boton('Agenda tu cita', sitio.enlaces.doctoralia, 'centro', 'borde-morado') }}
-                            </div>
-                        </div>
-                    </div>
-                </section>
+{# ---------- Quiénes somos (texto de la tía, con un título que dice de qué habla) ---------- #}
+<section class="bloque bloque--blanco">
+    <div class="bloque__caja quienes">
+        <figure class="quienes__foto">
+            {{ foto('portada-oficina', 'Consultorio de CENPAIF en Chía', { tamanos: '(max-width: 1024px) 92vw, 520px' }) }}
+        </figure>
+        <div class="quienes__texto">
+            {{ m.titulo('Un centro de psicología cercano para adultos, adolescentes y familias', 'h2', 'titulo-ekit--verde') }}
+            <div class="texto-gilroy">
+                <p><strong>CENPAIF</strong> es un centro de psicología que presta atención personalizada y cercana para ayudar a adultos, adolescentes y familias a mejorar su bienestar emocional. Con un equipo altamente capacitado en terapias de tercera generación, combinamos técnicas de psicoterapia cognitivo conductual y emocional para lograr resultados en corto tiempo. Desde depresión y ansiedad hasta empoderamiento y calidad de vida familiar, cada sesión en CENPAIF se centra en ayudarte a desarrollar seguridad personal y encontrar equilibrio.</p>
             </div>
+            {{ m.boton('Agenda tu cita', sitio.enlaces.doctoralia, 'izquierda') }}
         </div>
     </div>
 </section>
@@ -113,52 +84,61 @@
     </div>
 </section>
 
-{# ---------- Beneficios ---------- #}
-<section class="e-seccion">
-    <div class="e-contenedor">
-        <div class="e-columna">
-            <div class="e-envoltura">
-                <section class="e-seccion beneficios__fila">
-                    <div class="e-contenedor">
-                        <div class="e-columna e-centrar">
-                            <div class="e-envoltura">
-                                {{ m.titulo('Beneficios de elegir CENPAIF', 'h2', 'titulo-ekit--verde titulo-ekit--movil-centro') }}
-                                <div class="texto-gilroy">
-                                    <p>En <strong>CENPAIF,</strong> nuestros pacientes reciben un enfoque único que va más allá de aliviar síntomas. Nuestros psicólogos y terapeutas trabajan en reorientar la vida de cada persona, logrando cambios duraderos a través de estrategias terapéuticas efectivas y herramientas modernas como las pruebas proyectivas y el acceso digital a la historia clínica. Nos destacamos por la calidez, el profesionalismo con resultados eficaces.</p>
-                                </div>
-                                {{ m.boton('Escríbenos por WhatsApp', whatsapp('Hola, vengo de la página web de CENPAIF y quiero información.'), 'centro', 'borde-morado') }}
-                            </div>
-                        </div>
-                        <div class="e-columna">
-                            <div class="e-envoltura">
-                                <div class="carrusel" data-carrusel aria-roledescription="carrusel" aria-label="Carrusel de imágenes">
-                                    <div class="carrusel__pista">
-                                        <div>{{ foto('dra-claudia-terraza', 'Dra. Claudia Yolima Díaz en la terraza del edificio', { tamanos: '(max-width: 767px) 92vw, 540px' }) }}</div>
-                                        <div>{{ foto('terraza', 'Terraza del edificio Offices Center Chía Elite', { tamanos: '(max-width: 767px) 92vw, 540px' }) }}</div>
-                                        <div>{{ foto('edificio-entrada', 'Entrada del edificio Offices Center Chía Elite', { tamanos: '(max-width: 767px) 92vw, 540px' }) }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+{# ---------- Por qué elegir CENPAIF (sale del texto de Beneficios de la tía) ---------- #}
+<section class="bloque bloque--blanco">
+    <div class="bloque__caja por-que">
+        <div class="por-que__cabeza">
+            {{ m.titulo('¿Por qué elegir CENPAIF?', 'h2', 'titulo-ekit--verde') }}
+            <p>Nuestros psicólogos y terapeutas trabajan en reorientar la vida de cada persona. Nos destacamos por la calidez y el profesionalismo.</p>
+            {{ m.boton('Escríbenos por WhatsApp', whatsapp('Hola, vengo de la página web de CENPAIF y quiero información.'), 'izquierda') }}
         </div>
+        <ul class="por-que__lista">
+            <li>
+                <h3>Más allá de aliviar síntomas</h3>
+                <p>Un enfoque que busca reorientar la vida de cada persona.</p>
+            </li>
+            <li>
+                <h3>Herramientas modernas</h3>
+                <p>Pruebas proyectivas y acceso digital a la historia clínica.</p>
+            </li>
+            <li>
+                <h3>Presencial y virtual</h3>
+                <p>En el consultorio en Chía o desde donde estés.</p>
+            </li>
+            <li>
+                <h3>Calidez y profesionalismo</h3>
+                <p>Un acompañamiento cercano en cada sesión.</p>
+            </li>
+        </ul>
     </div>
 </section>
 
-{# ---------- Reseñas ---------- #}
-<section class="e-seccion bloque-gris">
-    <div class="e-contenedor e-contenedor--ancho">
-        <div class="e-columna">
-            <div class="e-envoltura">
-                <div class="espacio"></div>
-                {{ m.titulo('Mejor psicóloga con calificaciones de 5 estrellas', 'h2', 'titulo-ekit--centro titulo-grande--sube') }}
-                <div class="resenas" data-resenas>
-                    {% include "resenas.njk" %}
-                </div>
-            </div>
+{# ---------- Reseñas de Google: las de 5 estrellas más recientes (src/resenas.mjs) ---------- #}
+<section class="bloque bloque--niebla" aria-labelledby="resenas-titulo">
+    <div class="bloque__caja">
+        <div class="resenas__cabeza">
+            <h2 class="resenas__titulo" id="resenas-titulo">Lo que dicen nuestros pacientes</h2>
+            <a class="resenas__google" href="{{ sitio.enlaces.comoLlegar }}" target="_blank" rel="noopener">
+                <span class="resenas__nota">{{ resumenResenas.calificacion }}</span>
+                <span class="resenas__estrellas" aria-hidden="true">★★★★★</span>
+                <span>{{ resumenResenas.total }} opiniones en Google</span>
+            </a>
         </div>
+        <ul class="resenas__lista">
+            {% for r in resenasDestacadas %}
+            <li class="resena">
+                <p class="resena__estrellas" aria-label="5 estrellas">★★★★★</p>
+                <blockquote class="resena__texto">{{ r.texto }}</blockquote>
+                <div class="resena__autor">
+                    <span class="resena__inicial" aria-hidden="true">{{ r.nombre | first | upper }}</span>
+                    <div>
+                        <p class="resena__nombre">{{ r.nombre }}</p>
+                        <p class="resena__fecha">{{ r.fechaTexto }}</p>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </section>
 

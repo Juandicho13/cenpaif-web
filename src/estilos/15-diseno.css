@@ -49,68 +49,405 @@ body {
     background-color: var(--indigo);
 }
 
-/* ---------- Portada: la foto pasa por detrás de la isla ---------- */
-.portada {
-    margin-top: -100px;
+/* ---------- Portada del inicio: compacta, texto y foto lado a lado ---------- */
+.inicio-portada {
+    position: relative;
+    overflow: hidden;
+    padding: 64px 20px 72px;
+    background-color: var(--indigo);
+    color: #fff;
 }
 
-.portada__fondo::after {
+/* Silueta suave del logo: un arco lavanda detrás de la foto */
+.inicio-portada::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: linear-gradient(100deg, rgba(29, 27, 69, 0.72) 0%, rgba(29, 27, 69, 0.35) 55%, rgba(29, 27, 69, 0.55) 100%);
+    right: -120px;
+    top: -160px;
+    width: 640px;
+    height: 640px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(123, 123, 217, 0.45) 0%, rgba(123, 123, 217, 0) 70%);
 }
 
-.portada .e-contenedor {
+.inicio-portada__caja {
     position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 48px;
+    max-width: 1140px;
+    margin: 0 auto;
 }
 
-.portada__titulo {
-    -webkit-text-stroke: 0;
-    text-shadow: none;
-    font-size: 54px;
-    line-height: 1.05;
+.inicio-portada__titulo {
+    margin: 0 0 18px;
+    color: #fff;
+    font-family: var(--letra-titulo);
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
 }
 
-.portada__texto {
-    margin-bottom: 110px;
-    text-shadow: none;
+.inicio-portada__texto p {
+    max-width: 540px;
+    margin: 0 0 30px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 18px;
+    line-height: 1.6;
 }
 
-.mapa__botones .mapa__llegar {
-    background-color: var(--indigo);
+.inicio-portada__botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
-.mapa__botones .mapa__llegar:hover {
-    background-color: var(--lavanda-fuerte);
+.boton-claro,
+.boton-borde {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 26px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.portada>.pausa {
-    top: 112px;
+.boton-claro {
+    background-color: #fff;
+    color: var(--indigo);
+}
+
+.boton-claro:hover,
+.boton-claro:focus-visible {
+    background-color: var(--lavanda-bruma);
+    color: var(--indigo);
+}
+
+.boton-borde {
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+.boton-borde:hover,
+.boton-borde:focus-visible {
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* La foto en forma de arco, como la silueta del logo */
+.inicio-portada__foto {
+    position: relative;
+    justify-self: center;
+    width: min(100%, 400px);
+    margin: 0;
+}
+
+.inicio-portada__foto img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 999px 999px 28px 28px;
+}
+
+.inicio-portada__foto figcaption {
+    position: absolute;
+    left: -24px;
+    bottom: 28px;
+    display: grid;
+    gap: 2px;
+    padding: 14px 18px;
+    border-radius: 18px;
+    background-color: #fff;
+    box-shadow: 0 18px 40px rgba(29, 27, 69, 0.25);
+    color: var(--indigo);
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.inicio-portada__foto figcaption span {
+    color: var(--gris-texto);
+    font-size: 14px;
+}
+
+/* ---------- Bloques del inicio ---------- */
+.bloque {
+    padding: 80px 20px;
+}
+
+.bloque--blanco {
+    background-color: #fff;
+}
+
+.bloque--niebla {
+    background-color: var(--lavanda-niebla);
+}
+
+.bloque__caja {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Quiénes somos */
+.quienes {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 56px;
+}
+
+.quienes__foto {
+    margin: 0;
+}
+
+.quienes__foto img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    /* Corre la foto a la derecha: así no se ve la marca de la cámara abajo a la izquierda */
+    object-position: 88% center;
+    border-radius: 28px;
+}
+
+.quienes .titulo-ekit__texto {
+    font-size: 36px;
+}
+
+.quienes .texto-gilroy p {
+    margin-bottom: 26px;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Por qué elegir CENPAIF */
+.por-que {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: start;
+    gap: 56px;
+}
+
+.por-que .titulo-ekit__texto {
+    font-size: 40px;
+}
+
+.por-que__cabeza p {
+    margin: 0 0 26px;
+    color: var(--gris-texto);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.por-que__lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.por-que__lista li {
+    padding: 26px 24px;
+    border: 1px solid var(--lavanda-bruma);
+    border-radius: 22px;
+    background-color: var(--lavanda-niebla);
+}
+
+.por-que__lista h3 {
+    margin: 0 0 8px;
+    color: var(--indigo);
+    font-family: var(--letra-titulo);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.por-que__lista p {
+    margin: 0;
+    color: var(--tinta);
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+/* Reseñas */
+.resenas__cabeza {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px 32px;
+    margin-bottom: 34px;
+}
+
+.resenas__titulo {
+    margin: 0;
+    color: var(--indigo);
+    font-family: var(--letra-titulo);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.resenas__google {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background-color: #fff;
+    color: var(--tinta);
+    font-size: 15px;
+    box-shadow: 0 6px 18px rgba(43, 40, 112, 0.08);
+}
+
+.resenas__google:hover {
+    color: var(--indigo);
+    text-decoration: underline;
+}
+
+.resenas__nota {
+    color: var(--indigo);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.resenas__estrellas,
+.resena__estrellas {
+    color: #e8a317;
+    letter-spacing: 2px;
+}
+
+.resenas__lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.resena {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 26px;
+    border-radius: 22px;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(43, 40, 112, 0.06);
+}
+
+.resena__estrellas {
+    margin: 0;
+    font-size: 16px;
+}
+
+.resena__texto {
+    flex: 1;
+    margin: 0;
+    color: var(--tinta);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.resena__autor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.resena__inicial {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--lavanda-bruma);
+    color: var(--indigo);
+    font-weight: 800;
+}
+
+.resena__nombre {
+    margin: 0;
+    color: var(--indigo);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.resena__fecha {
+    margin: 0;
+    color: var(--gris-texto);
+    font-size: 14px;
 }
 
 @media (max-width: 1024px) {
-    .portada {
-        margin-top: -92px;
+    .inicio-portada__titulo {
+        font-size: 44px;
     }
 
-    .portada>.pausa {
-        top: 104px;
+    .quienes,
+    .por-que {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .resenas__lista {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 767px) {
-    .portada__titulo {
+    .inicio-portada {
+        padding: 40px 18px 52px;
+    }
+
+    .inicio-portada__caja {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .inicio-portada__titulo {
+        font-size: 36px;
+    }
+
+    .inicio-portada__texto p {
+        font-size: 16px;
+    }
+
+    .inicio-portada__botones a {
+        width: 100%;
+    }
+
+    .inicio-portada__foto {
+        width: min(100%, 270px);
+    }
+
+    .inicio-portada__foto figcaption {
+        left: -10px;
+        bottom: 18px;
+    }
+
+    .bloque {
+        padding: 56px 16px;
+    }
+
+    .quienes .titulo-ekit__texto,
+    .por-que .titulo-ekit__texto,
+    .resenas__titulo {
         font-size: 30px;
     }
 
-    .portada__interior {
-        padding-top: 100px;
-    }
-
-    .portada__texto {
-        margin-bottom: 40px;
-        font-size: 14px;
+    .por-que__lista,
+    .resenas__lista {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -307,5 +644,93 @@ body {
     .servicio,
     .servicio__foto img {
         transition: none;
+    }
+}
+
+/* ---------- Páginas legales (privacidad y términos) ---------- */
+.legal {
+    padding: 64px 20px 80px;
+    background-color: #fff;
+}
+
+.legal__caja {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--tinta);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.legal__titulo {
+    margin: 0 0 8px;
+    color: var(--indigo);
+    font-family: var(--letra-titulo);
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.legal__fecha {
+    margin: 0 0 36px;
+    color: var(--gris-texto);
+    font-size: 15px;
+}
+
+.legal h2 {
+    margin: 36px 0 10px;
+    color: var(--indigo);
+    font-family: var(--letra-titulo);
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.legal ul {
+    padding-left: 22px;
+}
+
+.legal li {
+    margin-bottom: 6px;
+}
+
+.legal a {
+    color: var(--lavanda-fuerte);
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .legal__titulo {
+        font-size: 32px;
+    }
+}
+
+/* ---------- Portadas de servicios en celular ----------
+   La foto va arriba y la tarjeta debajo, sin montarse sobre la foto */
+@media (max-width: 767px) {
+    .caja-servicio {
+        margin-top: 0;
+    }
+
+    .caja-servicio__fondo {
+        position: relative;
+        height: 240px;
+    }
+
+    .caja-servicio__fondo img,
+    .caja-servicio--contener .caja-servicio__fondo img {
+        object-fit: cover;
+        object-position: center 30%;
+    }
+
+    .caja-servicio .ola--abajo,
+    .caja-servicio:has(.caja-servicio__fondo) [class*="espacio-portada"] {
+        display: none;
+    }
+
+    .caja-servicio:has(.caja-servicio__fondo) .vidrio {
+        position: relative;
+        width: auto;
+        margin: -36px 14px 28px;
+        background: #fff;
+        box-shadow: 0 16px 40px rgba(43, 40, 112, 0.14);
     }
 }

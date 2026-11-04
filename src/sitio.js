@@ -6,7 +6,7 @@
  *   4. Formulario de contacto: arma el mensaje y abre WhatsApp
  *   5. Google Tag Manager, cargado después de la página para no frenarla
  *      (también pone el botón flotante de WhatsApp "Asesoría en Línea")
- *   Además: ventana de los videos de los talleres, visor de fotos de Alquiler y reseñas del inicio
+ *   Además: ventana de los videos de los talleres, visor de fotos de Alquiler y mapa liviano
  */
 (function () {
     'use strict';
@@ -242,42 +242,6 @@
         });
         visor.addEventListener('close', pararPase);
     }
-
-    // ---------- Reseñas de Google (inicio) ----------
-    // El widget de Trustindex (el mismo de la original) se carga cuando las reseñas están por aparecer
-    var resenas = document.querySelector('[data-resenas]');
-    if (resenas) {
-        var cargarResenas = function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.src = 'https://cdn.trustindex.io/loader.js?ver=1';
-            document.body.appendChild(s);
-        };
-        if ('IntersectionObserver' in window) {
-            var vigia = new IntersectionObserver(function (entradas) {
-                if (entradas.some(function (e) { return e.isIntersecting; })) {
-                    vigia.disconnect();
-                    cargarResenas();
-                }
-            }, { rootMargin: '800px 0px' });
-            vigia.observe(resenas);
-        } else {
-            cargarResenas();
-        }
-    }
-
-    // ---------- Mapa de Google: solo cuando la persona lo pide ----------
-    document.querySelectorAll('[data-mapa]').forEach(function (aviso) {
-        aviso.querySelector('.mapa__ver').addEventListener('click', function () {
-            var mapa = document.createElement('iframe');
-            mapa.src = aviso.getAttribute('data-mapa');
-            mapa.title = 'Mapa de CENPAIF en Chía';
-            mapa.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-            mapa.setAttribute('allowfullscreen', '');
-            aviso.replaceWith(mapa);
-            mapa.focus();
-        });
-    });
 
     // ---------- 5. Google Tag Manager diferido ----------
     // Solo en cenpaif.com: las pruebas en la dirección de prueba o en el computador no cuentan como visitas

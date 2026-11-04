@@ -230,6 +230,13 @@ function organizacion(sitio) {
     };
 }
 
+// "2024-03-13" a "marzo de 2024"
+function fechaEnEspanol(fecha) {
+    const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    const [anio, mes] = fecha.split('-').map(Number);
+    return `${meses[mes - 1]} de ${anio}`;
+}
+
 async function escribirPagina(ruta, html) {
     const destino = ruta === '/' ? aRuta('index.html') : ruta === '/404' ? aRuta('404.html') : aRuta(ruta.slice(1), 'index.html');
     await mkdir(path.dirname(destino), { recursive: true });
@@ -264,7 +271,7 @@ async function construir() {
     const inicio = Date.now();
     const v = `?v=${inicio}`;
     const { sitio, whatsapp } = await import(pathToFileURL(path.join(raiz, 'src', 'sitio.mjs')).href + v);
-    const { resenas } = await import(pathToFileURL(path.join(raiz, 'src', 'resenas.mjs')).href + v);
+    const { resenas, resumen } = await import(pathToFileURL(path.join(raiz, 'src', 'resenas.mjs')).href + v);
 
     await rm(SALIDA, { recursive: true, force: true });
     await mkdir(SALIDA, { recursive: true });
@@ -296,7 +303,13 @@ async function construir() {
         activos: { css: rutaCss, js: rutaJs, fuentes },
         whatsapp: (m) => whatsapp(m),
         // El widget de reseñas usa la fecha en segundos
-        resenas: resenas.map((r) => ({ ...r, tiempo: Date.parse(`${r.fecha}T00:00:00Z`) / 1000 }))
+        // Reseñas del inicio: 5 estrellas con texto, las más nuevas primero
+        resumenResenas: resumen,
+        resenasDestacadas: resenas
+            .filter((r) => (r.estrellas ?? 5) === 5 && r.texto && r.texto.trim())
+            .sort((a, b) => b.fecha.localeCompare(a.fecha))
+            .slice(0, 6)
+            .map((r) => ({ ...r, fechaTexto: fechaEnEspanol(r.fecha) }))
     };
     for (const [k, valor] of Object.entries(globales)) env.addGlobal(k, valor);
     env.addFilter('jsonld', (grafo) => seguro(

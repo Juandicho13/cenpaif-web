@@ -1,7 +1,11 @@
-// Reseñas de Google que salen en el inicio (las mismas de la web original).
-// Se muestran con el widget de Trustindex, igual que en la original.
-//   fecha: día de la reseña (el widget escribe "2 years ago" a partir de esta fecha)
-//   foto: foto de perfil de Google de quien escribió la reseña
+// Reseñas de Google que salen en el inicio. La web muestra las de 5 estrellas con texto,
+// de la más nueva a la más vieja (máximo 6). Revisadas en Google Maps el 2026-11-04:
+// las más recientes de la ficha son de marzo de 2024.
+//   fecha: día de la reseña (año-mes-día)
+//   foto: foto de perfil de Google (no se muestra; la web usa la inicial)
+//   estrellas: si falta, se toma como 5
+
+export const resumen = { calificacion: '5,0', total: 25 };
 
 export const resenas = [
     {

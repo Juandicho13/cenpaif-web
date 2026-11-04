@@ -1,0 +1,64 @@
+---
+{
+    "titulo": "Política de privacidad y tratamiento de datos - CENPAIF",
+    "descripcion": "Cómo CENPAIF, centro de psicología en Chía, recoge, usa y protege tus datos personales según la Ley 1581 de 2012 y el Decreto 1377 de 2013."
+}
+---
+{% extends "base.njk" %}
+
+{% block contenido %}
+<article class="legal">
+    <div class="legal__caja">
+        <h1 class="legal__titulo">Política de privacidad y tratamiento de datos personales</h1>
+        <p class="legal__fecha">Vigente desde el 4 de noviembre de 2026</p>
+
+        <h2>1. Quién es responsable de tus datos</h2>
+        <p>El responsable del tratamiento es <strong>CENPAIF, Centro Psicológico de Atención Integral Familiar y Empresarial</strong>, a cargo de la psicóloga Claudia Yolima Díaz Ovalle.</p>
+        <ul>
+            <li>Dirección: {{ sitio.direccion }}. {{ sitio.ciudad }}, Colombia.</li>
+            <li>Correo: <a href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a></li>
+            <li>Teléfono y WhatsApp: <a href="{{ sitio.telefonoEnlace }}">{{ sitio.telefono }}</a></li>
+        </ul>
+
+        <h2>2. Qué datos recogemos</h2>
+        <ul>
+            <li>Datos de contacto que nos das en los formularios, por WhatsApp o por correo: nombre, correo, teléfono y el mensaje que escribes.</li>
+            <li>Datos para agendar o pagar una cita: los que pidan Doctoralia, Wompi o PayPal en sus propias páginas, que tienen sus propias políticas.</li>
+            <li>Datos de la atención psicológica: los que se registran en la historia clínica cuando eres paciente. Son datos sensibles y se tratan con reserva profesional, según la Ley 1090 de 2006.</li>
+            <li>Datos de navegación: cuando entras a cenpaif.com, Google Analytics puede registrar de forma general cómo se usa la página (páginas vistas, tipo de dispositivo y ciudad aproximada).</li>
+        </ul>
+
+        <h2>3. Para qué los usamos</h2>
+        <ul>
+            <li>Responder tus mensajes y darte información sobre nuestros servicios.</li>
+            <li>Agendar, confirmar o reprogramar citas, talleres o el alquiler de la oficina.</li>
+            <li>Prestar la atención psicológica y llevar la historia clínica.</li>
+            <li>Emitir los comprobantes de pago.</li>
+            <li>Mejorar la página web con datos generales de uso.</li>
+        </ul>
+        <p>No vendemos ni compartimos tus datos con terceros para publicidad.</p>
+
+        <h2>4. Datos sensibles y de menores de edad</h2>
+        <p>No estás obligado a darnos datos sensibles, como los de tu salud. Cuando los compartes para tu atención, los usamos solo para ese fin. Los datos de niñas, niños y adolescentes se tratan con la autorización de sus padres o representantes y respetando sus derechos.</p>
+
+        <h2>5. Tus derechos</h2>
+        <p>Según la Ley 1581 de 2012 puedes:</p>
+        <ul>
+            <li>Conocer, actualizar y corregir tus datos.</li>
+            <li>Pedir prueba de la autorización que nos diste.</li>
+            <li>Saber cómo hemos usado tus datos.</li>
+            <li>Revocar la autorización o pedir que borremos tus datos, cuando no exista un deber legal de conservarlos (por ejemplo, la historia clínica).</li>
+            <li>Presentar quejas ante la Superintendencia de Industria y Comercio.</li>
+        </ul>
+
+        <h2>6. Cómo hacer una consulta o un reclamo</h2>
+        <p>Escríbenos a <a href="mailto:{{ sitio.correo }}">{{ sitio.correo }}</a> con tu nombre, tu documento, lo que pides y un dato de contacto. Respondemos las consultas en un máximo de 10 días hábiles y los reclamos en un máximo de 15 días hábiles, como lo pide la ley.</p>
+
+        <h2>7. Cómo cuidamos tus datos</h2>
+        <p>Guardamos la información con medidas para evitar que se pierda, se consulte o se use sin permiso. La historia clínica se conserva por el tiempo que exige la ley.</p>
+
+        <h2>8. Cambios a esta política</h2>
+        <p>Si cambiamos esta política, publicaremos la nueva versión en esta página con su fecha.</p>
+    </div>
+</article>
+{% endblock %}
