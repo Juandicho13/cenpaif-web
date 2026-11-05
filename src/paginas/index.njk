@@ -21,8 +21,8 @@
             <h1 class="inicio-portada__titulo">Servicios profesionales de Psicología</h1>
             <p>Consultas psicológicas presenciales y virtuales. Terapias de pareja, Terapias individuales, juveniles, familiares. Talleres enfocados en inteligencia emocional y salud psicosocial para familias y empresas.</p>
             <div class="inicio-portada__botones">
-                <a class="boton-claro" href="{{ sitio.enlaces.doctoralia }}" target="_blank" rel="noopener">Agenda tu cita</a>
-                <a class="boton-borde" href="{{ whatsapp('Hola, vengo de la página web de CENPAIF y quiero información.') }}" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+                <a class="boton-claro" href="{{ sitio.enlaces.agenda }}" target="_blank" rel="noopener">Agenda tu cita</a>
+                <a class="boton-borde" href="{{ whatsapp('Hola, vengo de la página web de CENPAIF y quiero información.') }}" target="_blank" rel="noopener">{{ icono('whatsapp') }}Escríbenos por WhatsApp</a>
             </div>
         </div>
         <figure class="inicio-portada__foto">
@@ -46,7 +46,7 @@
             <div class="texto-gilroy">
                 <p><strong>CENPAIF</strong> es un centro de psicología que presta atención personalizada y cercana para ayudar a adultos, adolescentes y familias a mejorar su bienestar emocional. Con un equipo altamente capacitado en terapias de tercera generación, combinamos técnicas de psicoterapia cognitivo conductual y emocional para lograr resultados en corto tiempo. Desde depresión y ansiedad hasta empoderamiento y calidad de vida familiar, cada sesión en CENPAIF se centra en ayudarte a desarrollar seguridad personal y encontrar equilibrio.</p>
             </div>
-            {{ m.boton('Agenda tu cita', sitio.enlaces.doctoralia, 'izquierda') }}
+            {{ m.boton('Agenda tu cita', sitio.enlaces.agenda, 'izquierda') }}
         </div>
     </div>
 </section>

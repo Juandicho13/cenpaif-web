@@ -11,8 +11,8 @@ export const sitio = {
     ciudad: 'Chía, Cundinamarca',
     whatsapp: '573132712530',
     enlaces: {
-        doctoralia: 'https://www.doctoralia.co/claudia-yolima-diaz-ovalle/psicologo/chia',
-        mapa: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15901.900663809294!2d-74.0569561!3d4.8597463!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f878ec7ceae53%3A0xc985a64bec7fc7f0!2sCenpaif.%20Centro%20Psicol%C3%B3gico%20de%20Atenci%C3%B3n%20Integral%20Familiar%20y%20Empresarial.!5e0!3m2!1ses-419!2sco!4v1733500330836!5m2!1ses-419!2sco',
+        // Agenda de citas de la tía (Google Calendar). Ya no usa Doctoralia.
+        agenda: 'https://calendar.app.google/qhr7ZgQBvZDQM2Bb9',
         wompi: 'https://checkout.wompi.co/l/VPOS_vOjvu7',
         paypal: 'https://www.paypal.com/paypalme/CenClaudiaDiazOvalle',
         // Ficha de CENPAIF en Google Maps (botón "Cómo llegar")
@@ -42,9 +42,7 @@ export const sitio = {
         { texto: 'Pagos', url: '/pagos/' },
         { texto: 'Alquiler de oficinas', url: '/alquiler-de-oficina-por-horas/' },
         { texto: 'Contacto', url: '#contacto' }
-    ],
-    // Google Tag Manager: Analytics y el botón verde "Asesoría en Línea" de WhatsApp
-    gtm: 'GTM-KHSMRWMG'
+    ]
 };
 
 // Rutas de los servicios, para resaltar "Servicios" en el menú cuando se está en uno de ellos

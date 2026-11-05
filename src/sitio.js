@@ -4,9 +4,7 @@
  *   2. Fotos de la portada que se alternan cada 5 segundos
  *   3. Carrusel de fotos de "Beneficios"
  *   4. Formulario de contacto: arma el mensaje y abre WhatsApp
- *   5. Google Tag Manager, cargado después de la página para no frenarla
- *      (también pone el botón flotante de WhatsApp "Asesoría en Línea")
- *   Además: ventana de los videos de los talleres, visor de fotos de Alquiler y mapa liviano
+ *   Además: ventana de los videos de los talleres, visor de fotos de Alquiler
  */
 (function () {
     'use strict';
@@ -241,27 +239,5 @@
             if (e.key === 'ArrowRight') { pararPase(); mostrarFoto(actual + 1); }
         });
         visor.addEventListener('close', pararPase);
-    }
-
-    // ---------- 5. Google Tag Manager diferido ----------
-    // Solo en cenpaif.com: las pruebas en la dirección de prueba o en el computador no cuentan como visitas
-    var gtm = window.CENPAIF_GTM;
-    var dominioReal = /^(www\.)?cenpaif\.com$/.test(location.hostname);
-    if (gtm && dominioReal) {
-        var cargado = false;
-        var cargar = function () {
-            if (cargado) return;
-            cargado = true;
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
-            var s = document.createElement('script');
-            s.async = true;
-            s.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtm;
-            document.head.appendChild(s);
-        };
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (evento) {
-            window.addEventListener(evento, cargar, { once: true, passive: true });
-        });
-        window.addEventListener('load', function () { setTimeout(cargar, 2000); });
     }
 })();

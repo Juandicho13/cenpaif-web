@@ -266,6 +266,12 @@ Cada ticket cerrado agrega una fila. La columna "Para el documento final" se esc
 
 Notas del 2026-11-04: las páginas legales las debe revisar la tía o un abogado (falta el NIT o la cédula del responsable). En la ficha de Google el horario dice "Abre a las 7 p. m.": la tía debe revisarlo. Coordenadas de la ficha: 4.8594926, -74.0570304.
 
+| 2026-11-04 | Citas en Google Calendar, WhatsApp propio, sin mapa, portadas a todo el ancho, Sobre Nosotros y Alquiler nuevos | (este) | Las citas se agendan en la agenda de Google. El botón de WhatsApp es propio y más liviano. Sobre Nosotros y Alquiler de oficinas tienen un diseño nuevo, con planes y precios claros. | Claude: Lighthouse 98 a 100 en velocidad y 100 en lo demás |
+
+Respuestas de la tía (2026-11-04): ya no usa Doctoralia (todas las citas van a Google Calendar); no le paga a masleads (se quitó Tag Manager, que también traía Analytics; cuando el dominio esté en Cloudflare se puede activar Cloudflare Web Analytics, gratis y sin cookies); abre a las 7 a. m. (lo corrige ella en su ficha de Google).
+
+Reseñas automáticas: `.github/workflows/resenas.yml` corre `scripts/actualizar-resenas.mjs` cada día y guarda en `src/resenas.json`. Falta que Juan cree la clave de Google (Places API) y la guarde en GitHub como secreto `GOOGLE_PLACES_KEY`.
+
 **Respuestas de la tía (2026-11-03):** pregunta 2: formularios de Google sin iniciar sesión, pidiendo el correo como respuesta del encuestado (opción A de F1-14). Reseñas: sí da acceso a su perfil de Google para F5-05 (las de 5 estrellas más recientes).
 
 **Siguiente:** F1-14 espera a la tía (pregunta 2), F1-15 espera la aprobación de Juan y F1-05 depende de F1-15. F2-01 y F3-01 esperan que Juan apruebe las ramas de propuesta. F2-03 espera la pregunta 5, F2-06 es propuesta de reseñas, F2-07 lo mide Juan. Lo de F4 a F8 que queda depende de la tía o de la aprobación de Juan (títulos y descripciones de F4-01). Pendiente pequeño: en Orientación vocacional Lighthouse marca "Más Información" como texto de enlace poco claro (SEO 92); cambiarlo es tocar un texto de la tía.

@@ -29,7 +29,7 @@
                 {% endfor %}
             </ul>
             <div class="menu__extra">
-                <a class="isla__accion" href="{{ whatsapp('Hola, vengo de la página web de CENPAIF.') }}" target="_blank" rel="noopener">Escríbenos</a>
+                <a class="isla__accion" href="{{ whatsapp('Hola, vengo de la página web de CENPAIF.') }}" target="_blank" rel="noopener">{{ icono('whatsapp') }}Escríbenos</a>
                 <ul class="redes">
                     {% for r in sitio.redes %}
                     <li><a href="{{ r.url }}" target="_blank" rel="noopener" aria-label="{{ r.nombre }}">{{ icono(r.icono) }}</a></li>
@@ -39,5 +39,5 @@
         </div>
     </nav>
 
-    <a class="isla__accion isla__accion--fija" href="{{ whatsapp('Hola, vengo de la página web de CENPAIF.') }}" target="_blank" rel="noopener">Escríbenos</a>
+    <a class="isla__accion isla__accion--fija" href="{{ whatsapp('Hola, vengo de la página web de CENPAIF.') }}" target="_blank" rel="noopener">{{ icono('whatsapp') }}Escríbenos</a>
 </header>

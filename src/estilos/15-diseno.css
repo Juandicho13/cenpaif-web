@@ -734,3 +734,546 @@ body {
         box-shadow: 0 16px 40px rgba(43, 40, 112, 0.14);
     }
 }
+
+/* ---------- Ícono de WhatsApp en los botones que abren WhatsApp ---------- */
+.boton--whatsapp,
+.boton-borde,
+.isla__accion,
+.formulario__enviar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.boton--whatsapp svg,
+.boton-borde svg,
+.isla__accion svg,
+.formulario__enviar svg {
+    flex: none;
+    width: 1.15em;
+    height: 1.15em;
+}
+
+/* ---------- Botón flotante de WhatsApp (propio) ---------- */
+.whatsapp-flotante {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 9000;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px 12px 14px;
+    border-radius: 999px;
+    background-color: #12804a;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 12px 30px rgba(18, 128, 74, 0.35);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.whatsapp-flotante svg {
+    width: 26px;
+    height: 26px;
+}
+
+.whatsapp-flotante:hover,
+.whatsapp-flotante:focus-visible {
+    background-color: #0e6a3d;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* En celular solo el círculo con el ícono */
+@media (max-width: 767px) {
+    .whatsapp-flotante {
+        right: 14px;
+        bottom: 14px;
+        padding: 14px;
+    }
+
+    .whatsapp-flotante span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+    }
+}
+
+/* ---------- Portadas de servicios: de borde a borde y pegadas al encabezado ----------
+   La foto (o el lavanda) ocupa todo el ancho de la pantalla y arriba se funde en
+   blanco con la barra del encabezado. */
+.caja-servicio {
+    flex: none;
+    width: 100vw;
+    max-width: none;
+    margin-top: 0;
+    margin-left: calc(50% - 50vw);
+}
+
+.caja-servicio--pegada {
+    margin-top: 0;
+}
+
+.caja-servicio::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    height: 110px;
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+.caja-servicio>.e-contenedor {
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .caja-servicio__fondo img {
+        object-position: center 30%;
+    }
+}
+
+@media (max-width: 767px) {
+    .caja-servicio::before {
+        height: 60px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .isla .isla__accion--fija {
+        display: none;
+    }
+}
+
+/* ---------- Portada de páginas internas (Sobre Nosotros, Alquiler) ---------- */
+.pagina-portada {
+    position: relative;
+    overflow: hidden;
+    padding: 56px 20px 72px;
+    background: linear-gradient(180deg, #fff 0%, var(--lavanda-niebla) 100%);
+}
+
+.pagina-portada::before {
+    content: "";
+    position: absolute;
+    right: -140px;
+    top: -120px;
+    width: 620px;
+    height: 620px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(123, 123, 217, 0.3) 0%, rgba(123, 123, 217, 0) 70%);
+}
+
+.pagina-portada__caja {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 56px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.pagina-portada__titulo {
+    margin: 0;
+    color: var(--indigo);
+    font-family: var(--letra-titulo);
+    font-size: 54px;
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+.pagina-portada__lema {
+    margin: 10px 0 20px;
+    color: var(--lavanda-fuerte);
+    font-family: var(--letra-titulo);
+    font-size: 23px;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.pagina-portada__texto>p:not(.pagina-portada__lema) {
+    margin: 0 0 26px;
+    color: var(--tinta);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.pagina-portada__botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.pagina-portada__botones>.boton-envoltura {
+    width: auto;
+    margin: 0 !important;
+}
+
+/* Botón secundario: blanco con borde */
+.boton-envoltura--suave .boton {
+    border: 1.5px solid var(--lavanda-bruma);
+    background-color: #fff;
+    color: var(--indigo);
+}
+
+.boton-envoltura--suave .boton:hover,
+.boton-envoltura--suave .boton:focus {
+    border-color: var(--indigo);
+    background-color: var(--indigo);
+    color: #fff;
+}
+
+.pagina-portada__foto {
+    justify-self: center;
+    width: min(100%, 400px);
+    margin: 0;
+}
+
+.pagina-portada__foto img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 999px 999px 28px 28px;
+    box-shadow: 0 24px 50px rgba(43, 40, 112, 0.18);
+}
+
+.pagina-portada__foto--redonda {
+    width: min(100%, 480px);
+}
+
+.pagina-portada__foto--redonda img {
+    aspect-ratio: 1;
+    border-radius: 36px;
+}
+
+/* Lista corta en píldoras */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+}
+
+.chips li {
+    padding: 10px 16px;
+    border: 1px solid var(--lavanda-bruma);
+    border-radius: 999px;
+    background-color: #fff;
+    color: var(--indigo);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Sellos de estudios (Sobre Nosotros) */
+.sellos {
+    display: grid;
+    gap: 12px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sellos li,
+.incluye li {
+    display: grid;
+    gap: 2px;
+    padding: 16px 20px;
+    border: 1px solid var(--lavanda-bruma);
+    border-left: 4px solid var(--lavanda);
+    border-radius: 16px;
+    background-color: var(--lavanda-niebla);
+}
+
+.sellos strong,
+.incluye strong {
+    color: var(--indigo);
+    font-size: 16px;
+}
+
+.sellos span,
+.incluye span {
+    color: var(--gris-texto);
+    font-size: 14px;
+}
+
+.quienes__foto--retrato img {
+    aspect-ratio: 1;
+    object-position: center top;
+}
+
+/* Fotos del espacio (Sobre Nosotros y Alquiler) */
+.espacio-fotos,
+.fotos-espacio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.espacio-fotos img,
+.fotos-espacio img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.espacio-fotos p,
+.fotos-espacio p {
+    margin: 12px 4px 0;
+    color: var(--indigo);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.fotos-espacio__enlace.galeria__ampliar {
+    position: relative;
+    inset: auto;
+    z-index: auto;
+    display: block;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.fotos-espacio__enlace img {
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fotos-espacio__enlace:hover img,
+.fotos-espacio__enlace:focus-visible img {
+    transform: scale(1.04);
+}
+
+/* Cabeza de sección con título y una frase al lado */
+.seccion-cabeza {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px 40px;
+    margin-bottom: 30px;
+}
+
+.seccion-cabeza p {
+    max-width: 420px;
+    margin: 0 0 20px;
+    color: var(--gris-texto);
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+/* Planes del alquiler */
+.planes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.plan {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 28px;
+    border: 1px solid var(--lavanda-bruma);
+    border-radius: 28px;
+    background-color: #fff;
+    box-shadow: 0 14px 34px rgba(43, 40, 112, 0.06);
+}
+
+.plan--destacado {
+    border-color: var(--indigo);
+    background-color: var(--indigo);
+    color: #fff;
+}
+
+.plan__nombre {
+    margin: 0;
+    color: inherit;
+    font-family: var(--letra-titulo);
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.plan:not(.plan--destacado) .plan__nombre {
+    color: var(--indigo);
+}
+
+.plan__precio {
+    margin: 16px 0 2px;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.plan:not(.plan--destacado) .plan__precio {
+    color: var(--indigo);
+}
+
+.plan__precio span {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.75;
+}
+
+.plan__nota {
+    margin: 6px 0 18px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.plan__lista {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 18px 0 0;
+    border-top: 1px solid currentColor;
+    border-top-color: rgba(127, 127, 160, 0.25);
+    list-style: none;
+    font-size: 15px;
+}
+
+.plan__lista li::before {
+    content: "✓";
+    margin-right: 8px;
+    color: var(--lavanda);
+    font-weight: 800;
+}
+
+.plan--destacado .plan__lista li::before {
+    color: #fff;
+}
+
+.planes__extra {
+    margin: 22px 0 0;
+    color: var(--tinta);
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Qué incluye */
+.incluye {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.incluye li {
+    background-color: #fff;
+}
+
+/* Pasos para solicitar */
+.pasos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: paso;
+}
+
+.pasos li {
+    position: relative;
+    padding: 30px 28px 28px;
+    border-radius: 28px;
+    background-color: #fff;
+    box-shadow: 0 14px 34px rgba(43, 40, 112, 0.06);
+    counter-increment: paso;
+}
+
+.pasos li::before {
+    content: counter(paso);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 14px;
+    border-radius: 50%;
+    background-color: var(--indigo);
+    color: #fff;
+    font-weight: 800;
+}
+
+.pasos h3 {
+    margin: 0 0 8px;
+    color: var(--indigo);
+    font-family: var(--letra-titulo);
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.pasos p {
+    margin: 0 0 20px;
+    color: var(--tinta);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.pasos a:not(.boton) {
+    color: var(--lavanda-fuerte);
+    font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+    .pagina-portada__caja {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .pagina-portada__titulo {
+        font-size: 44px;
+    }
+
+    .planes,
+    .espacio-fotos,
+    .fotos-espacio {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .incluye {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .pagina-portada {
+        padding: 36px 16px 52px;
+    }
+
+    .pagina-portada__titulo {
+        font-size: 36px;
+    }
+
+    .pagina-portada__foto {
+        width: min(100%, 290px);
+    }
+
+    .planes,
+    .espacio-fotos,
+    .fotos-espacio,
+    .incluye,
+    .pasos {
+        grid-template-columns: 1fr;
+    }
+}

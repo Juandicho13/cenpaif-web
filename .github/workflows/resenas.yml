@@ -1,0 +1,35 @@
+# Reseñas de Google: una vez al día trae las más nuevas y, si hay cambios,
+# hace commit en main. Cloudflare publica la web sola con ese commit.
+name: Reseñas de Google
+
+on:
+  schedule:
+    - cron: '17 11 * * *'   # 6:17 a. m. en Colombia
+  workflow_dispatch: {}      # botón "Run workflow" para correrla a mano
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Traer reseñas
+        env:
+          GOOGLE_PLACES_KEY: ${{ secrets.GOOGLE_PLACES_KEY }}
+        run: node scripts/actualizar-resenas.mjs
+      - name: Guardar si cambiaron
+        run: |
+          if git diff --quiet src/resenas.json; then
+            echo "Sin reseñas nuevas"
+          else
+            git config user.name "Reseñas CENPAIF"
+            git config user.email "actions@github.com"
+            git add src/resenas.json
+            git commit -m "chore(reseñas): actualizar reseñas de Google"
+            git push
+          fi

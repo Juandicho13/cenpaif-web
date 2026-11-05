@@ -35,9 +35,6 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <script type="application/ld+json">{{ grafo | jsonld }}</script>
-    {% if sitio.gtm %}
-    <script>window.CENPAIF_GTM = '{{ sitio.gtm }}';</script>
-    {% endif %}
 </head>
 <body{% if clase %} class="{{ clase }}"{% endif %}>
     {% include "encabezado.njk" %}
@@ -47,5 +44,10 @@
     </main>
 
     {% include "pie.njk" %}
+
+    {# Botón flotante propio de WhatsApp (reemplaza al de masleads, que cargaba 243 KB) #}
+    <a class="whatsapp-flotante" href="{{ whatsapp('Hola, vengo de la página web de CENPAIF y quiero una asesoría.') }}" target="_blank" rel="noopener" aria-label="Asesoría en línea por WhatsApp">
+        {{ icono('whatsapp') }}<span>Asesoría en línea</span>
+    </a>
 </body>
 </html>

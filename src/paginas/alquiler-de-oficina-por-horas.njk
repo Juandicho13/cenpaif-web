@@ -1,162 +1,150 @@
 ---
 {
-    "titulo": "Alquiler de oficina por horas - CENPAIF",
-    "descripcion": "CENPAIF, centro de psicólogos en Chía. Servicios de psicología individual, familiar, de pareja, infantil y juvenil, con enfoque en inteligencia emocional.",
-    "imagen": "oficina-general"
+    "titulo": "Alquiler de oficina por horas en Chía - CENPAIF",
+    "descripcion": "Alquiler de oficina gerencial privada y amoblada en Chía, por horas o por planes mensuales, con internet, recepción, parqueadero y terraza.",
+    "imagen": "edificio"
 }
 ---
 {% extends "base.njk" %}
 {% import "macros.njk" as m %}
 
-{# Fotos de las galerías: [foto, título, texto] #}
-{% set oficina = [
-    ['oficina-general', 'Excelente ubicación', 'Sobre la AV. Bolívar'],
-    ['edificio-atardecer', 'Servicios complementarios', 'Alquiler oficina privada por hora <br>Servicio de internet<br>Recepción<br>Parqueadero<br>$48.000 la hora según disponibilidad<br>Sala de conferencias y dirección comercial <br>$80.000 para planes de 3 meses en adelante<br>'],
-    ['oficina-general-3', 'Diseño Moderno', 'Zona de terraza y gimnasio<br>Zona de eventos']
-] %}
-{% set planes = [
-    ['oficina-privada', 'Plan 64 horas mensuales', 'Espacio físico $960.000 al mes<br>Incluye todos los servicios<br>Horas fijas o seleccionadas<br>Según preferencia<br>'],
-    ['oficina-privada-2', '', 'Amoblado<br>Sin contrato de arrendamiento<br>Hasta terminar el saldo<br>Horario de alquiler de Domingo a Domingo<br>En cualquier horario requerido<br>Escoge nuestros planes o elige el de tu conveniencia '],
-    ['ascensores', 'Plan 8 horas mensuales ', 'Espacio físico $320.000 al mes <br>Incluye todos los servicios <br>Horas fijas o seleccionadas<br>Según preferencia <br>']
+{% set formulario = 'https://docs.google.com/forms/d/e/1FAIpQLSexQWdDP3Yh4ZwiszT7yjvsJppI-YIYPyG5tT1F_bMo632D1w/viewform' %}
+{% set mensaje = 'Hola, quiero información sobre el alquiler de la oficina.' %}
+
+{# Fotos del espacio: [foto, descripción] (se abren en el visor) #}
+{% set fotos = [
+    ['oficina-privada', 'Oficina gerencial privada'],
+    ['terraza', 'Zona de terraza'],
+    ['ascensores', 'Recepción y ascensores'],
+    ['edificio-atardecer', 'Edificio Offices Center Chía Elite'],
+    ['oficina-general', 'Entrada del edificio sobre la Av. Bolívar'],
+    ['edificio', 'Fachada del edificio']
 ] %}
 
-{# prioridad: true en la primera galería, que se ve al abrir la página #}
-{% macro galeria(fotos, prioridad=false) %}
-<div class="galeria galeria--tres" data-visor>
-    {% for g in fotos %}
-    <div class="galeria__item">
-        <div class="galeria__tarjeta">
-            <div class="galeria__foto">
-                {{ foto(g[0], '', { tamanos: '(max-width: 1024px) 92vw, 353px', prioridad: prioridad }) }}
-                <div class="galeria__velo"></div>
-                <a class="galeria__ampliar" href="{{ rutaFoto(g[0], 1600) }}" data-miniatura="{{ rutaFoto(g[0], 400) }}" aria-label="Ver la foto {{ loop.index }} en grande"></a>
-            </div>
-            <div class="galeria__texto">
-                {% if g[1] %}<span class="galeria__nombre">{{ g[1] }}</span>{% endif %}
-                <p class="galeria__desc">{{ g[2] | safe }}</p>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-</div>
-{% endmacro %}
+{% block precarga %}
+    {{ precargarFoto('edificio', '(max-width: 767px) 92vw, 520px') }}
+{% endblock %}
 
 {% block contenido %}
 
-{# ---------- Co-working en Chía ---------- #}
-<section class="e-seccion bloque-blanco">
-    <div class="e-contenedor e-contenedor--ancho">
-        <div class="e-columna">
-            <div class="e-envoltura">
-                <div class="espacio"></div>
-                {{ m.titulo('Co-working en Chía', 'h1', 'titulo-ekit--400 titulo-ekit--movil-centro titulo-grande--sube') }}
-                <div class="fila-vacia ancla"></div>
-                <section class="e-seccion">
-                    <div class="e-contenedor">
-                        <div class="e-columna e-centrar">
-                            <div class="e-envoltura">
-                                <div class="cita">
-                                    <ul>
-                                        <li>Alquiler de oficina gerencial privada por jornadas</li>
-                                        <li>Proyecta una imagen de confianza y prestigio</li>
-                                        <li>Oficina gerencial amoblada privada</li>
-                                        <li>Excelente ubicación</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+{# ---------- Portada ---------- #}
+<section class="pagina-portada">
+    <div class="pagina-portada__caja">
+        <div class="pagina-portada__texto">
+            <h1 class="pagina-portada__titulo">Co-working en Chía</h1>
+            <p class="pagina-portada__lema">Oficina gerencial privada, por horas o por planes</p>
+            <ul class="chips">
+                <li>Alquiler de oficina gerencial privada por jornadas</li>
+                <li>Proyecta una imagen de confianza y prestigio</li>
+                <li>Oficina gerencial amoblada privada</li>
+                <li>Excelente ubicación, sobre la Av. Bolívar</li>
+            </ul>
+            <div class="pagina-portada__botones">
+                {{ m.boton('Solicita la oficina', formulario, 'izquierda') }}
+                {{ m.boton('Escríbenos por WhatsApp', whatsapp(mensaje), 'izquierda', 'boton-envoltura--suave') }}
             </div>
         </div>
+        <figure class="pagina-portada__foto pagina-portada__foto--redonda">
+            {{ foto('edificio', 'Edificio Offices Center Chía Elite', { tamanos: '(max-width: 767px) 92vw, 520px', prioridad: true }) }}
+        </figure>
     </div>
 </section>
 
-{# ---------- Oficina gerencial privada ---------- #}
-<section class="e-seccion bloque-gris">
-    <div class="e-contenedor e-contenedor--ancho">
-        <div class="e-columna">
-            <div class="e-envoltura">
-                <div class="espacio"></div>
-                {{ m.titulo('Oficina gerencial Privada', 'h2', 'titulo-ekit--400 titulo-ekit--movil-centro titulo-grande--sube') }}
-                <section class="e-seccion">
-                    <div class="e-contenedor">
-                        <div class="e-columna e-centrar">
-                            <div class="e-envoltura">
-                                {{ galeria(oficina, true) }}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+{# ---------- Planes y precios ---------- #}
+<section class="bloque bloque--blanco">
+    <div class="bloque__caja">
+        <div class="seccion-cabeza">
+            {{ m.titulo('Planes y precios', 'h2', 'titulo-ekit--verde') }}
+            <p>Escoge nuestros planes o elige el de tu conveniencia. Horas fijas o seleccionadas, según tu preferencia.</p>
         </div>
+        <ul class="planes">
+            <li class="plan">
+                <h3 class="plan__nombre">Por hora</h3>
+                <p class="plan__precio">$48.000 <span>la hora</span></p>
+                <p class="plan__nota">Según disponibilidad</p>
+                <ul class="plan__lista">
+                    <li>Oficina privada amoblada</li>
+                    <li>Servicio de internet</li>
+                    <li>Recepción y parqueadero</li>
+                </ul>
+            </li>
+            <li class="plan">
+                <h3 class="plan__nombre">Plan 8 horas mensuales</h3>
+                <p class="plan__precio">$320.000 <span>al mes</span></p>
+                <p class="plan__nota">Espacio físico</p>
+                <ul class="plan__lista">
+                    <li>Incluye todos los servicios</li>
+                    <li>Horas fijas o seleccionadas</li>
+                    <li>Según preferencia</li>
+                </ul>
+            </li>
+            <li class="plan plan--destacado">
+                <h3 class="plan__nombre">Plan 64 horas mensuales</h3>
+                <p class="plan__precio">$960.000 <span>al mes</span></p>
+                <p class="plan__nota">Espacio físico</p>
+                <ul class="plan__lista">
+                    <li>Incluye todos los servicios</li>
+                    <li>Horas fijas o seleccionadas</li>
+                    <li>Según preferencia</li>
+                </ul>
+            </li>
+        </ul>
+        <p class="planes__extra">Sala de conferencias y dirección comercial: <strong>$80.000</strong> para planes de 3 meses en adelante.</p>
     </div>
 </section>
 
-{# ---------- Franja con la foto del edificio ---------- #}
-<section class="e-seccion banda-fija" style="{{ fondoFoto('fondo-edificio') }}">
-    <div class="e-contenedor e-contenedor--ancho">
-        <div class="e-columna">
-            <div class="e-envoltura">
-                <div class="banda-fija__espacio"></div>
-            </div>
-        </div>
+{# ---------- Qué incluye ---------- #}
+<section class="bloque bloque--niebla">
+    <div class="bloque__caja">
+        {{ m.titulo('Todo lo que incluye', 'h2', 'titulo-ekit--verde') }}
+        <ul class="incluye">
+            <li><strong>Amoblado</strong><span>Listo para trabajar o atender</span></li>
+            <li><strong>Servicio de internet</strong><span>En la oficina</span></li>
+            <li><strong>Recepción</strong><span>Para recibir a tus clientes</span></li>
+            <li><strong>Parqueadero</strong><span>En el edificio</span></li>
+            <li><strong>Sin contrato de arrendamiento</strong><span>Hasta terminar el saldo</span></li>
+            <li><strong>De domingo a domingo</strong><span>En cualquier horario requerido</span></li>
+            <li><strong>Terraza y gimnasio</strong><span>Zonas comunes del edificio</span></li>
+            <li><strong>Zona de eventos</strong><span>Para reuniones y talleres</span></li>
+        </ul>
     </div>
 </section>
 
-{# ---------- Planes ---------- #}
-<section class="e-seccion bloque-gris">
-    <div class="e-contenedor e-contenedor--ancho">
-        <div class="e-columna">
-            <div class="e-envoltura">
-                <div class="espacio"></div>
-                <section class="e-seccion">
-                    <div class="e-contenedor">
-                        <div class="e-columna e-centrar">
-                            <div class="e-envoltura">
-                                {{ galeria(planes) }}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
+{# ---------- Conoce el espacio (las fotos se abren en grande) ---------- #}
+<section class="bloque bloque--blanco">
+    <div class="bloque__caja">
+        {{ m.titulo('Conoce el espacio', 'h2', 'titulo-ekit--verde') }}
+        <ul class="fotos-espacio" data-visor>
+            {% for f in fotos %}
+            <li>
+                <a class="galeria__ampliar fotos-espacio__enlace" href="{{ rutaFoto(f[0], 1600) }}" data-miniatura="{{ rutaFoto(f[0], 400) }}" aria-label="Ver en grande: {{ f[1] }}">
+                    {{ foto(f[0], '', { tamanos: '(max-width: 767px) 92vw, 370px' }) }}
+                </a>
+                <p>{{ f[1] }}</p>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </section>
 
-{# ---------- Solicitud de alquiler ---------- #}
-<section class="e-seccion">
-    <div class="e-contenedor">
-        <div class="e-columna">
-            <div class="e-envoltura">
-                <section class="e-seccion integral__fila">
-                    <div class="e-contenedor">
-                        <div class="e-columna e-centrar">
-                            <div class="e-envoltura">
-                                <div class="integral__foto integral__foto--90 imagen-e">
-                                    {{ foto('edificio', 'Edificio Offices Center Chía Elite', { tamanos: '(max-width: 767px) 90vw, 540px' }) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="e-columna e-centrar">
-                            <div class="e-envoltura">
-                                {{ m.titulo('Solicitud de alquiler ', 'h2', 'titulo-ekit--400 titulo-ekit--verde titulo-ekit--movil-centro integral__titulo') }}
-                                <div class="texto-gilroy">
-                                    <ol>
-                                        <li>Diligencia<strong> el </strong><b>formulario</b><strong> y anexa los documentos solicitados</strong> (Cedula, RUT, cámara de comercio y tarjeta profesional si aplica)</li>
-                                        <li><strong>Solicita por WhatsApp</strong> <strong><a href="{{ whatsapp('Hola, quiero información sobre el alquiler de la oficina.') }}" target="_blank" rel="noopener">3132712530</a></strong> la fecha de agenda según el plan seleccionado</li>
-                                    </ol>
-                                </div>
-                                {{ m.boton('Solicita la oficina', 'https://docs.google.com/forms/d/e/1FAIpQLSexQWdDP3Yh4ZwiszT7yjvsJppI-YIYPyG5tT1F_bMo632D1w/viewform', 'centro', 'borde-morado') }}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
+{# ---------- Cómo solicitarla ---------- #}
+<section class="bloque bloque--niebla">
+    <div class="bloque__caja">
+        {{ m.titulo('Cómo solicitar la oficina', 'h2', 'titulo-ekit--verde') }}
+        <ol class="pasos">
+            <li>
+                <h3>Diligencia el formulario</h3>
+                <p>Y anexa los documentos solicitados: cédula, RUT, cámara de comercio y tarjeta profesional si aplica.</p>
+                {{ m.boton('Solicita la oficina', formulario, 'izquierda') }}
+            </li>
+            <li>
+                <h3>Solicita la fecha por WhatsApp</h3>
+                <p>Escríbenos al <a href="{{ whatsapp(mensaje) }}" target="_blank" rel="noopener">313 2712530</a> para agendar la fecha según el plan que escogiste.</p>
+                {{ m.boton('Escríbenos por WhatsApp', whatsapp(mensaje), 'izquierda') }}
+            </li>
+        </ol>
     </div>
 </section>
 
 {{ m.visorFotos() }}
-
 {% endblock %}
