@@ -76,10 +76,21 @@ async function procesarFotos() {
             await writeFile(path.join(cache, 'listo'), '');
             console.log(`  foto optimizada: ${archivo}`);
         }
+        // Copia clásica (JPEG, o PNG si tiene transparencia) para navegadores que no muestran
+        // AVIF ni WebP, como Safari con el Modo de Aislamiento (Lockdown) activado
+        const transparente = Boolean(meta.hasAlpha) && !(await sharp(origen).stats()).isOpaque;
+        const clasico = transparente ? 'png' : 'jpg';
+        const medio = anchos.find((a) => a >= 800) || anchos.at(-1);
+        const archivoClasico = path.join(cache, `${nombre}-${medio}.${huella}.${clasico}`);
+        if (!existsSync(archivoClasico)) {
+            const tamano = sharp(origen).rotate().resize({ width: medio, withoutEnlargement: true });
+            if (transparente) await tamano.png({ compressionLevel: 9, palette: true }).toFile(archivoClasico);
+            else await tamano.jpeg({ quality: 78, mozjpeg: true }).toFile(archivoClasico);
+        }
         for (const f of await readdir(cache)) {
             if (f !== 'listo') await copyFile(path.join(cache, f), aRuta('img', f));
         }
-        manifiesto[nombre] = { ancho, alto, anchos, huella };
+        manifiesto[nombre] = { ancho, alto, anchos, huella, clasico, medio };
     }
 
     // Borra las versiones optimizadas de fotos que ya no existen o cambiaron
@@ -90,7 +101,7 @@ async function procesarFotos() {
     return manifiesto;
 }
 
-// Etiqueta <picture> con AVIF y WebP en todos los tamaños disponibles
+// Etiqueta <picture> con AVIF y WebP en todos los tamaños, y JPEG/PNG de respaldo
 function crearFoto(manifiesto) {
     const escapar = (t) => String(t).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
     const datos = (nombre) => {
@@ -105,11 +116,11 @@ function crearFoto(manifiesto) {
     const foto = (nombre, alt, opciones = {}) => {
         const f = datos(nombre);
         const { tamanos = '100vw', clase = '', prioridad = false } = opciones;
-        const medio = f.anchos.find((a) => a >= 800) || f.anchos.at(-1);
         const carga = prioridad ? 'fetchpriority="high"' : 'loading="lazy"';
         return seguro(
             `<picture><source type="image/avif" srcset="${fuentes(nombre, 'avif')}" sizes="${tamanos}">` +
-            `<img src="/img/${nombre}-${medio}.${f.huella}.webp" srcset="${fuentes(nombre, 'webp')}" sizes="${tamanos}" ` +
+            `<source type="image/webp" srcset="${fuentes(nombre, 'webp')}" sizes="${tamanos}">` +
+            `<img src="/img/${nombre}-${f.medio}.${f.huella}.${f.clasico}" ` +
             `width="${f.ancho}" height="${f.alto}" alt="${escapar(alt)}"${clase ? ` class="${clase}"` : ''} ${carga} decoding="async"></picture>`
         );
     };
