@@ -2,7 +2,7 @@
 {
     "titulo": "Alquiler de oficina por horas en Chía - CENPAIF",
     "descripcion": "Alquiler de oficina gerencial privada y amoblada en Chía, por horas o por planes mensuales, con internet, recepción, parqueadero y terraza.",
-    "imagen": "edificio"
+    "imagen": "fachada-edificio"
 }
 ---
 {% extends "base.njk" %}
@@ -13,16 +13,19 @@
 
 {# Fotos del espacio: [foto, descripción] (se abren en el visor) #}
 {% set fotos = [
-    ['oficina-privada', 'Oficina gerencial privada'],
-    ['terraza', 'Zona de terraza'],
-    ['ascensores', 'Recepción y ascensores'],
-    ['edificio-atardecer', 'Edificio Offices Center Chía Elite'],
-    ['oficina-general', 'Entrada del edificio sobre la Av. Bolívar'],
-    ['edificio', 'Fachada del edificio']
+    ['consultorio-vista', 'Oficina gerencial privada'],
+    ['consultorio-escritorio', 'Escritorio y zona de atención'],
+    ['sala-de-espera', 'Sala de espera'],
+    ['recepcion', 'Recepción'],
+    ['ingreso-ascensores', 'Ingreso y ascensores'],
+    ['parqueadero', 'Parqueadero'],
+    ['terraza-montanas', 'Terraza'],
+    ['terraza-vista', 'Terraza con vista a Chía'],
+    ['fachada-edificio', 'Edificio Offices Center Chía Elite']
 ] %}
 
 {% block precarga %}
-    {{ precargarFoto('edificio', '(max-width: 767px) 92vw, 520px') }}
+    {{ precargarFoto('consultorio-ventanal', '(max-width: 767px) 92vw, 520px') }}
 {% endblock %}
 
 {% block contenido %}
@@ -45,7 +48,7 @@
             </div>
         </div>
         <figure class="pagina-portada__foto pagina-portada__foto--redonda">
-            {{ foto('edificio', 'Edificio Offices Center Chía Elite', { tamanos: '(max-width: 767px) 92vw, 520px', prioridad: true }) }}
+            {{ foto('consultorio-ventanal', 'Oficina gerencial privada con ventanal a las montañas', { tamanos: '(max-width: 767px) 92vw, 520px', prioridad: true }) }}
         </figure>
     </div>
 </section>
