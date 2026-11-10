@@ -70,22 +70,23 @@ async function procesarFotos() {
             const base = sharp(origen).rotate();
             for (const a of anchos) {
                 const tamano = base.clone().resize({ width: a, withoutEnlargement: true });
-                await tamano.clone().avif({ quality: 50, effort: 4 }).toFile(path.join(cache, `${nombre}-${a}.${huella}.avif`));
-                await tamano.clone().webp({ quality: 74, effort: 4 }).toFile(path.join(cache, `${nombre}-${a}.${huella}.webp`));
+                await tamano.clone().avif({ quality: 62, effort: 4 }).toFile(path.join(cache, `${nombre}-${a}.${huella}.avif`));
+                await tamano.clone().webp({ quality: 84, effort: 4 }).toFile(path.join(cache, `${nombre}-${a}.${huella}.webp`));
             }
             await writeFile(path.join(cache, 'listo'), '');
             console.log(`  foto optimizada: ${archivo}`);
         }
-        // Copia clásica (JPEG, o PNG si tiene transparencia) para navegadores que no muestran
-        // AVIF ni WebP, como Safari con el Modo de Aislamiento (Lockdown) activado
+        // Copia clásica en todos los tamaños (JPEG, o PNG si tiene transparencia) para navegadores
+        // que no muestran AVIF ni WebP, como Safari con el Modo de Aislamiento (Lockdown) activado
         const transparente = Boolean(meta.hasAlpha) && !(await sharp(origen).stats()).isOpaque;
         const clasico = transparente ? 'png' : 'jpg';
         const medio = anchos.find((a) => a >= 800) || anchos.at(-1);
-        const archivoClasico = path.join(cache, `${nombre}-${medio}.${huella}.${clasico}`);
-        if (!existsSync(archivoClasico)) {
-            const tamano = sharp(origen).rotate().resize({ width: medio, withoutEnlargement: true });
+        for (const a of anchos) {
+            const archivoClasico = path.join(cache, `${nombre}-${a}.${huella}.${clasico}`);
+            if (existsSync(archivoClasico)) continue;
+            const tamano = sharp(origen).rotate().resize({ width: a, withoutEnlargement: true });
             if (transparente) await tamano.png({ compressionLevel: 9, palette: true }).toFile(archivoClasico);
-            else await tamano.jpeg({ quality: 78, mozjpeg: true }).toFile(archivoClasico);
+            else await tamano.jpeg({ quality: 86, mozjpeg: true }).toFile(archivoClasico);
         }
         for (const f of await readdir(cache)) {
             if (f !== 'listo') await copyFile(path.join(cache, f), aRuta('img', f));
@@ -120,7 +121,7 @@ function crearFoto(manifiesto) {
         return seguro(
             `<picture><source type="image/avif" srcset="${fuentes(nombre, 'avif')}" sizes="${tamanos}">` +
             `<source type="image/webp" srcset="${fuentes(nombre, 'webp')}" sizes="${tamanos}">` +
-            `<img src="/img/${nombre}-${f.medio}.${f.huella}.${f.clasico}" ` +
+            `<img src="/img/${nombre}-${f.medio}.${f.huella}.${f.clasico}" srcset="${fuentes(nombre, f.clasico)}" sizes="${tamanos}" ` +
             `width="${f.ancho}" height="${f.alto}" alt="${escapar(alt)}"${clase ? ` class="${clase}"` : ''} ${carga} decoding="async"></picture>`
         );
     };

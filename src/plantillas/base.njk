@@ -35,6 +35,10 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <script type="application/ld+json">{{ grafo | jsonld }}</script>
+    {# Safari con Modo de Aislamiento (Lockdown) dice aceptar WebP y AVIF pero no los muestra.
+       Si este navegador no puede abrir un WebP de 1 px, se quitan los formatos modernos y
+       cada foto usa su copia JPEG/PNG. #}
+    <script>(function(){var i=new Image();i.onerror=function(){var q=function(){document.querySelectorAll('picture source').forEach(function(s){s.remove()})};document.readyState==='loading'?document.addEventListener('DOMContentLoaded',q):q()};i.src='data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA'})();</script>
 </head>
 <body{% if clase %} class="{{ clase }}"{% endif %}>
     {% include "encabezado.njk" %}
